@@ -20,7 +20,7 @@ C4belts::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -72,14 +72,14 @@ C4belts::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  #config.action_mailer.smtp_settings = {
-  #  address: "smtp.sendgrid.net",
-  #  port: 25,
-  #  domain: ENV["DOMAIN_NAME"],
-  #  authentication: "plain",
-  #  user_name: ENV["SENDGRID_USERNAME"],
-  #  password: ENV["SENDGRID_PASSWORD"]
-  #}
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 25,
+    domain: ENV["DOMAIN_NAME"],
+    authentication: "plain",
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"]
+  }
 
 
   # Disable automatic flushing of the log to improve performance.
