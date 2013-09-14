@@ -1,0 +1,2127 @@
+a
+  outline: none !important
+
+li
+  list-style-type: none
+
+ul
+  margin: 0
+  padding: 0
+
+@font-face
+  font-family: 'GothichRounded'
+  src: url('../assets/Gotham-Rounded-Light_21020.eot')
+  src: url('../assets/Gotham-Rounded-Light_21020.eot?#iefix') format("embedded-opentype"), url('../assets/Gotham-Rounded-Light_21020.woff') format("woff"), url('../assets/Gotham-Rounded-Light_21020.ttf') format("truetype"), url('../assets/Gotham-Rounded-Light_21020.svg#OpenSansRegular') format("svg")
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'GothichRoundedMedium'
+  src: url('../assets/Gotham-Rounded-Medium_21022.eot')
+  src: url('../assets/Gotham-Rounded-Medium_21022.eot?#iefix') format("embedded-opentype"), url('../assets/Gotham-Rounded-Medium_21022.woff') format("woff"), url('../assets/Gotham-Rounded-Medium_21022.ttf') format("truetype"), url('../assets/Gotham-Rounded-Light_21020.svg#OpenSansRegular') format("svg")
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'OpenSansRegular'
+  src: url('../assets/OpenSans-Regular-webfont.eot')
+  src: url('../assets/OpenSans-Regular-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Regular-webfont.woff') format("woff"), url('../assets/OpenSans-Regular-webfont.ttf') format("truetype"), url('../assets/OpenSans-Regular-webfont.svg#OpenSansRegular') format("svg")
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'OpenSansItalic'
+  src: url('../assets/OpenSans-Italic-webfont.eot')
+  src: url('../assets/OpenSans-Italic-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Italic-webfont.woff') format("woff"), url('../assets/OpenSans-Italic-webfont.ttf') format("truetype"), url('../assets/OpenSans-Italic-webfont.svg#OpenSansSemibold') format("svg")
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'OpenSansLight'
+  src: url('../assets/OpenSans-Light-webfont.eot')
+  src: url('../assets/OpenSans-Light-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/OpenSans-Light-webfont.woff') format("woff"), url('../assets/OpenSans-Light-webfont.ttf') format("truetype"), url('../assets/OpenSans-Light-webfont.svg#OpenSansSemibold') format("svg")
+  font-weight: normal
+  font-style: normal
+
+
+#shop
+  background-color: #efefef
+  position: relative
+  display: block
+
+.pallete-box
+  position: relative
+  margin-top: 20px
+  margin-bottom: 25px
+  background-color: #FFF
+  box-shadow: 1px 2px 5px 1px #cccccc
+  -moz-box-shadow: 1px 2px 5px 1px #cccccc
+  -o-box-shadow: 1px 2px 5px 1px #cccccc
+  -webkit-box-shadow: 1px 2px 5px 1px #cccccc
+  -khtml-box-shadow: 1px 2px 5px 1px #cccccc
+
+.jcont
+  position: relative
+  border-bottom: 1px solid #EBEBEB
+  height: 50px
+
+/** Carousel *
+
+.hides
+  text-align: center
+  width: 100%
+  height: 40px
+  position: relative
+  float: left
+  overflow: hidden
+  li
+    float: left
+    margin-top: 14px
+    width: 100%
+    p
+      font-family: 'GothichRounded'
+      font-size: 17px
+      color: #5b5b5b
+
+.prev2
+  font-size: 30px
+  color: #e6e6e6
+  z-index: 10000
+  position: absolute
+  left: 15px
+  top: 15px
+  cursor: pointer
+  font-family: 'OpenSansLight'
+
+.next2
+  font-family: 'OpenSansLight'
+  top: 15px
+  position: absolute
+  font-size: 30px
+  color: #e6e6e6
+  z-index: 10000
+  right: 15px
+  cursor: pointer
+
+.color-box
+  text-align: center
+  display: block
+  position: relative
+  padding: 15px
+  p
+    color: #b1b1b1
+    font-family: 'GothichRounded'
+    font-size: 10px
+    font-style: italic
+    margin: 0
+    margin-top: -5px
+
+.colors
+  position: relative
+  padding-left: 15px
+  margin-top: 5px
+  height: 58px
+
+#vertical-scrollbar-demo
+  height: 58px
+
+.scrollable
+  position: relative
+  .viewport
+    position: relative
+    overflow: hidden
+    .overview
+      position: absolute
+  .scroll-bar
+    display: none
+    &.vertical
+      position: absolute
+      right: 0
+      height: 100%
+    &.horizontal
+      position: relative
+      width: 100%
+    .thumb
+      position: absolute
+    &.vertical .thumb
+      width: 100%
+    &.horizontal .thumb
+      height: 100%
+      left: 0
+
+.not-selectable
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+/*Gray skin
+
+.scrollable.gray-skin
+  padding-right: 17px
+  .scroll-bar
+    background-color: #f5f5f5
+    .thumb
+      background-color: #e6e6e6
+      height: 15px !important
+      border-radius: 10px
+    &:hover .thumb
+      background-color: #CCC
+      cursor: pointer
+    &.vertical
+      width: 7px
+    &.horizontal
+      height: 10px
+      margin-top: 2px
+
+.icolor
+  position: absolute
+
+.icolor_flat, .icolor_ft
+  position: relative
+
+.icolor td
+  float: left
+  margin-left: 2px
+  width: 28px
+  height: 25px
+  cursor: pointer
+  border-radius: 3px
+  -moz-border-radius: 3px
+  -o-border-radius: 3px
+  -webkit-border-radius: 3px
+  -khtml-border-radius: 3px
+  box-shadow: 1px 2px 2px #CCC
+
+tr
+  margin-bottom: 3px
+  float: left
+  width: 100%
+
+.icolor .icolor_tbx
+  width: 170px
+  border-top: 1px solid #999
+  border-left: 1px solid #ccc
+  border-right: 1px solid #ccc
+  border-bottom: 1px solid #ccc
+
+.icolor_ok img
+  border: none
+
+.icolor_ct, .overview
+  width: 100%
+
+.qoute
+  width: 100%
+  float: left
+  text-align: center
+  margin-top: 5px
+  border-bottom: 1px solid #EBEBEB
+  p
+    font-size: 10px
+    font-family: 'GothichRounded'
+    color: #B1B1B1
+
+.recent-color
+  display: inline-block
+  margin-left: 5px
+
+.btn2
+  background-image: none
+  color: #FFF
+  background-color: #ccc
+  padding: 11px 26px
+  text-shadow: none
+  border-radius: 0 !important
+  border: none
+  margin-top: 7px
+  margin-bottom: 5px
+  i
+    margin-right: 2px
+  &:hover, &:active, &:focus
+    color: #FFF
+    outline: none
+    transition: background-color 0.2s linear 0s
+    -moz-transition: background-color 0.2s linear 0s
+    -o-transition: background-color 0.2s linear 0s
+    -webkit-transition: background-color 0.2s linear 0s
+    -ms-transition: background-color 0.2s linear 0s
+    -khtml-transition: background-color 0.2s linear 0s
+    background-color: #f26534
+    background-image: none
+
+.belt-img
+  width: 100%
+  display: block
+  position: relative
+  a
+    margin: 0 auto
+    display: block
+    text-align: center
+    margin-top: 20px
+
+.social-share
+  float: right
+  /*position:fixed;
+  z-index: 1100
+  width: 64px
+  height: 170px
+  background-color: #FFF
+  box-shadow: 1px 2px 5px 1px #cccccc
+  -moz-box-shadow: 1px 2px 5px 1px #cccccc
+  -o-box-shadow: 1px 2px 5px 1px #cccccc
+  -webkit-box-shadow: 1px 2px 5px 1px #cccccc
+  -khtml-box-shadow: 1px 2px 5px 1px #cccccc
+  margin-top: 20px
+  p
+    text-align: center
+    font-size: 10px
+    font-family: 'OpenSansItalic'
+    color: #B1B1B1
+    margin: 3px 0 10px 0
+    padding-bottom: 5px
+    border-bottom: 1px solid #EBEBEB
+  ul
+    width: 100%
+    float: left
+    margin-top: 5px
+    text-align: center
+    li
+      margin-bottom: 18px
+      a
+        opacity: 0.8
+        filter: alpha(opacity = 80)
+        &:hover, &:active, &:focus
+          opacity: 1
+          filter: alpha(opacity = 100)
+
+#causes, #celebrity, #c4yourself, #aboutUs
+  margin-top: 125px
+
+.current
+  color: #333
+
+.title
+  width: 100%
+  float: left
+  h3
+    font-family: 'GothichRounded'
+    font-size: 35px
+    font-weight: normal
+    color: #5b5b5b
+    padding-top: 70px
+  p
+    font-family: 'OpenSansLight'
+    font-size: 14px
+    color: #888
+    margin-bottom: 50px
+
+.cause
+  width: 80%
+  height: 274px
+  float: left
+  background-color: #efefef
+  text-align: center
+  display: block
+  padding: 13px
+  margin-bottom: 5px
+
+.cause-img
+  clear: both
+  display: block
+  margin-top: 100px
+
+.cause-info
+  h3
+    width: 90%
+    font-family: 'GothichRounded'
+    font-size: 30px
+    padding: 8px 0
+    font-weight: normal
+    color: #5b5b5b
+    border-bottom: 1px solid #EBEBEB
+  p
+    font-family: 'OpenSansLight'
+    font-size: 14px
+    color: #888
+    margin-bottom: 30px
+
+.btn3
+  background-image: none
+  font-family: 'OpenSansRegular'
+  background-color: #f26534
+  font-size: 12px
+  color: #FFF
+  text-shadow: none
+  border-radius: 0
+  padding: 10px 20%
+  float: left
+  &:hover, &:active, &:focus
+    background-color: #d35124
+    transition: background-color 0.2s linear 0s
+    -moz-transition: background-color 0.2s linear 0s
+    -o-transition: background-color 0.2s linear 0s
+    -webkit-transition: background-color 0.2s linear 0s
+    -ms-transition: background-color 0.2s linear 0s
+    -khtml-transition: background-color 0.2s linear 0s
+    cursor: pointer
+    color: #FFF
+    outline: none
+
+.more-cause
+  border-top: 1px solid #CCC
+  border-bottom: 1px solid #CCC
+  padding: 55px 0
+  text-align: center
+  margin-top: 70px
+  p
+    font-size: 18px
+    font-family: 'OpenSansItalic'
+    color: #999
+    a
+      color: #f26534
+    span
+      font-size: 25px
+
+/************Gallery Slider Css Starts Here**********
+
+div
+  &.content
+    /* The display of content is enabled using jQuery so that the slideshow content won't display unless javascript is enabled.
+    display: none
+    width: 117%
+    position: relative
+    a
+      text-decoration: none
+      color: #777
+  &.navigation a
+    text-decoration: none
+    color: #777
+  &.content a
+    &:focus, &:hover, &:active
+      text-decoration: underline
+  &.controls
+    margin-top: 5px
+    height: 23px
+    a
+      padding: 5px
+  &.ss-controls
+    float: left
+  &.nav-controls
+    float: right
+  &.slideshow-container
+    position: relative
+    clear: both
+  &.loader
+    position: absolute
+    top: 0
+    left: 0
+    background-image: url('loader.gif')
+    background-repeat: no-repeat
+    background-position: center
+    width: 550px
+    height: 502px
+  /* This should be set to be at least the height of the largest image in the slideshow
+  &.slideshow
+    span.image-wrapper
+      display: block
+      top: 0
+      left: 0
+      position: absolute
+    a.advance-link
+      display: block
+      line-height: 0px
+      /* This should be set to be at least the height of the largest image in the slideshow
+      text-align: center
+      &:hover, &:active, &:visited
+        text-decoration: none
+    img
+      vertical-align: middle
+      border: 1px solid #ccc
+  &.download
+    float: right
+  &.caption-container
+    position: relative
+    clear: left
+    height: 75px
+  &.image-title
+    font-weight: bold
+    font-size: 1.4em
+  &.image-desc
+    line-height: 1.3em
+    padding-top: 12px
+  &.navigation
+    position: relative
+/* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled.
+
+ul.thumbs
+  clear: both
+  margin: 0
+  padding: 0
+  li
+    float: right
+    padding: 0
+    list-style: none
+
+a.thumb
+  display: block
+
+ul.thumbs li.selected a.thumb
+  background: #000
+
+a.thumb:focus
+  outline: none
+
+ul.thumbs img
+  border: none
+  display: block
+
+div
+  &.pagination
+    clear: both
+  &.navigation div
+    &.top
+      position: absolute
+      left: 6%
+      bottom: -95px
+      width: 100%
+    &.bottom
+      margin-top: 12px
+  &.pagination
+    a
+      display: block
+      float: left
+      margin-right: 20px
+      text-indent: -99999px
+      height: 12px
+      width: 12px
+      background-color: #bfbfbf
+      border-radius: 6px
+    span
+      &.current, &.ellipsis
+        display: block
+        float: left
+        margin-right: 20px
+        text-indent: -99999px
+        height: 12px
+        width: 12px
+        background-color: #bfbfbf
+        border-radius: 6px
+
+.next
+  background: url(../assets/next.png) no-repeat !important
+  width: 14px !important
+  height: 47px !important
+  text-indent: 0 !important
+  font-size: 80px
+  position: absolute
+  right: 0
+  bottom: 340px
+
+.prevs
+  text-indent: 0 !important
+  background: url(../assets/prev.png) no-repeat !important
+  width: 14px !important
+  height: 47px !important
+  position: absolute
+  left: -85%
+  z-index: 1000
+  bottom: 340px
+
+div.pagination
+  a:hover
+    background-color: #eee
+    text-decoration: none
+  span
+    &.current
+      font-weight: bold
+      background-color: #7d7d7d
+    &.ellipsis
+      border: none
+      padding: 5px 0 3px 2px
+
+.celebrity-text
+  font-family: 'OpenSansLight'
+  color: #858585
+  font-size: 13px
+  height: 70px
+  padding-top: 15px
+  a
+    font-family: 'OpenSansItalic'
+    color: #f26534
+
+.full
+  padding: 40px 0 15px 0
+  border-bottom: 1px solid #CCC
+  border-top: 1px solid #CCC
+  margin-top: 50px
+
+.news-icon
+  float: left
+  margin-right: 30px
+  margin-bottom: 20px
+
+.news-bar
+  margin: 0 auto
+  text-align: center
+  width: 66%
+
+.mod
+  width: 100%
+  height: 70px !important
+
+.news-bar p
+  font-family: 'OpenSansItalic'
+  text-align: left
+  font-size: 12px
+  color: #999
+  a
+    color: #f26534
+
+.modify
+  border: none !important
+
+/* Showcase
+ *-------------
+
+#awOnePageButton .view-slide
+  display: none
+
+/* This class is removed after the showcase is loaded
+/* Assign the correct showcase height to prevent loading jumps in IE
+
+.showcase-load
+  height: 470px
+  /* Same as showcase javascript option
+  overflow: hidden
+
+/* Container when content is shown as one page
+
+.showcase-onepage
+  /*
+
+  /* Container when content is shown in slider
+
+.showcase
+  position: relative
+  margin: auto
+  width: 73% !important
+
+.showcase-content!
+
+.showcase-button-wrapper
+  display: none
+
+.showcase-content-container
+  float: right
+  width: 100%
+
+/* Navigation arrows
+
+.showcase-arrow-previous
+  position: absolute
+  background: url(../assets/prev.png) no-repeat
+  width: 14px
+  left: -22%
+  height: 47px
+  cursor: pointer
+
+.showcase-arrow-next
+  position: absolute
+  background: url(../assets/next.png) no-repeat
+  width: 14px
+  right: -22%
+  height: 47px
+  cursor: pointer
+
+/* Content
+
+.showcase-content
+  background-color: #FFF
+
+.showcase-content-wrapper
+  height: 70px
+  width: 50%
+  float: left
+
+.mini-title
+  font-family: 'OpenSansItalic'
+  font-weight: normal
+  font-size: 21px
+  color: #5b5b5b
+  margin-top: -10px
+
+.social-icons
+  margin-top: -10px
+  li
+    float: right
+    margin-left: 12px
+    a
+      opacity: 0.8
+      filter: alpha(opacity = 80)
+      &:hover, &:active, &:focus
+        opacity: 1
+        filter: alpha(opacity = 100)
+
+.blog-box
+  display: block
+  padding: 13px 0 8px 0
+  float: left
+  width: 99%
+  background-color: #FFF
+  -webkit-box-shadow: 1px 3px 5px 1px #999
+  -moz-box-shadow: 1px 3px 5px 1px #999
+  -o-box-shadow: 1px 3px 5px 1px #999
+  -khtml-box-shadow: 1px 3px 5px 1px #999
+  box-shadow: 1px 3px 5px 1px #999
+  h4
+    i
+      float: left
+      margin-bottom: 10px
+      margin-left: 15px
+    font-family: 'OpenSansItalic'
+    font-size: 17px
+    font-weight: normal
+    color: #888
+    width: 100%
+    border-bottom: 1px solid #EBEBEB
+    padding-bottom: 20px
+
+.posts
+  float: left
+  margin: 10px 0px 10px 20px
+  li
+    width: 100%
+    float: left
+    clear: left
+    margin-bottom: 10px
+    a
+      display: block
+      position: relative
+      float: left
+      margin-right: 10px
+      i
+        background: url(../assets/zoom-icon.png) no-repeat left top
+        width: 28px
+        height: 28px
+        position: absolute
+        z-index: 1000
+        left: 10px
+        top: 10px
+    h3
+      font-family: 'OpenSansLight'
+      font-size: 17px
+      font-weight: normal
+      color: #888
+      margin: 0
+    h2
+      font-family: 'OpenSansLight'
+      font-size: 15px
+      font-weight: normal
+      color: #888
+      margin: 0
+    p
+      font-family: 'OpenSansLight'
+      font-size: 12px
+      font-weight: normal
+      color: #888
+      margin-right: 15px
+      a
+        color: #f26534
+
+.modi
+  float: right
+  width: 122%
+  margin-right: -40px
+
+.chn
+  li
+    h2
+      margin-top: -10px
+    p
+      margin-top: -15px
+      font-size: 11px
+    margin-bottom: -7px
+  width: 100%
+
+.mor
+  width: 100%
+  float: left
+  text-align: center
+  color: #b6b5b5
+  font-style: italic
+  padding-top: 8px
+  font-size: 12px
+  border-top: 1px solid #EBEBEB
+
+.new
+  margin-top: 10px
+
+.chan
+  text-align: center
+  li
+    margin-top: -5px
+    a
+      float: none
+      text-align: center
+    p
+      font-size: 10px
+      font-style: italic
+      margin: 9px 20px 0 0
+      line-height: 13px
+
+.sep
+  background-color: #e5e5e5
+  height: 1px
+  width: 100%
+  float: left
+  margin-top: 70px
+
+.ab li
+  a
+    margin-right: 30px
+  h3
+    font-family: 'GothichRounded'
+    color: #555
+    width: 71%
+    font-size: 25px
+    float: left
+    margin-top: 20px
+  p
+    font-size: 17px
+    margin-top: 20px !important
+    line-height: 22px
+  margin-bottom: 20px
+
+.about-us span a
+  font-size: 17px
+  font-family: 'OpenSansItalic'
+  color: #f26534
+  display: block
+  padding-top: 30px
+
+footer
+  background-color: #EFEFEF
+  display: block
+  position: relative
+  min-height: 316px
+  margin-top: 150px
+
+.top-links
+  width: 100%
+  min-height: 88px
+  border-bottom: 1px solid #e2dfdf
+
+.footer-links
+  text-align: center
+  width: 100%
+  ul
+    margin: 0 auto
+    li
+      a
+        display: block
+        padding: 35px 20px
+        font-size: 18px
+        color: #999
+        font-family: 'OpenSansLight'
+        &:hover, &:active, &:focus
+          color: #666
+      display: inline-block
+
+.connecting
+  width: 100%
+  padding: 55px 0
+  text-align: center
+  p
+    font-size: 30px
+    color: #bababa
+  ul
+    display: block
+    position: relative
+    margin: 0 auto
+    margin-top: 20px
+    li
+      display: inline-block
+      margin-left: 15px
+
+.mor-links
+  min-height: 50px
+  float: left
+  margin-top: 30px
+  width: 100%
+  border-top: 1px solid #e2dfdf
+
+.copyright
+  width: 100%
+  float: left
+  li
+    float: left
+    margin-right: 15px
+    margin-top: 15px
+    a, p
+      color: #CCC
+      font-size: 12px
+      font-family: 'OpenSansRegular'
+
+.chn2
+  background-color: #f26534
+  margin-top: 0px
+
+.modal-footer a
+  font-family: 'OpenSansItalic'
+  font-size: 14px
+  color: #999
+  padding-right: 20px
+
+.product
+  display: block
+  position: relative
+  margin-bottom: 20px
+  padding: 10px 50px 10px 25px
+  border-bottom: 1px solid #EBEBEB
+
+.pro-img
+  float: left
+
+.quantity
+  float: left
+  width: 55%
+  text-align: center
+  p
+    font-family: 'OpenSansRegular'
+    font-size: 15px
+    color: #858585
+    font-style: normal
+
+/* Select
+
+div.selector
+  line-height: 45px
+  height: 26px
+  span
+    background-position: right 0px
+    height: 26px
+    line-height: 26px
+  select
+    /* change these to adjust positioning of select element
+    top: 0px
+    left: 0px
+  &.disabled
+    background-position: -483px -234px
+    span
+      background-position: right -104px
+  background-image: url(../assets/select.png)
+  background-repeat: no-repeat
+  width: 107px
+  height: 43px
+  margin: 0 auto
+  margin-top: 5px
+  text-align: center
+  -webkit-font-smoothing: antialiased
+  span
+    background-image: url(../assets/select.png)
+    background-repeat: no-repeat
+    width: 107px
+    height: 43px
+    margin: 0 auto
+    margin-top: 5px
+    text-align: center
+    -webkit-font-smoothing: antialiased
+    margin-top: 0
+    margin-left: -10px
+    line-height: 40px
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    text-indent: -30px
+  position: relative
+  padding-left: 10px
+  overflow: hidden
+  select
+    position: absolute
+    opacity: 0
+    filter: alpha(opacity = 0)
+    height: 43px
+    width: 107px !important
+    border: none
+    background: none
+
+/* Select
+
+.rate
+  font-family: 'OpenSansRegular'
+  font-size: 14px !important
+  color: #858585 !important
+  font-style: normal !important
+  font-weight: bold
+  margin-top: 25px !important
+  float: right !important
+  span
+    font-size: 10px
+    text-decoration: underline
+
+.pro-detail
+  width: 50%
+  float: right
+  margin-right: 80px
+  margin-top: 15px
+  ul
+    float: left
+    width: 100%
+    text-align: left
+    li
+      float: left
+      width: 100%
+      clear: left
+      p
+        font-family: 'OpenSansLight'
+        color: #999
+        float: left
+      span
+        float: right
+      i
+        font-family: 'GothichRoundedMedium'
+        color: #aeaeae
+        font-size: 12px
+        float: left
+        margin-top: 20px
+        margin-bottom: 15px
+
+.cause-head
+  width: 100%
+  float: left
+  margin-top: 130px
+  h1
+    font-family: 'GothichRoundedMedium'
+    font-size: 35px
+    font-weight: normal
+    color: #5b5b5b
+  p
+    font-family: 'OpenSansRegular'
+    font-size: 18px
+    color: #999
+    margin-bottom: 80px
+
+.cause-avatar
+  background-color: #efefef
+  display: block
+  text-align: center
+  height: 281px
+  width: 85%
+  a
+    display: block
+    padding-top: 100px
+
+.avatar-detail
+  float: left
+  width: 100%
+  position: relative
+  h3
+    font-family: 'GothichRoundedMedium'
+    font-size: 34px
+    font-weight: normal
+    margin: 0
+    padding: 0
+    margin-top: -7px
+    color: #5b5b5b
+  p
+    font-family: 'OpenSansLight'
+    font-size: 18px
+    color: #888
+    line-height: 26px
+    margin-top: 10px
+  a
+    color: #888
+    margin-top: 15px
+    float: left
+    font-family: 'OpenSansItalic'
+    i
+      padding-right: 10px
+
+.seperator
+  background-color: #EFEFEF
+  height: 1px
+  width: 100%
+  float: left
+  margin: 35px 0
+
+.bread
+  float: left
+  width: 100%
+  margin-top: 120px
+  margin-bottom: 20px
+  p
+    color: #888
+    float: left
+    font-size: 18px
+    font-family: 'OpenSansLight'
+    a
+      color: #888
+      text-decoration: underline
+
+.slogan
+  background-color: #EFEFEF
+  min-height: 510px
+  padding: 0 25px
+  float: left
+
+.slogan-img
+  display: block
+  padding: 150px 0 130px 0
+  text-align: center
+  border-bottom: 1px solid #d9d9d9
+
+.select-one
+  width: 40%
+  float: left
+  margin: 20px
+  margin-right: 10px
+  margin-bottom: 0
+  position: relative
+  p
+    font-size: 12px
+    color: #b0afaf
+    font-family: 'OpenSansItalic'
+
+.borderRadius
+  -moz-border-radius: 5px
+  border-radius: 5px
+
+.borderRadiusTp
+  -moz-border-radius: 5px 5px 0 0
+  border-radius: 5px 5px 0 0
+
+.borderRadiusBtm
+  -moz-border-radius: 0 0 5px 5px
+  border-radius: 0 0 5px 5px
+
+.ddcommon
+  position: relative
+  display: -moz-inline-stack
+  zoom: 1
+  display: inline-block
+  *display: inline
+  cursor: default
+  ul
+    padding: 0
+    margin: 0
+    li
+      list-style-type: none
+
+.borderRadiusTp ul li:last-child
+  -moz-border-radius: 0 0 5px 5px
+  border-radius: 0 0 5px 5px
+  border-bottom: 0 none #c3c3c3
+
+.borderRadiusBtm ul li:first-child
+  -moz-border-radius: 5px 5px 0 0
+  border-radius: 5px 5px 0 0
+  border-bottom: 1 solid #c3c3c3
+
+.ddcommon
+  .disabled
+    img, span
+      opacity: .5
+      /* standard: ff gt 1.5, opera, safari
+      -ms-filter: "alpha(opacity=50)"
+      /* ie 8
+      filter: alpha(opacity = 50)
+      /* ie lt 7
+      -khtml-opacity: .5
+      /* safari 1.x
+      -moz-opacity: .5
+      /* ff lt 1.5, netscape
+      color: #999999
+  &.disabledAll
+    opacity: .5
+    /* standard: ff gt 1.5, opera, safari
+    -ms-filter: "alpha(opacity=50)"
+    /* ie 8
+    filter: alpha(opacity = 50)
+    /* ie lt 7
+    -khtml-opacity: .5
+    /* safari 1.x
+    -moz-opacity: .5
+    /* ff lt 1.5, netscape
+    color: #999999
+  .clear
+    clear: both
+  .shadow
+    -moz-box-shadow: 5px 5px 5px -5px #888888
+    -webkit-box-shadow: 5px 5px 5px -5px #888888
+    box-shadow: 5px 5px 5px -5px #888888
+  input.text
+    color: #7e7e7e
+    padding: 0 0 0 0
+    position: absolute
+    background: #fff
+    display: block
+    width: 98%
+    height: 98%
+    left: 2px
+    top: 0
+    border: none
+
+.ddOutOfVision
+  position: relative
+  display: -moz-inline-stack
+  display: inline-block
+  zoom: 1
+  *display: inline
+
+.borderRadius .shadow
+  -moz-box-shadow: 5px 5px 5px -5px #888888
+  -webkit-box-shadow: 5px 5px 5px -5px #888888
+  box-shadow: 5px 5px 5px -5px #888888
+
+.borderRadiusBtm .shadow
+  -moz-box-shadow: -5px -5px 5px -5px #888888
+  -webkit-box-shadow: -5px -5px 5px -5px #888888
+  box-shadow: -5px -5px 5px -5px #888888
+
+.borderRadiusTp .border, .borderRadius .border
+  -moz-border-radius: 0 0 5px 5px
+  border-radius: 0 0 5px 5px
+
+.borderRadiusBtm .border
+  -moz-border-radius: 5px 5px 0 0
+  border-radius: 5px 5px 0 0
+
+img.fnone
+  float: none !important
+
+.ddcommon
+  .divider
+    width: 0
+    height: 100%
+    position: absolute
+  .ddArrow
+    display: inline-block
+    position: absolute
+    top: 50%
+    right: 4px
+    &:hover
+      background-position: 0 100%
+  .ddTitle
+    padding: 0
+    position: relative
+    display: inline-block
+    width: 100%
+    .ddTitleText
+      display: block
+      .ddTitleText
+        padding: 0
+    .description
+      display: block
+    .ddTitleText img
+      position: relative
+      vertical-align: middle
+      float: left
+  .ddChild
+    position: absolute
+    display: none
+    width: 83%
+    overflow-y: auto
+    overflow-x: hidden
+    zoom: 1
+    z-index: 9999
+    li
+      clear: both
+      .description
+        display: block
+      img
+        border: 0 none
+        position: relative
+        vertical-align: middle
+        float: left
+      &.optgroup
+        padding: 0
+        .optgroupTitle
+          padding: 0 5px
+          font-weight: bold
+          font-style: italic
+        ul li
+          padding: 5px 5px 5px 15px
+  .noBorderTop
+    border-top: none 0  !important
+    padding: 0
+    margin: 0
+
+/*************** default theme *********************
+
+.dd
+  .ddArrow
+    width: 16px
+    height: 16px
+    margin-top: -8px
+    background: url(../../images/msdropdown/skin1/dd_arrow.gif) no-repeat
+    &:hover
+      background-position: 0 100%
+  .ddTitle
+    color: #000
+    background: url(../assets/select2.png) no-repeat 0 0
+    width: 182px
+    height: 43px
+    text-indent: 5px
+    line-height: 32px
+    color: #999
+    font-family: 'OpenSansItalic'
+    .ddTitleText
+      padding: 5px 20px 5px 5px
+      .ddTitleText
+        padding: 0
+    .description
+      font-size: 12px
+      color: #666
+    .ddTitleText img
+      padding-right: 5px
+  .ddChild
+    border: 1px solid #c3c3c3
+    background-color: #fff
+    left: -1px
+    li
+      padding: 5px
+      padding-bottom: 0
+      .description
+        color: #666
+      .ddlabel
+        color: #333
+      &.hover
+        background-color: #f2f2f2
+      img
+        padding: 0 6px 0 0
+      &.optgroup
+        padding: 0
+        .optgroupTitle
+          padding: 0 5px
+          font-weight: bold
+          font-style: italic
+        ul li
+          padding: 5px 5px 5px 15px
+      &.selected
+        background-color: #d5d5d5
+        color: #000
+
+.cause-data
+  display: block
+  position: relative
+  padding: 35px 75px 0 55px
+  h2
+    font-family: 'GothichRoundedMedium'
+    color: #5b5b5b
+    font-size: 35px
+    font-weight: normal
+  span
+    font-family: 'OpenSansLight'
+    font-style: italic
+    font-size: 27px
+    color: #888
+    display: block
+    padding: 15px 0
+    font-weight: normal
+  p
+    font-family: 'OpenSansLight'
+    font-style: italic
+    font-size: 18px
+    line-height: 26px
+    margin-top: 10px
+    color: #888
+  a
+    float: left
+    margin-top: 5px
+
+.mod2
+  float: left
+  margin-top: 190px
+  margin-left: 15px
+  padding: 15px
+  font-size: 17px
+  margin-bottom: 30px
+  i
+    padding-right: 5px
+
+.cause h3
+  font-family: 'OpenSansLight'
+  color: #999
+  font-style: italic
+  font-size: 25px
+  width: 100%
+  border-top: 1px solid #e6e6e6
+  margin-top: 55px
+  font-weight: normal
+
+.nons
+  font-family: 'OpenSansLight'
+  color: #5b5b5b
+  font-style: italic
+  font-size: 17px
+  margin-top: 25px
+  margin-bottom: 20px
+  font-weight: normal
+
+.mod3
+  &:hover, &:active, &:focus
+    background-color: #EFEFEF !important
+
+.chan2
+  padding-right: 85px
+  a
+    margin-top: 30px
+  button
+    margin-top: 150px
+
+.mod4
+  padding: 0 !important
+  background-color: #FFF !important
+  position: relative
+  h3
+    border: none !important
+    margin-top: 15px
+
+.chn2
+  position: absolute
+  right: 15px
+  top: 15px
+  opacity: 0.6
+  filter: alpha(opacity = 60)
+
+.img-cont
+  width: 100%
+  float: left
+  position: relative
+  margin-top: 50px
+  li
+    float: left
+
+.border-bottom
+  border-bottom: 1px solid #CCC
+  min-height: 50px
+  width: 100%
+  float: left
+  margin-top: 60px
+
+.three-links
+  width: 50%
+  margin: 0 auto
+  position: relative
+  li
+    float: left
+    a
+      display: block
+      padding: 13px 25px
+      color: #dedede
+      font-size: 18px
+      &:hover, &:active, &:focus
+        color: #f36533
+
+.mor-para
+  font-family: 'OpenSansLight'
+  line-height: 25px
+  a
+    font-family: 'OpenSansItalic'
+    font-size: 22px
+    color: #5b5b5b
+
+.slide01
+  position: relative
+
+.j2
+  width: 100% !important
+  ul
+    width: 100% !important
+    li
+      width: 100% !important
+
+/* v1.0.2
+/* Core RS CSS file. 95% of time you shouldn't change anything here.
+
+.royalSlider
+  width: 600px
+  height: 400px
+  position: relative
+  direction: ltr
+
+.rsWebkit3d
+  .rsSlide, .rsContainer, .rsThumbs, .rsPreloader, img, .rsOverflow, .rsBtnCenterer, .rsAbsoluteEl
+    -webkit-backface-visibility: hidden
+    -webkit-transform: translateZ(0)
+
+.rsFade.rsWebkit3d
+  .rsSlide, img, .rsContainer
+    -webkit-transform: none
+
+.rsOverflow
+  width: 100%
+  height: 100%
+  position: relative
+  overflow: hidden
+  float: left
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+.rsContainer
+  position: relative
+  width: 100%
+  height: 100%
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+.rsArrow, .rsThumbsArrow
+  cursor: pointer
+
+.rsThumb
+  float: left
+  position: relative
+
+.rsArrow, .rsNav, .rsThumbsArrow
+  opacity: 1
+  -webkit-transition: opacity 0.3s linear
+  -moz-transition: opacity 0.3s linear
+  -o-transition: opacity 0.3s linear
+  transition: opacity 0.3s linear
+
+.rsHidden
+  opacity: 0
+  visibility: hidden
+  -webkit-transition: visibility 0s linear 0.3s,opacity 0.3s linear
+  -moz-transition: visibility 0s linear 0.3s,opacity 0.3s linear
+  -o-transition: visibility 0s linear 0.3s,opacity 0.3s linear
+  transition: visibility 0s linear 0.3s,opacity 0.3s linear
+
+.rsGCaption
+  width: 100%
+  float: left
+  text-align: center
+
+/* Fullscreen options, very important ^^
+
+.royalSlider
+  &.rsFullscreen
+    position: fixed !important
+    height: auto !important
+    width: auto !important
+    margin: 0 !important
+    padding: 0 !important
+    z-index: 2147483647 !important
+    top: 0 !important
+    left: 0 !important
+    bottom: 0 !important
+    right: 0 !important
+  .rsSlide.rsFakePreloader
+    opacity: 1 !important
+    -webkit-transition: 0s
+    -moz-transition: 0s
+    -o-transition: 0s
+    transition: 0s
+    display: none
+
+.rsSlide
+  position: absolute
+  left: 0
+  top: 0
+  display: block
+  overflow: hidden
+  height: 100%
+  width: 100%
+
+.royalSlider.rsAutoHeight, .rsAutoHeight .rsSlide
+  height: auto
+
+.rsContent
+  width: 100%
+  height: 100%
+  position: relative
+
+.rsPreloader
+  position: absolute
+  z-index: 0
+
+.rsNav
+  -moz-user-select: -moz-none
+  -webkit-user-select: none
+  user-select: none
+
+.rsNavItem
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.25)
+
+.rsThumbs
+  cursor: pointer
+  position: relative
+  overflow: hidden
+  float: left
+  z-index: 22
+
+.rsTabs
+  float: left
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+.rsThumbs
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+.rsVideoContainer
+  /*left: 0;
+   *top: 0;
+   *position: absolute;
+  /*width: 100%;
+   *height: 100%;
+   *position: absolute;
+   *left: 0;
+   *top: 0;
+   *float: left;
+  width: auto
+  height: auto
+  line-height: 0
+  position: relative
+
+.rsVideoFrameHolder
+  position: absolute
+  left: 0
+  top: 0
+  background: #141414
+  opacity: 0
+  -webkit-transition: .3s
+  &.rsVideoActive
+    opacity: 1
+
+.rsVideoContainer
+  iframe, video, embed, .rsVideoObj
+    position: absolute
+    z-index: 0
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+  &.rsIOSVideo
+    iframe, video, embed
+      -webkit-box-sizing: border-box
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      padding-right: 44px
+
+/* ios controls over video bug, shifting video
+
+.rsABlock
+  left: 0
+  top: 0
+  position: absolute
+  z-index: 15
+  -webkit-backface-visibility: hidden
+
+.grab-cursor
+  cursor: url(grab.png) 8 8, move
+
+.grabbing-cursor
+  cursor: url(grabbing.png) 8 8, move
+
+.rsNoDrag
+  cursor: auto
+
+.rsLink
+  left: 0
+  top: 0
+  position: absolute
+  width: 100%
+  height: 100%
+  display: block
+  z-index: 20
+  background: url(blank.gif)
+  -webkit-backface-visibility: hidden
+
+#full-width-slider
+  width: 100%
+
+.coloredBlock
+  padding: 12px
+  background: rgba(255, 0, 0, 0.6)
+  color: #FFF
+  width: 200px
+  left: 20%
+  top: 5%
+
+.infoBlock
+  position: absolute
+  top: 30px
+  right: 30px
+  left: auto
+  max-width: 25%
+  padding-bottom: 0
+  background: #FFF
+  background: rgba(255, 255, 255, 0.8)
+  overflow: hidden
+  padding: 20px
+
+.infoBlockLeftBlack
+  color: #FFF
+  background: #000
+  background: rgba(0, 0, 0, 0.75)
+  left: 30px
+  right: auto
+
+.infoBlock
+  h4
+    font-size: 20px
+    line-height: 1.2
+    margin: 0
+    padding-bottom: 3px
+  p
+    font-size: 14px
+    margin: 4px 0 0
+  a
+    color: #FFF
+    text-decoration: underline
+
+.photosBy
+  position: absolute
+  line-height: 24px
+  font-size: 12px
+  background: #FFF
+  color: #000
+  padding: 0px 10px
+  position: absolute
+  left: 12px
+  bottom: 12px
+  top: auto
+  border-radius: 2px
+  z-index: 25
+  a
+    color: #000
+
+.fullWidth
+  max-width: 1400px
+  margin: 0 auto 24px
+
+div.slider-nav
+  display: block
+
+.rsContent a.pint:last:child
+  margin-left: 0 !important
+
+.rsArrowLeft
+  position: relative
+  .rsArrowIcn
+    position: absolute
+    background: url(../assets/prev.png) no-repeat
+    width: 14px
+    left: -18px
+    top: 235px
+    height: 47px
+    cursor: pointer
+
+.rsArrowRight .rsArrowIcn
+  position: absolute
+  background: url(../assets/next.png) no-repeat
+  width: 14px
+  right: -18px
+  top: 235px
+  height: 47px
+  cursor: pointer
+
+.pint
+  margin-bottom: 5px
+  margin-left: 5px
+  float: left
+
+@media screen and (min-width: 960px) and (min-height: 660px)
+  .heroSlider .rsOverflow, .royalSlider.heroSlider
+    height: 520px !important
+
+@media screen and (min-width: 960px) and (min-height: 1000px)
+  .heroSlider .rsOverflow, .royalSlider.heroSlider
+    height: 660px !important
+
+@media screen and (min-width: 0px) and (max-width: 800px)
+  .royalSlider.heroSlider
+    height: 300px !important
+    .rsOverflow
+      height: 300px !important
+  .infoBlock
+    padding: 10px
+    height: 100%
+    max-height: 100%
+    min-width: 40%
+    left: 0
+    top: 0
+    right: auto
+    font-size: 12px
+    h3
+      font-size: 14px
+      line-height: 17px
+
+.rsOverflow
+  min-height: 510px !important
+
+#row-2-v2
+  z-index: 99999
+
+.bread2
+  float: left
+  width: 100%
+  margin-top: 120px
+  margin-bottom: 20px
+  p
+    color: #CCC
+    float: left
+    font-size: 15px
+    font-family: 'OpenSansLight'
+    a
+      color: #CCC
+      text-decoration: underline
+
+.post-date
+  color: #CCC
+  float: right
+  margin-top: 120px
+  font-size: 15px
+  font-family: 'OpenSansLight'
+
+.blog-ig
+  display: block
+  position: relative
+  height: 347px
+  background-color: #efefef
+  a
+    display: block
+    text-align: center
+    padding-top: 70px
+
+.clock-link
+  color: #888
+  float: left
+  margin-top: -50px
+  font-size: 16px
+  font-style: italic
+  font-family: 'OpenSansLight'
+
+.or
+  width: 100%
+  color: #888
+  float: left
+  margin-top: -10px
+  font-size: 21px
+  font-style: italic
+  font-family: 'OpenSansLight'
+  text-align: center
+
+.big-post
+  width: 91%
+  float: left
+  display: block
+  position: relative
+  h3
+    font-family: 'OpenSansRegular'
+    font-size: 27px
+    float: left
+    font-weight: normal
+    color: #f26432
+  span
+    float: right
+    color: #999
+    margin-top: 25px
+    font-family: 'OpenSansLight'
+
+.blog-image
+  width: 100%
+  float: left
+  height: 230px
+  background-color: #efefef
+  text-align: center
+  padding-top: 90px
+
+.big-post p
+  color: #999
+  clear: left
+  margin-top: 15px
+  float: left
+  font-family: 'OpenSansLight'
+  a
+    color: #888
+    font-family: 'OpenSansRegular'
+    font-style: italic
+
+.insta
+  width: 110%
+  float: left
+  display: block
+  position: relative
+  h5
+    font-size: 14px
+    color: #999
+    display: block
+    padding-top: 10px
+    font-weight: normal
+    font-family: 'OpenSansLight'
+    i
+      margin-right: 8px
+
+.insta-img
+  width: 100%
+  float: left
+  height: 120px
+  background-color: #EFEFEF
+  text-align: center
+  padding-top: 30px
+  margin-top: 8px
+
+.insta p
+  color: #999
+  clear: left
+  margin-top: 15px
+  float: left
+  font-family: 'OpenSansLight'
+  a
+    color: #f26631
+    font-style: italic
+    padding-top: 10px
+    display: block
+
+.divider2
+  background-color: #dddddd
+  margin-top: 5px
+  width: 100%
+  float: left
+  height: 1px
+
+.pin-img
+  float: left
+  margin-right: 15px
+
+.pints
+  width: 110%
+  float: left
+  display: block
+  position: relative
+  h5
+    font-size: 14px
+    color: #999
+    display: block
+    padding-top: 10px
+    font-weight: normal
+    font-family: 'OpenSansLight'
+    i
+      margin-right: 8px
+  p
+    color: #999
+    margin-top: 30px
+    font-family: 'OpenSansLight'
+    a
+      clear: left
+      color: #f26631
+      font-style: italic
+      padding-top: 10px
+      display: block
+
+.mors
+  width: 100%
+  text-align: center
+  color: #999
+  font-family: 'OpenSansLight'
+  font-style: italic
+  font-size: 16px
+  display: block
+  padding-top: 30px
+
+.check-head
+  width: 100%
+  color: #999
+  font-weight: normal
+  font-family: 'OpenSansLight'
+  float: left
+  font-size: 22px
+  margin-top: 130px
+
+.tab-title
+  margin-bottom: 5px
+  color: #999
+  font-weight: normal
+  font-size: 15px
+  font-family: 'OpenSansLight'
+
+.check-item
+  float: left
+  width: 100%
+  position: relative
+  margin-top: 45px
+  a
+    float: left
+    margin-bottom: 25px
+    margin-right: 25px
+  h3
+    color: #888
+    margin: 0
+    margin-top: -10px
+    font-weight: normal
+    font-size: 26px
+    font-family: 'OpenSansRegular'
+  span
+    display: block
+    font-family: 'OpenSansRegular'
+    margin-top: -15px
+    font-style: italic
+    color: #777
+    width: 100%
+    i
+      color: #999
+      font-family: 'OpenSansLight'
+  p
+    font-family: 'OpenSansLight'
+    color: #bebebe
+    display: block
+    margin-top: 25px
+    margin-right: 20px
+    font-style: italic
+
+.pric
+  font-size: 25px
+  color: #888
+  font-family: 'OpenSansRegular'
+  position: relative
+  margin-top: 40px
+  span
+    font-size: 15px
+    position: absolute
+    top: -5px
+
+.xx
+  display: block
+  margin-top: 40px
+  float: right
+
+.quantity2
+  display: block
+  padding-top: 28px
+  color: #999
+  font-size: 20px
+
+.discount
+  width: 100%
+  float: left
+  margin-top: 32px
+  margin-bottom: 18px
+  p
+    font-size: 20px
+    color: #999
+    float: left
+    margin-right: 50px
+    margin-top: 7px
+    font-family: 'OpenSansRegular'
+    font-style: italic
+
+.input
+  border-radius: 0 !important
+  height: 28px !important
+
+.total
+  float: right
+  width: 100%
+  margin-top: 25px
+  p
+    font-family: 'OpenSansRegular'
+    font-style: italic
+    font-size: 16px
+    color: #5b5b5b
+    text-align: right
+  span
+    font-family: 'OpenSansRegular'
+    font-size: 25px
+    color: #666
+    text-align: right
+    float: right
+  strong
+    float: right
+    color: #666
+    margin-top: -3px
+    font-weight: normal
+    font-size: 15px
+
+.one-last
+  font-family: 'OpenSansRegular'
+  font-size: 18px
+  color: #454545
+  font-style: italic
+
+.cas
+  background: url(../assets/cause1-black.png) no-repeat center center
+  width: 100%
+  height: 98px
+  display: block
+  margin-top: 10px
+  &:hover, &:active, &:focus
+    background: url(../assets/cause1-color.png) no-repeat center center
+
+.cas2
+  background: url(../assets/cause2-black.png) no-repeat center center
+  width: 100%
+  height: 98px
+  display: block
+  margin-top: 10px
+  &:hover, &:active, &:focus
+    background: url(../assets/cause2-color.png) no-repeat center center
+
+.cas3
+  background: url(../assets/cause3-black.png) no-repeat center center
+  width: 100%
+  height: 98px
+  display: block
+  margin-top: 10px
+  &:hover, &:active, &:focus
+    background: url(../assets/cause3-color.png) no-repeat center center
+
+.cas4
+  background: url(../assets/cause4-black.png) no-repeat center center
+  width: 100%
+  height: 98px
+  display: block
+  margin-top: 10px
+  &:hover, &:active, &:focus
+    background: url(../assets/cause4-color.png) no-repeat center center
+
+.chan3
+  float: right
+  margin-top: 30px
+  padding: 15px 35px
+  font-size: 16px
+
+.s2
+  color: #F26534
+  display: block
+  font-family: 'OpenSansItalic'
+  font-size: 17px
+  padding-top: 30px
+
+.ret
+  font-family: 'OpenSansLight'
+  color: #999
+  float: left
+  margin-top: 30px
+
+.input2
+  border-radius: 0 !important
+  height: 30px !important
+  margin-top: 20px
+  float: left
+  border: none !important
+  width: 64%
+  clear: left
+
+.chn4
+  float: left
+  padding: 8px 20px
+  font-size: 17px
+  margin-top: 20px
+
+.map
+  float: left
+  width: 100%
+  position: relative
+  margin-top: 20px
+  overflow: hidden
+
+.icolor_tbx
+  display: none !important

@@ -1,0 +1,83 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "C4belts"
+      %meta{:content => content_for?(:description) ? yield(:description) : "C4belts", :name => "description"}
+        = stylesheet_link_tag "application", :media => "all"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+        = yield(:head)
+  %body{:class => "#{controller_name} #{action_name}"}
+    = render 'layouts/navigation' unless params[:controller] == 'home'
+    = render 'layouts/messages'
+    = yield
+  %footer
+    .row-fluid
+      .top-links
+        .container
+          .span12
+            .footer-links
+              %ul
+                %li
+                  %a{:href => root_path} Shop
+                %li
+                  %a{:href => causes_path} Causes
+                %li
+                  %a{:href => celebrities_path} Celebrities
+                %li
+                  %a{:href => "javascript:void(0);"} C4Yourself
+                %li
+                  %a{:href => about_path} About Us
+                %li
+                  %a{:href => retailers_path} Retailers
+            / footer-links
+          / span12
+        / container
+      / top-links
+    / row-fluid
+    .clearfix
+    / clearfix
+    .row-fluid
+      .container
+        .span12
+          .connecting
+            %p CONNECT WITH US
+            %ul
+              %li
+                %a{:href => "javascript:void(0);"}
+                  %assets{:alt => "Image", :src => "assets/twiiter-social.png"}/
+              %li
+                %a{:href => "javascript:void(0);"}
+                  %assets{:alt => "Image", :src => "assets/facebook-social.png"}/
+              %li
+                %a{:href => "javascript:void(0);"}
+                  %assets{:alt => "Image", :src => "assets/instagram-social.png"}/
+          / footer-links
+        / span12
+      / container
+    / row-fluid
+    .clearfix
+    / clearfix
+    .row-fluid.mor-links
+      .container
+        .span12
+          %ul.copyright
+            %li
+              %p All Right Reserved C4Belts.Inc
+            %li
+              %a{:href => "javascript:coid(0);"} Privacy Policy
+            %li
+              %a{:href => "javascript:coid(0);"} Terms & Conditions
+        / span12
+      / container
+    / row-fluid
+    .clearfix
+    / clearfix
+/ container-fluid
+= javascript_include_tag 'plugins/jquery.jcarousel.min', 'plugins/jcarousel.basic', 'plugins/jquery.custom-scrollbar', 'plugins/jquery.icolor.min',
+                         'plugins/jquery.galleriffic', 'plugins/jquery.opacityrollover', 'plugins/jquery.aw-showcase', 'plugins/jquery.scrollTo',
+                         'plugins/jquery.nav', 'plugins/jquery.royalslider.min', 'plugins/jquery.hcsticky-min'
+
+
+= javascript_include_tag 'layout'

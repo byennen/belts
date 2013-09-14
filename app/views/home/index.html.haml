@@ -1,0 +1,737 @@
+.container-fluid
+  #shop.row-fluid
+    .container
+      .span3
+        .pallete-box
+          %ul.hides
+            %li#i-1
+              %p THICK BELT
+            %li#i-2
+              %p THIN BELT
+            %li#i-3
+              %p FANCY BELT
+            %li#i-4
+              %p SIMPLE BELT
+            %li#i-5
+              %p LEATHER BELT
+          %a.next2{:href => "javascript:void(0);", :onclick => "next()"} >
+          %a.prev2{:href => "javascript:void(0);", :onclick => "back()"} <
+          .color-box
+            %p Choose Belt Color:
+            #vertical-scrollbar-demo.colors.gray-skin.demo
+              #icolor.icolorC
+              / icolor
+            / colors
+          / color-box
+          .clearfix
+          / clearfix
+          .color-box
+            %p Choose Buckle Color:
+            #vertical-scrollbar-demo2.colors.gray-skin.demo
+              #icolor2.icolorC
+              / icolor
+            / colors
+          / color-box
+          .clearfix
+          / clearfix
+          .qoute
+            %p Feeling Adventurous? RANDOMIZE
+          / qoute
+          .clearfix
+          / clearfix
+          .color-box
+            %p Recent Color Schemes:
+            %a.recent-color{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/recents-color.png"}/
+            %a.recent-color{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/recents-color.png"}/
+            %a.recent-color{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/recents-color.png"}/
+            %a.recent-color{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/recents-color.png"}/
+            %a{"data-toggle" => "modal", :href => "#myModal", :role => "button"}
+              %button.btn.btn2{:name => "btn"}
+                %i
+                  %img{:alt => "Image", :src => "assets/cart-icon.png"}/
+                ADD TO CART
+          / color-box
+          .clearfix
+          / clearfix
+          / Modal
+          #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+              %h3#myModalLabel SHOPPING CART
+            / modal-header
+            .modal-body
+              .product
+                %a.pro-assets{:href => "javascript:void(0);"}
+                  %img{:alt => "Image", :src => "assets/pro-img.png"}/
+                .quantity
+                  %p ORANGE/PURPLE
+                  %ul
+                    %li
+                      %select
+                        %option 01
+                        %option 02
+                        %option 03
+                        %option 04
+                        %option 05
+                / quantity
+                %p.rate
+                  $100.
+                  %span 00
+                  \       X
+                .clearfix
+                / clearfix
+              / product
+              .clearfix
+              / clearfix
+              .pro-detail
+                %ul
+                  %li
+                    %p CART SUBTOTAL
+                    %span $100
+                  %li
+                    %p SHIPPING
+                    %span FREE
+                  %li
+                    %p ORDER TOTAL
+                    %span $100
+                  %li
+                  %li
+                    %i Please choose your cause at checkout
+              / pro-detail
+            / modal-body
+            .modal-footer
+              %a{:href => "javascript:void(0);"} Continue Browsing
+              %button.btn.btn2
+                %i
+                  %img{:alt => "Image", :src => "assets/cart-icon.png"}/
+                CHECK OUT
+            / modal-footer
+          / modal
+        / pallete-box
+        .clearfix
+        / clearfix
+      / span3
+      .span8
+        .belt-assets
+          %a{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/belt-img.png"}/
+        / belt-assets
+      / span8
+      .span1
+        .social-share
+          %p Share:
+          %ul
+            %li
+              %a{:href => "javascript:void(0);"}
+                %img{:alt => "Image", :src => "assets/twitter-icon.png"}/
+            %li
+              %a{:href => "javascript:void(0);"}
+                %img{:alt => "Image", :src => "assets/facebook-icon.png"}/
+            %li
+              %a{:href => "javascript:void(0);"}
+                %img{:alt => "Image", :src => "assets/instagram-icon.png"}/
+        / social-share
+      / span1
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  %header#row-2-v2.div-top-bar
+    .row-fluid
+      %div
+        %input#hdnIsStickyStart{:name => "hdnIsStickyStart", :type => "hidden", :value => "No"}/
+        %nav.navbar
+          .navbar-inner.top-nav
+            .container
+              / .btn-navbar is used as the toggle for collapsed navbar content
+              %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              / Everything you want hidden at 940px or less, place within here
+              .nav-collapse.collapse
+                %a.brand{:href => "index.html"}
+                  %img{:alt => "Image", :src => "assets/logo.png"}/
+                %ul#nav.nav.pull-right
+                  %li.current
+                    %a{:href => "#shop"} shop
+                  %li
+                    %a{:href => "#causes"} causes
+                  %li
+                    %a{:href => "#celebrities"} celebrities
+                  %li
+                    %a{:href => "#c4yourself"} c4yourself
+                  %li
+                    %a{:href => "#aboutUs"} about us
+                  %li
+                    %a{:href => "retailer.html"} retailers
+                  %li
+                    %a{:href => "javascript:void(0);"}
+                      %i
+                        %img{:alt => "Image", :src => "assets/cart-icon-dark.png"}/
+                      view cart
+              / nav-collapse
+            / container
+          / navbar-inner
+        / navbar
+    / row-fluid
+    .clearfix
+    / clearfix
+  #causes.row-fluid
+    .container
+      .title
+        %h3{:style => "margin-top:100px;"} Causes
+        %p
+          Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor
+          %br>/
+          ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+      / title
+      .clearfix
+      / clearfix
+      .span3{:style => "margin:0;"}
+        .cause
+          %a.cause-assets{:href => cause_path}
+            %img{:alt => "Image", :src => "assets/cause-img/cause-img01.png"}/
+        / cause
+        .cause-info
+          %h3 Inceptos
+          %p Etiam porta malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nex.
+          %a{:href => cause_path}
+            %button.btn.btn3{:name => "btn"} LEARN MORE
+        / cause-info
+      / span3
+      .span3
+        .cause
+          %a.cause-assets{:href => cause_path}
+            %img{:alt => "Image", :src => "assets/cause-img/cause-img02.png"}/
+        / cause
+        .cause-info
+          %h3 Inceptos
+          %p Etiam porta malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nex.
+          %a{:href => cause_path}
+            %button.btn.btn3{:name => "btn"} LEARN MORE
+        / cause-info
+      / span3
+      .span3
+        .cause
+          %a.cause-assets{:href => cause_path}
+            %img{:alt => "Image", :src => "assets/cause-img/cause-img03.png"}/
+        / cause
+        .cause-info
+          %h3 Inceptos
+          %p Etiam porta malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nex.
+          %a{:href => cause_path}
+            %button.btn.btn3{:name => "btn"} LEARN MORE
+        / cause-info
+      / span3
+      .span3
+        .cause
+          %a.cause-assets{:href => cause_path}
+            %img{:alt => "Image", :src => "assets/cause-img/cause-img04.png"}/
+        / cause
+        .cause-info
+          %h3 Inceptos
+          %p Etiam porta malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nex.
+          %a{:href => cause_path}
+            %button.btn.btn3{:name => "btn"} LEARN MORE
+        / cause-info
+      / span3
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid.more-cause
+    .container
+      .span12
+        %p
+          Learn more about
+          %a{:href => cause_path} Causes & Charities
+          that C4 Belts works with.
+          %a{:href => cause_path, :style => "color:#999; font-size:17px;"} >
+      / span12
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  #celebrities.row-fluid
+    .container
+      .title
+        %h3 Celebrities
+        %p
+          Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor
+          %br>/
+          ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+      / title
+      .clearfix
+      / clearfix
+      .span5{:style => "margin:0;"}
+        #gallery.content
+          .slideshow-container
+            #slideshow.slideshow
+            / slideshow
+          / slideshow-container
+        / content
+      / span5
+      .span7
+        #thumbs.navigation
+          %ul.thumbs.noscript
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img2.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail2.png"}/
+            %li
+              %a.thumb{:href => "assets/celebrity-img/thumbnail-img.png"}
+                %img{:alt => "Image", :src => "assets/celebrity-img/thumbnail.png"}/
+        / navigation
+      / span7
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid
+    .container
+      .span12
+        %p.celebrity-text
+          Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+          %a{:href => celebrities_path} Continue Reading.
+      / span12
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid.full
+    .container
+      .span12
+        #showcase.showcase
+          .showcase-slide
+            .showcase-content
+              .news-bar
+                %a.news-icon{:href => "javascript:void(0);"}
+                  %img{:alt => "Image", :src => "assets/news-logo.png"}/
+                %p
+                  "Every year, the biggest name in fashion, footwear and accessories descend on Las Vegas for MAGIC Market Week to show off their fail collection."
+                  %a{:href => "javascript:void(0);"} Continue Reading
+              / news-bar
+            / showcase-content
+          / showcase-slide
+          .showcase-slide
+            .showcase-content
+              .news-bar
+                %a.news-icon{:href => "javascript:void(0);"}
+                  %img{:alt => "Image", :src => "assets/news-logo.png"}/
+                %p
+                  "Every year, the biggest name in fashion, footwear and accessories descend on Las Vegas for MAGIC Market Week to show off their fail collection."
+                  %a{:href => "javascript:void(0);"} Continue Reading
+              / news-bar
+            / showcase-content
+          / showcase-slide
+          .showcase-slide
+            .showcase-content
+              .news-bar
+                %a.news-icon{:href => "javascript:void(0);"}
+                  %img{:alt => "Image", :src => "assets/news-logo.png"}/
+                %p
+                  "Every year, the biggest name in fashion, footwear and accessories descend on Las Vegas for MAGIC Market Week to show off their fail collection."
+                  %a{:href => "javascript:void(0);"} Continue Reading
+              / news-bar
+            / showcase-content
+          / showcase-slide
+        / jcarousel-wrapper
+        .clearfix
+        / clearfix
+      / span12
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  #c4yourself.row-fluid
+    .container
+      .title
+        %h3 C4Yourself
+        %p
+          Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor
+          %br>/
+          ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+      / title
+      .clearfix
+      / clearfix
+      .span5{:style => "margin:0;"}
+        %h4.mini-title Visit our Blog and C4Yourself
+      / span4
+      .offset4.span3
+        %ul.social-icons
+          %li
+            %a{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/pintrest-icon.png"}/
+          %li
+            %a{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/instagram-icon.png"}/
+          %li
+            %a{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/twitter-icon.png"}/
+          %li
+            %a{:href => "javascript:void(0);"}
+              %img{:alt => "Image", :src => "assets/facebook-icon.png"}/
+      / span2
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid
+    .container
+      #full-width-slider.royalSlider.heroSlider.rsMinW
+        .rsContent
+          .slide01
+            .span5{:style => "margin-left:5px;"}
+              .blog-box
+                %h4
+                  %i>
+                    %img{:alt => "Image", :src => "assets/blog-icon.png"}/
+                  \   Latest Blog Posts
+                %ul.posts
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %i
+                      %img{:alt => "Image", :src => "assets/blog-thumbnail.png"}/
+                    %h3 Etiam porta sem malesuada.
+                    %p
+                      Sed posuere consectetur est at lobortis. Cura itur blandit tempus porttitor. Nullam id dolor id ultricies vehicula ut id elit.
+                      %a{:href => "javascript:void(0);"} Continue Reading
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %i
+                      %img{:alt => "Image", :src => "assets/blog-thumbnail.png"}/
+                    %h3 Etiam porta sem malesuada.
+                    %p
+                      Sed posuere consectetur est at lobortis. Cura itur blandit tempus porttitor. Nullam id dolor id ultricies vehicula ut id elit.
+                      %a{:href => "javascript:void(0);"} Continue Reading
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %i
+                      %img{:alt => "Image", :src => "assets/blog-thumbnail.png"}/
+                    %h3 Etiam porta sem malesuada.
+                    %p
+                      Sed posuere consectetur est at lobortis. Cura itur blandit tempus porttitor. Nullam id dolor id ultricies vehicula ut id elit.
+                      %a{:href => "javascript:void(0);"} Continue Reading
+                .clearfix
+                / clearfix
+                %a.mor{:href => "javascript:void(0);"} View more blog posts
+              / blog-box
+            / span5
+            .span5{:style => "margin-left:5px;"}
+              .blog-box
+                %h4
+                  %i>
+                    %img{:alt => "Image", :src => "assets/latest-tweets-icon.png"}/
+                  \   Latest Tweets
+                %ul.posts.chn
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
+                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
+                    %p
+                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
+                      = succeed "12" do
+                        %br/
+                      HRS AGO
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
+                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
+                    %p
+                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
+                      = succeed "12" do
+                        %br/
+                      HRS AGO
+                .clearfix
+                / clearfix
+                %a.mor{:href => "javascript:void(0);"} View more tweets @C4Belts
+              / blog-box
+              .blog-box.new
+                %h4
+                  %i>
+                    %img{:alt => "Image", :src => "assets/facebook-post-icon.png"}/
+                  \   Recent facebook activity
+                %ul.posts.chn
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
+                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
+                    %p
+                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
+                      = succeed "12" do
+                        %br/
+                      HRS AGO
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
+                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
+                    %p
+                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
+                      = succeed "12" do
+                        %br/
+                      HRS AGO
+                .clearfix
+                / clearfix
+                %a.mor{:href => "javascript:void(0);"} view more facebook activity
+              / blog-box
+            / span5
+            .span2{:style => "margin-left:5px;"}
+              .blog-box.modi
+                %h4
+                  %i>
+                    %img{:alt => "Image", :src => "assets/instagram-icon.png", :style => "opacity:0.3; filter:alpha(opacity=30);"}/
+                  \   Instagram photos
+                %ul.posts.chan
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
+                    %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
+                    %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
+                .clearfix
+                / clearfix
+                %a.mor{:href => "javascript:void(0);"} View more photos
+              / blog-box
+            / span2
+          / slide01
+        / rsContent
+        .rsContent
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest.png"}/
+        / rsContent
+        .rsContent
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+          %a.pint{:href => "javascript:void(0);"}
+            %img{:alt => "Image", :src => "assets/pintrest2.png"}/
+        / rsContent
+      / royalSlider
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid.sep
+  / row-fluid
+  .clearfix
+  / clearfix
+  #aboutUs.row-fluid
+    .container
+      .title
+        %h3 About Us
+        %p
+          Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor
+          %br>/
+          ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+      / title
+      .clearfix
+      / clearfix
+      .offset1
+      / offset1
+      .span10
+        .about-us
+          %ul.posts.ab
+            %li
+              %a.thum{:href => "javascript:void(0);"}
+                %img{:alt => "Image", :src => "assets/about-us-thumbnail.png"}/
+              %h3 100% Recycleable
+              %p Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis.
+            %li
+              %a.thum{:href => "javascript:void(0);"}
+                %img{:alt => "Image", :src => "assets/about-us-thumbnail.png"}/
+              %h3 Animal Friendly
+              %p Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis.
+            %li
+              %a.thum{:href => "javascript:void(0);"}
+                %img{:alt => "Image", :src => "assets/about-us-thumbnail.png"}/
+              %h3 BFA- FREE & Nickel Free
+              %p Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis.
+            %li
+              %a.thum{:href => "javascript:void(0);"}
+                %img{:alt => "Image", :src => "assets/about-us-thumbnail.png"}/
+              %h3 Energy Efficent
+              %p Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis.
+          .clearfix
+          / clearfix
+        / about-us
+      / span10
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid
+    .container
+      .span12
+        %center
+          %span
+            %a.s2{:href => about_path} Read more about C4Belt
+      / span12
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+
