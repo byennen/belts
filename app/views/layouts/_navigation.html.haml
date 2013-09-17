@@ -11,8 +11,7 @@
               %span.icon-bar
             / Everything you want hidden at 940px or less, place within here
             .nav-collapse.collapse
-              %a.brand{:href => root_path}
-                %img{:alt => "Image", :src => "../../assets/logo.png"}/
+              = link_to image_tag('logo.png'), root_path, class: 'brand'
               %ul#nav.nav.pull-right
                 %li.current
                   %a{:href => root_path} shop
