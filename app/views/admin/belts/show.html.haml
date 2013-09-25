@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @belt.name
+%p
+  %b Hex color:
+  = @belt.hex_color
+%p
+  %b Image:
+  = @belt.image
+
+= link_to 'Edit', edit_belt_path(@belt)
+\|
+= link_to 'Back', belts_path

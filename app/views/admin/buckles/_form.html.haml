@@ -1,0 +1,10 @@
+= simple_form_for([:admin, @buckle]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :hex_color
+    = f.input :image
+
+  .form-actions
+    = f.button :submit

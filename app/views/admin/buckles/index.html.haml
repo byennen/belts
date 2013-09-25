@@ -1,0 +1,23 @@
+%h3 Belts
+.row
+  .span12
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th Name
+          %th Hex color
+          %th Image
+          %th
+          %th
+          %th
+      %tbody
+        - @buckles.each do |buckle|
+          %tr
+            %td= buckle.name
+            %td= buckle.hex_color
+            %td= buckle.image
+            %td= link_to 'Edit', edit_admin_buckle_path(buckle)
+            %td= link_to 'Destroy', admin_buckle_path(buckle), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    .form-actions
+      = link_to 'New Buckle', new_admin_buckle_path, class: 'btn btn-inverse'

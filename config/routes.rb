@@ -1,6 +1,5 @@
 C4belts::Application.routes.draw do
 
-  get "users/index"
   #blog
   get 'blog', to: 'blog#index', as: 'blogs'
   get 'blog/posts/show', to: 'blog#post_1', as: 'blog'
@@ -19,6 +18,9 @@ C4belts::Application.routes.draw do
 
   #admin
   namespace :admin do
+    resources :buckles
+    resources :belts
+    resources :orders
     resources :users
     root to: 'dashboard#index'
   end

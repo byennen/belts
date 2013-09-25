@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @buckle.name
+%p
+  %b Hex color:
+  = @buckle.hex_color
+%p
+  %b Image:
+  = @buckle.image
+
+= link_to 'Edit', edit_buckle_path(@buckle)
+\|
+= link_to 'Back', buckles_path

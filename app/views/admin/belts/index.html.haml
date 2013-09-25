@@ -1,0 +1,22 @@
+%h3 Belts
+.row
+  .span12
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th Name
+          %th Hex color
+          %th Image
+          %th
+          %th
+      %tbody
+        - @belts.each do |belt|
+          %tr
+            %td= belt.name
+            %td= belt.hex_color
+            %td= belt.image
+            %td= link_to 'Edit', edit_admin_belt_path(belt)
+            %td= link_to 'Destroy', admin_belt_path(belt), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    .form-actions
+      = link_to 'New Belt', new_admin_belt_path, class: 'btn btn-inverse'
