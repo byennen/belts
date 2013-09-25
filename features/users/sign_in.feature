@@ -31,4 +31,3 @@ Feature: Sign in
       Then I see an invalid login message
       And I should be signed out
 
-      
