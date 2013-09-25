@@ -15,7 +15,7 @@
           %tr
             %td= buckle.name
             %td= buckle.hex_color
-            %td= buckle.image
+            %td= image_tag buckle.image_url(:small) if buckle.image?
             %td= link_to 'Edit', edit_admin_buckle_path(buckle)
             %td= link_to 'Destroy', admin_buckle_path(buckle), :method => :delete, :data => { :confirm => 'Are you sure?' }
 

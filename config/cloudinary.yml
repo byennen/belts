@@ -1,0 +1,18 @@
+development:
+  cloud_name: http-c4belts-com
+  api_key: '515549696275126'
+  api_secret: lBoULMVxv94nNlrPUAutOemI8gg
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: http-c4belts-com
+  api_key: '515549696275126'
+  api_secret: lBoULMVxv94nNlrPUAutOemI8gg
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: http-c4belts-com
+  api_key: '515549696275126'
+  api_secret: lBoULMVxv94nNlrPUAutOemI8gg
+  enhance_image_tag: true
+  static_image_support: false
