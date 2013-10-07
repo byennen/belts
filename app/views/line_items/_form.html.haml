@@ -1,0 +1,10 @@
+= simple_form_for(@line_item) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :belt_id
+    = f.input :buckle_id
+    = f.input :cart_id
+
+  .form-actions
+    = f.button :submit
