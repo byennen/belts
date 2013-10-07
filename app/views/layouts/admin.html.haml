@@ -9,7 +9,6 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
     %title= content_for?(:title) ? "C4 Belts - " + yield(:title) : "Admin"
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"}
-    %meta{:content => content_for?(:description) ? yield(:description) : "Rocket Fuel Labs creates products, launches companies, invest in great ideas and teams to build products that transform how people and businesses interact.", :name => "description"}
     = favicon_link_tag 'favicon.ico'
     = stylesheet_link_tag "admin/application", :media => "all"
     = javascript_include_tag "admin/application"
