@@ -2,9 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :belt_id
-    = f.input :buckle_id
-    = f.input :cart_id
+    = f.association :buckle
+    = f.association :belt
+    = f.association :cart
 
   .form-actions
     = f.button :submit

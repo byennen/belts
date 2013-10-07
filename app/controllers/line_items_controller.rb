@@ -1,20 +1,13 @@
 class LineItemsController < ApplicationController
+  include CurrentCart
+
+  before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
-  # GET /line_items
-  # GET /line_items.json
-  def index
-    @line_items = LineItem.all
-  end
 
   # GET /line_items/1
   # GET /line_items/1.json
   def show
-  end
-
-  # GET /line_items/new
-  def new
-    @line_item = LineItem.new
   end
 
   # GET /line_items/1/edit
@@ -24,11 +17,13 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    belt = Belt.find(params[:belt_id])
+    buckle = Buckle.find(params[:buckle_id])
+    @line_item = @cart.line_items.build(belt: belt, buckle: buckle)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
@@ -69,6 +64,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:belt_id, :buckle_id, :cart_id)
+      params.require(:line_item).permit(:buckle_id, :belt_id, :cart_id)
     end
 end

@@ -1,3 +1,7 @@
+- @buckles.each do |buckle|
+  = buckle.name
+  = button_to 'Add to Cart', line_items_path(buckle_id: buckle, belt_id: '1')
+
 .container-fluid
   #shop.row-fluid
     .container
