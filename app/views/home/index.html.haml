@@ -144,47 +144,7 @@
   / row-fluid
   .clearfix
   / clearfix
-  %header#row-2-v2.div-top-bar
-    .row-fluid
-      %div
-        %input#hdnIsStickyStart{:name => "hdnIsStickyStart", :type => "hidden", :value => "No"}/
-        %nav.navbar
-          .navbar-inner.top-nav
-            .container
-              / .btn-navbar is used as the toggle for collapsed navbar content
-              %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-                %span.icon-bar
-                %span.icon-bar
-                %span.icon-bar
-              / Everything you want hidden at 940px or less, place within here
-              .nav-collapse.collapse
-                %a.brand{:href => root_path}
-                  %img{:alt => "Image", :src => "assets/logo.png"}/
-                %ul#nav.nav.pull-right
-                  %li.current
-                    %a{:href => "#shop"} shop
-                  %li
-                    %a{:href => "#causes"} causes
-                  %li
-                    %a{:href => "#celebrities"} celebrities
-                  %li
-                    %a{:href => "#c4yourself"} c4yourself
-                  %li
-                    %a{:href => "#aboutUs"} about us
-                  %li
-                    %a{:href => retailers_path} retailers
-                  %li
-                    %a{:href => "javascript:void(0);"}
-                      %i
-                        %img{:alt => "Image", :src => "assets/cart-icon-dark.png"}/
-                      view cart
-              / nav-collapse
-            / container
-          / navbar-inner
-        / navbar
-    / row-fluid
-    .clearfix
-    / clearfix
+
   #causes.row-fluid
     .container
       .title
