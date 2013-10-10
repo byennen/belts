@@ -435,11 +435,16 @@ div
       position: absolute
     a.advance-link
       display: block
-      line-height: 0px
+      line-height: 400px
       /* This should be set to be at least the height of the largest image in the slideshow
       text-align: center
       &:hover, &:active, &:visited
         text-decoration: none
+      img
+        max-width: 490px
+        max-height: 400px
+        margin-left: 48px
+        border: none
     img
       vertical-align: middle
       border: 1px solid #ccc
@@ -457,6 +462,7 @@ div
     padding-top: 12px
   &.navigation
     position: relative
+
 /* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled.
 
 ul.thumbs
@@ -480,6 +486,8 @@ a.thumb:focus
 ul.thumbs img
   border: none
   display: block
+  max-width: 200px
+  max-height: 150px
 
 div
   &.pagination
@@ -488,7 +496,7 @@ div
     &.top
       position: absolute
       left: 6%
-      bottom: -95px
+      bottom: -115px
       width: 100%
     &.bottom
       margin-top: 12px
@@ -549,7 +557,7 @@ div.pagination
   font-family: 'OpenSansLight'
   color: #858585
   font-size: 13px
-  height: 70px
+  height: 50px
   padding-top: 15px
   a
     font-family: 'OpenSansItalic'

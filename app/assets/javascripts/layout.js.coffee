@@ -49,6 +49,7 @@ jQuery(document).ready ($) ->
     enableBottomPager: false
     maxPagesToShow: 3
     imageContainerSel: "#slideshow"
+    captionContainerSel: '#caption'
     renderSSControls: false
     renderNavControls: false
     enableHistory: false
