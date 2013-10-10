@@ -149,51 +149,7 @@
 
   =render 'celebrities_info'
 
-  .row-fluid.full
-    .container
-      .span12
-        #showcase.showcase
-          .showcase-slide
-            .showcase-content
-              .news-bar
-                %a.news-icon{:href => "javascript:void(0);"}
-                  %img{:alt => "Image", :src => "assets/news-logo.png"}/
-                %p
-                  "Every year, the biggest name in fashion, footwear and accessories descend on Las Vegas for MAGIC Market Week to show off their fail collection."
-                  %a{:href => "javascript:void(0);"} Continue Reading
-              / news-bar
-            / showcase-content
-          / showcase-slide
-          .showcase-slide
-            .showcase-content
-              .news-bar
-                %a.news-icon{:href => "javascript:void(0);"}
-                  %img{:alt => "Image", :src => "assets/news-logo.png"}/
-                %p
-                  "Every year, the biggest name in fashion, footwear and accessories descend on Las Vegas for MAGIC Market Week to show off their fail collection."
-                  %a{:href => "javascript:void(0);"} Continue Reading
-              / news-bar
-            / showcase-content
-          / showcase-slide
-          .showcase-slide
-            .showcase-content
-              .news-bar
-                %a.news-icon{:href => "javascript:void(0);"}
-                  %img{:alt => "Image", :src => "assets/news-logo.png"}/
-                %p
-                  "Every year, the biggest name in fashion, footwear and accessories descend on Las Vegas for MAGIC Market Week to show off their fail collection."
-                  %a{:href => "javascript:void(0);"} Continue Reading
-              / news-bar
-            / showcase-content
-          / showcase-slide
-        / jcarousel-wrapper
-        .clearfix
-        / clearfix
-      / span12
-    / container
-  / row-fluid
-  .clearfix
-  / clearfix
+  =render 'pr_slideshow'
 
   #aboutUs.row-fluid
     .container
