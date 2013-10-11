@@ -544,6 +544,7 @@
 
 				if (this.$captionContainer) {
 					previousCaption = this.$captionContainer.find('span.current').addClass('previous').removeClass('current');
+					previousCaption.remove();
 				}
 
 				// Perform transitions simultaneously if syncTransitions is true and the next image is already preloaded
