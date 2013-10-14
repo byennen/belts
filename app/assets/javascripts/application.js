@@ -15,4 +15,4 @@
 //= require bootstrap
 //= require turbolinks
 //= require plugins/jscroller
-//= require test
+//= require navbar_scroller
