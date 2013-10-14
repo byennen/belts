@@ -43,7 +43,7 @@ jQuery(document).ready ($) ->
   # Initialize Advanced Galleriffic Gallery
   gallery = $("#thumbs").galleriffic(
     delay: 3000
-    numThumbs: 9
+    numThumbs: 12
     preloadAhead: 40
     enableTopPager: true
     enableBottomPager: false
