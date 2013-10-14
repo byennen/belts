@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require plugins/jscroller
+//= require plugins/crawler
+//= require plugins/jquery.hcsticky-min
 //= require navbar_scroller

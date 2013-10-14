@@ -1,15 +1,9 @@
-// $(document).ready(function(){
-//   // Add Scroller Object
-//    $jScroller.add("#scroller_container","#scroller","left",5);
-
-//    // Start Autoscroller
-//    $jScroller.start();
-//  })
 
 $(document).ready(function(){
 
+  // sticky navbar code
   if(window.location.pathname == '/') {
-    $('div.main-navbar-fixed').hide()
+    // $('div.main-navbar-fixed').hide()
 
     $('div.main-navbar-fixed').hcSticky({
         wrapperClassName: 'wrapper-sticky',
@@ -22,5 +16,23 @@ $(document).ready(function(){
         }
     });
   }
+
+  // about us page images
+
+  marqueeInit({
+    uniqueid: 'crawler',
+    style: {
+      'padding': '2px',
+      'width': '100%',
+      'height': '400px'
+    },
+    inc: 7, //speed - pixel increment for each iteration of this marquee's movement
+    mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
+    moveatleast: 2,
+    neutral: 150,
+    savedirection: true,
+    random: true,
+    noAddedSpace: true,
+  });
 
 })
