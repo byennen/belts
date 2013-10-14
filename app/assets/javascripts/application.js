@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require plugins/jscroller
+//= require test

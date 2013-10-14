@@ -10,7 +10,7 @@
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
     = render 'layouts/messages'
-    = render 'layouts/navbar'
+    = render 'layouts/navbar' unless params[:controller] == 'home'
     = yield
   %footer
     .row-fluid
