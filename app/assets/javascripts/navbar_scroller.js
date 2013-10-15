@@ -1,21 +1,15 @@
-
 $(document).ready(function(){
-
   // sticky navbar code
-  if(window.location.pathname == '/') {
-    // $('div.main-navbar-fixed').hide()
-
-    $('div.main-navbar-fixed').hcSticky({
-        wrapperClassName: 'wrapper-sticky',
-        responsive: true,
-        onStart: function() {
-          $('div.main-navbar-fixed').show()
-        },
-        onStop: function() {
-          $('div.main-navbar-fixed').hide()
-        }
-    });
-  }
+  $('div.main-navbar-fixed').hcSticky({
+      wrapperClassName: 'wrapper-sticky',
+      responsive: true,
+      onStart: function() {
+        $('div.main-navbar-fixed').show()
+      },
+      onStop: function() {
+        // $('div.main-navbar-fixed').hide()
+      }
+  });
 
   // about us page images
 
