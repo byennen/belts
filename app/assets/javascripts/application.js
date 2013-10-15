@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require plugins/crawler
 //= require plugins/jquery.hcsticky-min
+//= require underscore
 //= require navbar_scroller
+//= require resizer
