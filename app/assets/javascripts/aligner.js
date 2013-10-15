@@ -32,8 +32,8 @@ $(document).ready(function(){
   }
 
   var initImages = $('.small-cause-img')
-  verticalCenterHome(initImages)
-  verticalCenterShow()
+  setTimeout(verticalCenterHome,300)
+  setTimeout(verticalCenterShow,300)
 
   $(window).resize(function() {
     verticalCenterHome(initImages)
