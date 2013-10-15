@@ -11,10 +11,10 @@ class CausesController < ApplicationController
     }
 
     @asset_mapping = {
-      "Boys & Girls Club Of America" => "cause-img01.png",
-      "Captain Planet Foundation" => "cause-img02.png",
-      "Best Friends Animal Society" => "cause-img03.png",
-      "Human Rights Campaign" => "cause-img04.png"
+      "Boys & Girls Club Of America" => "boys-and-girls-club.png",
+      "Captain Planet Foundation" => "planet.png",
+      "Best Friends Animal Society" => "bfaslogo.png",
+      "Human Rights Campaign" => "hrc2.png"
     }
   end
 end
