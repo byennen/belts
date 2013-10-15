@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  var windowWidth = $(window).width()
 
   // vertically align causes images on home
   var verticalCenter = function(images) {
@@ -20,5 +21,4 @@ $(document).ready(function(){
   $(window).resize(function() {
     verticalCenter(images)
   })
-
 })

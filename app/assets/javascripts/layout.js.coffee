@@ -25,7 +25,6 @@ $("#icolor2").icolor
   title: false
 
 jQuery(document).ready ($) ->
-
   # We only want these styles applied when javascript is enabled
   $("div.navigation").css float: "right"
   $("div.content").css "display", "block"
@@ -69,11 +68,23 @@ jQuery(document).ready ($) ->
   )
 
 $(document).ready ->
+
+  prAligner = ->
+    slideShowWidth = $(".showcase-content").width()
+    $prItem = $(".news-icon")
+    prWidth = $prItem.outerWidth(true) + $($prItem.siblings()[0]).width() + 32
+    $(".news-bar").css "margin-left", (Math.ceil((slideShowWidth - prWidth + 30) / 2)) + "px"
+
+  delayAligner = ->
+    setTimeout(prAligner, 264)
+
+  delayAligner()
+
   $("#showcase").awShowcase
     content_height: 70
     fit_to_parent: false
     auto: true
-    interval: 3000
+    interval: 2000
     continuous: false
     loading: true
     arrows: true
@@ -85,7 +96,8 @@ $(document).ready ->
     stoponclick: false
     transition: "hslide" # hslide/vslide/fade
     transition_delay: 0
-    transition_speed: 500
+    transition_speed: 250
+    custom_function: delayAligner
 
 
 $ ->
