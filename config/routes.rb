@@ -10,7 +10,7 @@ C4belts::Application.routes.draw do
 
   #causes
   get 'causes', to: 'causes#index', as: 'causes'
-  get 'causes/show', to: 'causes#show', as: 'cause'
+  get 'causes/:cause', to: 'causes#show', as:'cause'
 
   #pages
   get 'about', to: 'pages#about', as: 'about'
