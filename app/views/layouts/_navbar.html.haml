@@ -16,14 +16,24 @@
                 %a.brand{:href => root_path}
                   %img{:alt => "Image", :src => "../assets/logo.png"}/
                 %ul#nav.nav.pull-right
-                  %li.current
-                    %a{:href => "#shop"} shop
-                  %li
-                    %a{:href => "#causes"} causes
-                  %li
-                    %a{:href => "#celebrities"} celebrities
-                  %li
-                    %a{:href => "#aboutUs"} about us
+                  -if url_for(params) == '/'
+                    %li.current
+                      %a{:href => "#shop"} shop
+                    %li
+                      %a{:href => "#causes"} causes
+                    %li
+                      %a{:href => "#celebrities"} celebrities
+                    %li
+                      %a{:href => "#aboutUs"} about us
+                  -else
+                    %li.current
+                      %a{:href => root_path} shop
+                    %li
+                      %a{:href => "#{root_path}#causes"} causes
+                    %li
+                      %a{:href => "#{root_path}#celebrities"} celebrities
+                    %li
+                      %a{:href => "#{root_path}#aboutUs"} about us
                   %li
                     %a{:href => retailers_path} retailers
                   %li
