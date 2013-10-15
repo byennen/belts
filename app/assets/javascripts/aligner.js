@@ -2,23 +2,41 @@ $(document).ready(function(){
   var windowWidth = $(window).width()
 
   // vertically align causes images on home
-  var verticalCenter = function(images) {
+  var verticalCenterHome = function(images) {
+    console.log("init center home")
     var divHeight = $('div.cause').outerHeight()
     var images = $('.small-cause-img')
 
     _.each(images,function(image) {
-      console.log('f')
       var imageHeight = $(image).height()
       var margin =  Math.ceil((divHeight - imageHeight) / 2) - 10
       $(image).css('margin-top',margin.toString() + 'px')
     })
   }
 
-  var initialHeight = $('div.cause').outerHeight()
-  var images = $('.small-cause-img')
-  verticalCenter(images)
+
+
+  // vertically center on causes show
+  var verticalCenterShow = function() {
+    console.log("init center show")
+    var divHeight = $('div.cause.mod3').outerHeight()
+    var images = $('.cause-img')
+
+    _.each(images, function(image){
+      var imageHeight = $(image).height()
+      var header = $(image).siblings()
+      var margin =  Math.ceil((divHeight - imageHeight - 51) / 2)
+      $(image).css('margin-top',margin.toString() + 'px')
+      $(header).css('margin-top', margin -($(header).height()) + 15 + 'px')
+    })
+  }
+
+  var initImages = $('.small-cause-img')
+  verticalCenterHome(initImages)
+  verticalCenterShow()
 
   $(window).resize(function() {
-    verticalCenter(images)
+    verticalCenterHome(initImages)
+    verticalCenterShow()
   })
 })
