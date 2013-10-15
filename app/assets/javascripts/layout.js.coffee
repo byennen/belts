@@ -43,7 +43,7 @@ jQuery(document).ready ($) ->
   gallery = $("#thumbs").galleriffic(
     delay: 3000
     numThumbs: 12
-    preloadAhead: 40
+    preloadAhead: 12
     enableTopPager: true
     enableBottomPager: false
     maxPagesToShow: 3
