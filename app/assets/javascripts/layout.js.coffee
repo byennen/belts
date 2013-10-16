@@ -53,7 +53,7 @@ jQuery(document).ready ($) ->
     renderNavControls: false
     enableHistory: false
     autoStart: false
-    syncTransitions: true
+    syncTransitions: false
     defaultTransitionDuration: 900
     onSlideChange: (prevIndex, nextIndex) ->
 
