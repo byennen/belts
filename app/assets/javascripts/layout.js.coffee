@@ -81,10 +81,10 @@ $(document).ready ->
   responsivePR = ->
     if $(window).width() < 600
       $("div.row-fluid.full").css "position", "relative"
-      $("div.row-fluid.full").css "margin-top", "128px"
+      $("div.row-fluid.full").css "margin-top", $('div.caption').height() / 1.3
 
   delayAligner()
-  responsivePR()
+  setTimeout responsivePR, 300
 
   $(window).resize ->
     prAligner()
