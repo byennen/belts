@@ -5,6 +5,7 @@ $(document).ready(function(){
   var verticalCenterHome = function(images) {
     console.log("init center home")
     var divHeight = $('div.cause').outerHeight()
+
     var images = $('.small-cause-img')
 
     _.each(images,function(image) {
@@ -31,12 +32,13 @@ $(document).ready(function(){
     })
   }
 
-  var initImages = $('.small-cause-img')
-  setTimeout(verticalCenterHome,300)
-  setTimeout(verticalCenterShow,300)
+  // var initImages = $('.small-cause-img')
+  setTimeout(verticalCenterHome,500)
+  setTimeout(verticalCenterShow,500)
 
   $(window).resize(function() {
-    verticalCenterHome(initImages)
+    verticalCenterHome()
     verticalCenterShow()
+    // verticalCenterHome()
   })
 })

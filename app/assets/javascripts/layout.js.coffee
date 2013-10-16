@@ -42,8 +42,8 @@ jQuery(document).ready ($) ->
   # Initialize Advanced Galleriffic Gallery
   gallery = $("#thumbs").galleriffic(
     delay: 3000
-    numThumbs: 12
-    preloadAhead: 12
+    numThumbs: 9
+    preloadAhead: 9
     enableTopPager: true
     enableBottomPager: false
     maxPagesToShow: 3
@@ -78,13 +78,23 @@ $(document).ready ->
   delayAligner = ->
     setTimeout(prAligner, 264)
 
+  responsivePR = ->
+    if $(window).width() < 600
+      $("div.row-fluid.full").css "position", "relative"
+      $("div.row-fluid.full").css "margin-top", "128px"
+
   delayAligner()
+  responsivePR()
+
+  $(window).resize ->
+    prAligner()
+    responsivePR()
 
   $("#showcase").awShowcase
     content_height: 70
     fit_to_parent: false
     auto: true
-    interval: 2000
+    interval: 3000
     continuous: false
     loading: true
     arrows: true
