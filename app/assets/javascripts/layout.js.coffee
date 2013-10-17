@@ -61,15 +61,23 @@ $("#icolor_2 .icolor_ct td").click (event) ->
   window.recentBuckle = rgbtohex $(this).css("background-color")
   recentSelection()
 
+
 recentSelection = ->
   if window.beltClickCount >= 2
-    tile = $($('#icolor_3').children()[0]).append("<div style='width: 45px; height: 45px;'></div>").children().last()
-    paper = Raphael(tile[0], 42,42)
+    tile = $($('#icolor_3').children()[0]).append("<div style='width: 42px; height: 40px; position: relative; border-radius: 50%; display:inline-block;'></div>").children().last()
 
-    console.log(window.recentBuckle)
-    paper.path('M 0 0 L 42 0 L 0 40 L 0 0').attr('fill', window.recentBuckle)
-    console.log(window.recentBelt)
-    paper.path('M 42 0 L 42 40 L 0 40').attr('fill', window.recentBelt)
+    paper = Raphael(tile[0], 42,40)
+    $(paper.canvas).css
+      'border-radius':'3px'
+      'box-shadow' : 'gray 1px 2px 2px'
+
+    paper.path('M 0 0 L 42 0 L 0 40 L 0 0').attr
+      'fill': window.recentBuckle
+      'stroke' : window.recentBuckle
+    paper.path('M 42 0 L 42 40 L 0 40').attr
+      'fill': window.recentBelt
+      'stroke' : window.recentBelt
+
 
 jQuery(document).ready ($) ->
   # We only want these styles applied when javascript is enabled
