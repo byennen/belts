@@ -15,7 +15,6 @@ $("#icolor").icolor
   showInput: true
   title: false
 
-
 #<![CDATA[
 $("#icolor2").icolor
   flat: true
@@ -36,6 +35,13 @@ $("#icolor3").icolor
   title: false
 
 window.beltClickCount = 0
+window.buckleClickCount = 0
+
+$('ul.hides').click ->
+  window.beltClickCount = 0
+  window.buckleClickCount = 0
+  window.belt_index = 0
+  window.buckle_index = 0
 
 rgbtohex = (rgb) ->
   hex = (x) ->
@@ -43,28 +49,40 @@ rgbtohex = (rgb) ->
   rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
   "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
 
+currentBeltType = (tile)->
+  if $(tile).attr('style') && $(tile).attr('style').indexOf('background-color') is 0
+    if $('.active-belt').attr('src').indexOf("classic") != -1
+      window.beltType = 'classic'
+    else
+      window.beltType = 'skinny'
+  else
+    window.beltType = 'pattern'
+
 $("#icolor_1 .icolor_ct td").click (event) ->
   td_index = $(this).index()
   tr_index = $(this).parent("tr").index()
-  belt_index = tr_index * 8 + td_index
+  window.belt_index = tr_index * 8 + td_index
   $('.active-belt').attr("src","assets/belts/classic/"+belt_index+".png") ;
   window.beltClickCount += 1
   window.recentBelt = rgbtohex $(this).css("background-color")
-  recentSelection()
+  currentBeltType(this)
+  recentSelection "beltIndex": window.belt_index, "buckleIndex" : window.buckle_index
 
 $("#icolor_2 .icolor_ct td").click (event) ->
   td_index = $(this).index()
   tr_index = $(this).parent("tr").index()
-  buckle_index = tr_index * 8 + td_index
+  window.buckle_index = tr_index * 8 + td_index
   $('.active-buckle').attr("src","assets/buckles/classic/"+buckle_index+".png") ;
-  window.beltClickCount += 1
+  window.buckleClickCount += 1
   window.recentBuckle = rgbtohex $(this).css("background-color")
-  recentSelection()
+  currentBeltType()
+  recentSelection "beltIndex": window.belt_index, "buckleIndex" : window.buckle_index
 
 
-recentSelection = ->
-  if window.beltClickCount >= 2
-    tile = $($('#icolor_3').children()[0]).append("<div style='width: 42px; height: 40px; position: relative; border-radius: 50%; display:inline-block;'></div>").children().last()
+recentSelection = (options) ->
+  if window.beltClickCount >= 1 && window.buckleClickCount >= 1
+    $('#icolor_3').children().children().first().remove() if $('#icolor_3').children().children().length > 4
+    tile = $($('#icolor_3').children()[0]).append("<div style='margin-right: 3px; width: 42px; height: 40px; position: relative; border-radius: 50%; display:inline-block;'></div>").children().last()
 
     paper = Raphael(tile[0], 42,40)
     $(paper.canvas).css
@@ -74,10 +92,30 @@ recentSelection = ->
     paper.path('M 0 0 L 42 0 L 0 40 L 0 0').attr
       'fill': window.recentBuckle
       'stroke' : window.recentBuckle
+
     paper.path('M 42 0 L 42 40 L 0 40').attr
-      'fill': window.recentBelt
+      'fill' : window.recentBelt
       'stroke' : window.recentBelt
 
+    $(paper.canvas).wrap("<a class='recent-color-tile' href='#' belt-index=" + options.beltIndex + " buckle-index=" + options.buckleIndex + "></a>")
+    recentSelectionClick(options)
+
+recentSelectionClick = ->
+  $('.recent-color-tile').click (event) ->
+    event.preventDefault()
+    _this = $(this)
+    if beltType is 'classic'
+      $('.active-belt').attr("src","assets/belts/classic/"+ _this.attr('belt-index') + ".png")
+      $('.active-buckle').attr("src","assets/buckles/classic/"+ _this.attr('buckle-index') + ".png")
+    else if beltType is 'skinny'
+      $('.active-belt').attr("src","assets/belts/skinny/"+ _this.attr('belt-index') + ".png")
+      $('.active-buckle').attr("src","assets/buckles/skinny/"+ _this.attr('buckle-index') + ".png")
+    else
+      $('.active-belt').attr("src","assets/belts/classic/"+ _this.attr('belt-index') + ".png")
+      $('.active-buckle').attr("src","assets/buckles/classic/"+ _this.attr('buckle-index') + ".png")
+    return
+
+  # 'fill': "url('assets/pattern swatch/SW.jpg')"
 
 jQuery(document).ready ($) ->
   # We only want these styles applied when javascript is enabled
