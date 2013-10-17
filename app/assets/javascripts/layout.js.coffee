@@ -8,6 +8,7 @@ $(window).load ->
 #
 $("#icolor").icolor
   flat: true
+  colors: ["2D2926", "AED8EE", "1D1F91", "453625", "D46710", "113E00", "44D62C", "53565A", "E31C79", "ECD898", "D2A3CA", "84BD00", "76232F", "13294B", "F3F315", "59621D", "FF8F1A", "FFA3B5", "67476A", "ED1F1E", "05C3DE", "2CD5C4", "FFFFFF", "FEE528", "ECD898", "000000", "E31C79", "000000", "F9FBF7"]
   onSelect: (c) ->
     @$tb.css "", c
 
@@ -18,11 +19,27 @@ $("#icolor").icolor
 #<![CDATA[
 $("#icolor2").icolor
   flat: true
+  colors: ["2D2926", "84C4E5", "1D1F91", "5E311D", "CC5F24", "113E00", "97D700", "75777A", "E31C79", "EECC66", "D2A3CA", "84BD00", "CB333B", "13294B", "F3F315", "353b12", "FF8F1A", "FFA3B5", "67476A", "ED1F1E", "05C3DE", "2CD5C4", "FFFFFF", "FEE528", "EEF2F4", "8A8D8F", "7F6B00", "000000"]
   onSelect: (c) ->
     @$tb.css "", c
 
   showInput: true
   title: false
+
+
+$("#icolor_1 .icolor_ct td").click (event) ->
+  td_index = $(this).index()
+  tr_index = $(this).parent("tr").index()
+  belt_index = tr_index*8 + td_index
+  $('.active-belt').attr("src","assets/belts/classic/"+belt_index+".png");
+
+$("#icolor_2 .icolor_ct td").click (event) ->
+  td_index = $(this).index()
+  tr_index = $(this).parent("tr").index()
+  buckle_index = tr_index*8 + td_index
+  $('.active-buckle').attr("src","assets/buckles/classic/"+buckle_index+".png");
+
+
 
 jQuery(document).ready ($) ->
   # We only want these styles applied when javascript is enabled
