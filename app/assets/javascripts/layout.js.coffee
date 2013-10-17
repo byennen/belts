@@ -26,20 +26,50 @@ $("#icolor2").icolor
   showInput: true
   title: false
 
+$("#icolor3").icolor
+  flat: true
+  colors: []
+  onSelect: (c) ->
+    @$tb.css "", c
+
+  showInput: true
+  title: false
+
+window.beltClickCount = 0
+
+rgbtohex = (rgb) ->
+  hex = (x) ->
+    ("0" + parseInt(x).toString(16)).slice -2
+  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+  "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
 
 $("#icolor_1 .icolor_ct td").click (event) ->
   td_index = $(this).index()
   tr_index = $(this).parent("tr").index()
-  belt_index = tr_index*8 + td_index
-  $('.active-belt').attr("src","assets/belts/classic/"+belt_index+".png");
+  belt_index = tr_index * 8 + td_index
+  $('.active-belt').attr("src","assets/belts/classic/"+belt_index+".png") ;
+  window.beltClickCount += 1
+  window.recentBelt = rgbtohex $(this).css("background-color")
+  recentSelection()
 
 $("#icolor_2 .icolor_ct td").click (event) ->
   td_index = $(this).index()
   tr_index = $(this).parent("tr").index()
-  buckle_index = tr_index*8 + td_index
-  $('.active-buckle').attr("src","assets/buckles/classic/"+buckle_index+".png");
+  buckle_index = tr_index * 8 + td_index
+  $('.active-buckle').attr("src","assets/buckles/classic/"+buckle_index+".png") ;
+  window.beltClickCount += 1
+  window.recentBuckle = rgbtohex $(this).css("background-color")
+  recentSelection()
 
+recentSelection = ->
+  if window.beltClickCount >= 2
+    tile = $($('#icolor_3').children()[0]).append("<div style='width: 45px; height: 45px;'></div>").children().last()
+    paper = Raphael(tile[0], 42,42)
 
+    console.log(window.recentBuckle)
+    paper.path('M 0 0 L 42 0 L 0 40 L 0 0').attr('fill', window.recentBuckle)
+    console.log(window.recentBelt)
+    paper.path('M 42 0 L 42 40 L 0 40').attr('fill', window.recentBelt)
 
 jQuery(document).ready ($) ->
   # We only want these styles applied when javascript is enabled
@@ -173,7 +203,7 @@ jQuery(document).ready ($) ->
 
 
 next = ->
-  return  if (ptr * step) is max
+  return if (ptr * step) is max
   current = undefined
   current = (ptr * step) + 1
   if ptr > 0
@@ -192,7 +222,7 @@ next = ->
       i++
   ptr++
 back = ->
-  return  if ptr is 0
+  return if ptr is 0
   current = ptr * step
   if ptr > 1
     i = current
