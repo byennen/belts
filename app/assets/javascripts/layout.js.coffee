@@ -250,6 +250,8 @@ recentSelectionClick = ->
     window.beltClickCount = 1
     window.recentBuckle = $(this).attr("buckle-color")
     window.recentBelt = $(this).attr("belt-color")
+    window.beltIndex = $(this).attr("belt-index")
+    window.buckleIndex = $(this).attr("buckle-index")
 
     if _this.attr('type') is 'classic'
       set_belt_image('classic', _this.attr('belt-index') + ".png")
