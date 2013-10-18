@@ -34,8 +34,14 @@ $("#icolor2").icolor
   showInput: true
   title: false
 
+$("#icolor3").icolor
+  flat: true
+  colors: []
+  onSelect: (c) ->
+    @$tb.css "", c
 
-
+  showInput: true
+  title: false
 
 jQuery(document).ready ($) ->
   # We only want these styles applied when javascript is enabled
@@ -179,12 +185,79 @@ $(".qoute a").click ->
   set_belt_image(type, belt_id + ".png")
   set_buckle_image(type, buckle_id + ".png")
 
+# recent color combination tile generation
 
+resetColorValues = ->
+  if $('.active-belt').attr('src').indexOf("classic") != -1
+    window.beltType = 'classic'
+  else
+    window.beltType = 'skinny'
+  window.beltClickCount = 0
+  window.buckleClickCount = 0
+  window.beltIndex = 0
+  window.buckleIndex = 0
+  window.recentBelt = 0
+  window.recentBuckle = 0
+
+recentSelection = ->
+  if window.beltClickCount >= 1 && window.buckleClickCount >= 1
+    console.log("eoifjefioj")
+    $('#icolor_3').children().children().first().remove() if $('#icolor_3').children().children().length > 4
+    tile = $($('#icolor_3').children()[0]).append("<div style='margin-right: 3px; width: 42px; height: 40px; position: relative; border-radius: 50%; display:inline-block;'></div>").children().last()
+    paper = Raphael(tile[0], 42,40)
+    $(paper.canvas).css
+      'border-radius':'3px'
+      'box-shadow' : 'gray 1px 2px 2px'
+    paper.path('M 0 0 L 42 0 L 0 40 L 0 0').attr
+      'fill': window.recentBuckle
+      'stroke' : window.recentBuckle
+
+    paper.path('M 42 0 L 42 40 L 0 40').attr
+      'fill' : window.recentBelt
+      'stroke' : window.recentBelt
+
+    $(paper.canvas).wrap("<a class='recent-color-tile' type=" + beltType + " href='#' belt-index=" + window.beltIndex + " buckle-index=" + window.buckleIndex + "></a>")
+    recentSelectionClick()
+
+
+    # set_belt_image = (type, png) ->
+    #   $('.active-belt').attr("src","assets/belts/" + type + "/" + png)
+
+    # set_buckle_image = (type, png) ->
+    #   $('.active-buckle').attr("src","assets/buckles/" + type + "/" + png)
+
+recentSelectionClick = ->
+  $('.recent-color-tile').click (event) ->
+    event.preventDefault()
+    _this = $(this)
+    $('.next2').trigger('click') if _this.attr('type') != $("li[style='display: block;']").text().toLowerCase().trim()
+    window.buckleClickCount = 1
+    window.beltClickCount = 1
+    window.recentBuckle = $($(this).find('path').first()).attr('fill')
+    window.recentBelt = $($(this).find('path').last()).attr('fill')
+
+    if _this.attr('type') is 'classic'
+      set_belt_image('classic', _this.attr('belt-index') + ".png")
+      set_buckle_image('classic',_this.attr('buckle-index') + ".png")
+    else if _this.attr('type') is 'skinny'
+      set_belt_image('skinny', _this.attr('belt-index') + ".png")
+      set_buckle_image('skinny',_this.attr('buckle-index') + ".png")
+
+    return
+
+    # 'fill': "url('assets/pattern swatch/SW.jpg')"
+
+
+resetColorValues()
+
+# color tile generation and belt image switching
 $(".next2").click ->
   cycle_type("next")
+  resetColorValues()
 
 $(".prev2").click ->
   cycle_type("prev")
+  resetColorValues()
 
 cycle_type = (dir) ->
   update_type_index(dir)
@@ -245,7 +318,7 @@ get_type = ->
   active = $("#i-" + type_index + " p:first-child")
   return active.html().trim().toLowerCase()
 
-update_image_src = -> 
+update_image_src = ->
   type = get_type()
   set_belt_image(type, "0.png")
   set_buckle_image(type, "0.png")
@@ -286,8 +359,15 @@ set_icolor_click_listener = (id) ->
     type = get_type()
     if id is "1"
       set_belt_image(type, index+".png")
+      window.beltClickCount++
+      window.beltIndex = index
+      window.recentBelt = $(this).css('background-color')
     else
       set_buckle_image(type, index+".png")
+      window.buckleClickCount++
+      window.buckleIndex = index
+      window.recentBuckle = $(this).css('background-color')
+    recentSelection() if recentBelt != 0 && recentBuckle != 0
 
 add_pattern_swatches = (id) ->
   $("#icolor_" + id + " .icolor_ct td:nth-last-child(1)").html('<img src="assets/pattern swatch/Glow 5.jpg">')
