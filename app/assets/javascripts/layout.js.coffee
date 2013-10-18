@@ -188,7 +188,9 @@ $(".qoute a").click ->
 # recent color combination tile generation
 
 rgb2hex = (rgb) ->
-  if rgb.indexOf("#") is -1
+  if rgb.indexOf("#") != -1
+    rgb
+  else
     hex = (x) ->
       ("0" + parseInt(x).toString(16)).slice -2
     rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
