@@ -16,5 +16,6 @@
 //= require plugins/crawler
 //= require plugins/jquery.hcsticky-min
 //= require underscore
+//= require raphael
 //= require navbar_scroller
 //= require aligner

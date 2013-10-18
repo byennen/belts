@@ -3,22 +3,22 @@
     .container
       .span3
         .pallete-box
-          %ul.hides
+          %ul#type-titles.hides
             %li#i-1
-              %p THICK BELT
+              %p CLASSIC
             %li#i-2
-              %p THIN BELT
-            %li#i-3
-              %p FANCY BELT
-            %li#i-4
-              %p SIMPLE BELT
-            %li#i-5
-              %p LEATHER BELT
-          %a.next2{:href => "javascript:void(0);", :onclick => "next()"} >
-          %a.prev2{:href => "javascript:void(0);", :onclick => "back()"} <
+              %p SKINNY
+            /%li#i-3
+            / %p FANCY BELT
+            /%li#i-4
+            /  %p SIMPLE BELT
+            /%li#i-5
+            /  %p LEATHER BELT
+          %a.next2{:href => "javascript:void(0);"} >
+          %a.prev2{:href => "javascript:void(0);"} <
           .color-box
             %p Choose Belt Color:
-            #vertical-scrollbar-demo.colors.gray-skin.demo
+            %div
               #icolor.icolorC
               / icolor
             / colors
@@ -27,7 +27,7 @@
           / clearfix
           .color-box
             %p Choose Buckle Color:
-            #vertical-scrollbar-demo2.colors.gray-skin.demo
+            %div
               #icolor2.icolorC
               / icolor
             / colors
@@ -35,20 +35,13 @@
           .clearfix
           / clearfix
           .qoute
-            %p Feeling Adventurous? RANDOMIZE
+            %a Feeling Adventurous? RANDOMIZE
           / qoute
           .clearfix
           / clearfix
           .color-box
             %p Recent Color Schemes:
-            %a.recent-color{:href => "javascript:void(0);"}
-              %img{:alt => "Image", :src => "assets/recents-color.png"}/
-            %a.recent-color{:href => "javascript:void(0);"}
-              %img{:alt => "Image", :src => "assets/recents-color.png"}/
-            %a.recent-color{:href => "javascript:void(0);"}
-              %img{:alt => "Image", :src => "assets/recents-color.png"}/
-            %a.recent-color{:href => "javascript:void(0);"}
-              %img{:alt => "Image", :src => "assets/recents-color.png"}/
+            #icolor3.icolorC
             %a{"data-toggle" => "modal", :href => "#myModal", :role => "button"}
               %button.btn.btn2{:name => "btn"}
                 %i
@@ -118,7 +111,8 @@
       .span8
         .belt-assets
           %a{:href => "javascript:void(0);"}
-            %img{:alt => "Image", :src => "assets/belt-img.png"}/
+            %img.active-belt{:alt => "Image", :src => "assets/belts/classic/0.png"}/
+            %img.active-buckle{:alt => "Image", :src => "assets/buckles/classic/0.png"}/
         / belt-assets
       / span8
       .span1
