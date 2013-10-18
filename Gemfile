@@ -21,6 +21,7 @@ gem 'thin'
 gem "rmagick"
 gem "carrierwave"
 gem 'cloudinary'
+gem 'money'
 
 
 group :development do
