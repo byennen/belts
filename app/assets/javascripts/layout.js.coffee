@@ -168,8 +168,16 @@ jQuery(document).ready ($) ->
         $(".div-top-bar").css "top", "-300px"
 
 
-
-
+$(".qoute a").click ->
+  type = get_type()
+  if type is "skinny"
+    belt_id = Math.floor(Math.random()*SKINNY_BELT_COLORS.length)
+    buckle_id = Math.floor(Math.random()*SKINNY_BUCKLE_COLORS.length)
+  else if type is "classic"
+    belt_id = Math.floor(Math.random()*CLASSIC_BELT_COLORS.length)
+    buckle_id = Math.floor(Math.random()*CLASSIC_BUCKLE_COLORS.length)
+  set_belt_image(type, belt_id + ".png")
+  set_buckle_image(type, buckle_id + ".png")
 
 
 $(".next2").click ->
@@ -264,6 +272,7 @@ redraw_icolor = (colors, id) ->
 
 
 init_icolor_1 = ->
+  add_pattern_swatches("1") if get_type() is "classic"
   set_icolor_click_listener("1")
 
 init_icolor_2 = ->
@@ -280,6 +289,12 @@ set_icolor_click_listener = (id) ->
     else
       set_buckle_image(type, index+".png")
 
+add_pattern_swatches = (id) ->
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(1)").html('<img src="assets/pattern swatch/Glow 5.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(2)").html('<img src="assets/pattern swatch/AM.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(3)").html('<img src="assets/pattern swatch/SW.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(4)").html('<img src="assets/pattern swatch/HC.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(5)").html('<img src="assets/pattern swatch/CF.jpg">')
 
 init_icolor_1()
 init_icolor_2()
