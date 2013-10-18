@@ -187,6 +187,12 @@ $(".qoute a").click ->
 
 # recent color combination tile generation
 
+rgb2hex = (rgb) ->
+  hex = (x) ->
+    ("0" + parseInt(x).toString(16)).slice -2
+  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+  "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
+
 resetColorValues = ->
   if $('.active-belt').attr('src').indexOf("classic") != -1
     window.beltType = 'classic'
@@ -199,42 +205,48 @@ resetColorValues = ->
   window.recentBelt = 0
   window.recentBuckle = 0
 
+imageTileCheck = ->
+  if window.recentBelt.indexOf("assets") != -1 && window.recentBelt.indexOf("url") is -1
+    fillColor = "url(" + "\'" + window.recentBelt + "\'" + ")"
+  else
+    rgb2hex(window.recentBelt)
+
+
 recentSelection = ->
   if window.beltClickCount >= 1 && window.buckleClickCount >= 1
-    console.log("eoifjefioj")
     $('#icolor_3').children().children().first().remove() if $('#icolor_3').children().children().length > 4
     tile = $($('#icolor_3').children()[0]).append("<div style='margin-right: 3px; width: 42px; height: 40px; position: relative; border-radius: 50%; display:inline-block;'></div>").children().last()
     paper = Raphael(tile[0], 42,40)
     $(paper.canvas).css
       'border-radius':'3px'
       'box-shadow' : 'gray 1px 2px 2px'
+
     paper.path('M 0 0 L 42 0 L 0 40 L 0 0').attr
       'fill': window.recentBuckle
       'stroke' : window.recentBuckle
 
     paper.path('M 42 0 L 42 40 L 0 40').attr
-      'fill' : window.recentBelt
+      'fill' : imageTileCheck()
       'stroke' : window.recentBelt
 
-    $(paper.canvas).wrap("<a class='recent-color-tile' type=" + beltType + " href='#' belt-index=" + window.beltIndex + " buckle-index=" + window.buckleIndex + "></a>")
+    $(paper.canvas).wrap("<a class='recent-color-tile' type=" + beltType + " href='#' belt-index=" +
+                          window.beltIndex + " buckle-index=" + window.buckleIndex +
+                          " belt-color=" + imageTileCheck() + " buckle-color=" + rgb2hex(window.recentBuckle) +
+                          " ></a>")
     recentSelectionClick()
 
-
-    # set_belt_image = (type, png) ->
-    #   $('.active-belt').attr("src","assets/belts/" + type + "/" + png)
-
-    # set_buckle_image = (type, png) ->
-    #   $('.active-buckle').attr("src","assets/buckles/" + type + "/" + png)
 
 recentSelectionClick = ->
   $('.recent-color-tile').click (event) ->
     event.preventDefault()
     _this = $(this)
-    $('.next2').trigger('click') if _this.attr('type') != $("li[style='display: block;']").text().toLowerCase().trim()
+
+    $('.next2').trigger('click') if $('.active-belt').attr("src").indexOf(_this.attr("type")) is -1
+
     window.buckleClickCount = 1
     window.beltClickCount = 1
-    window.recentBuckle = $($(this).find('path').first()).attr('fill')
-    window.recentBelt = $($(this).find('path').last()).attr('fill')
+    window.recentBuckle = $(this).attr("buckle-color")
+    window.recentBelt = $(this).attr("belt-color")
 
     if _this.attr('type') is 'classic'
       set_belt_image('classic', _this.attr('belt-index') + ".png")
@@ -244,9 +256,6 @@ recentSelectionClick = ->
       set_buckle_image('skinny',_this.attr('buckle-index') + ".png")
 
     return
-
-    # 'fill': "url('assets/pattern swatch/SW.jpg')"
-
 
 resetColorValues()
 
@@ -361,7 +370,10 @@ set_icolor_click_listener = (id) ->
       set_belt_image(type, index+".png")
       window.beltClickCount++
       window.beltIndex = index
-      window.recentBelt = $(this).css('background-color')
+      if $(this).children().length > 0
+        window.recentBelt = $(this).children().attr("src")
+      else
+        window.recentBelt = $(this).css('background-color')
     else
       set_buckle_image(type, index+".png")
       window.buckleClickCount++
@@ -370,11 +382,11 @@ set_icolor_click_listener = (id) ->
     recentSelection() if recentBelt != 0 && recentBuckle != 0
 
 add_pattern_swatches = (id) ->
-  $("#icolor_" + id + " .icolor_ct td:nth-last-child(1)").html('<img src="assets/pattern swatch/Glow 5.jpg">')
-  $("#icolor_" + id + " .icolor_ct td:nth-last-child(2)").html('<img src="assets/pattern swatch/AM.jpg">')
-  $("#icolor_" + id + " .icolor_ct td:nth-last-child(3)").html('<img src="assets/pattern swatch/SW.jpg">')
-  $("#icolor_" + id + " .icolor_ct td:nth-last-child(4)").html('<img src="assets/pattern swatch/HC.jpg">')
-  $("#icolor_" + id + " .icolor_ct td:nth-last-child(5)").html('<img src="assets/pattern swatch/CF.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(1)").html('<img src="assets/pattern/Glow 5.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(2)").html('<img src="assets/pattern/AM.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(3)").html('<img src="assets/pattern/SW.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(4)").html('<img src="assets/pattern/HC.jpg">')
+  $("#icolor_" + id + " .icolor_ct td:nth-last-child(5)").html('<img src="assets/pattern/CF.jpg">')
 
 init_icolor_1()
 init_icolor_2()
