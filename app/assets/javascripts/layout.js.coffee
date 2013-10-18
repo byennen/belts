@@ -188,10 +188,11 @@ $(".qoute a").click ->
 # recent color combination tile generation
 
 rgb2hex = (rgb) ->
-  hex = (x) ->
-    ("0" + parseInt(x).toString(16)).slice -2
-  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-  "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
+  if rgb.indexOf("#") is -1
+    hex = (x) ->
+      ("0" + parseInt(x).toString(16)).slice -2
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+    "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
 
 resetColorValues = ->
   if $('.active-belt').attr('src').indexOf("classic") != -1
