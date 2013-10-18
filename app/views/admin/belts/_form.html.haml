@@ -2,9 +2,19 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :hex_color
-    = f.input :image
+    = f.input :name, placeholder: 'black'
+    .row-fluid
+      .span12
+        %h2 Pick one
+    .row-fluid
+      .span6
+        = f.input :hex_color, placeholder: '#000000'
+      .span6
+        = f.input :belt_pattern_image, label: 'Upload Pattern'
+    .row-fluid
+      .span12
+        %h3 Main Image Upload
+        = f.input :image
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-inverse'

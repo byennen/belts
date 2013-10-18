@@ -4,6 +4,7 @@ class Belt < ActiveRecord::Base
   before_destroy :ensure_not_referenced_by_any_line_item
 
   mount_uploader :image, BeltUploader
+  mount_uploader :belt_pattern_image, BeltPatternUploader
 
   private
 
