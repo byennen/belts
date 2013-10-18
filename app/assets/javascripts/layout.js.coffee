@@ -365,8 +365,19 @@ init_icolor_1 = ->
 init_icolor_2 = ->
   set_icolor_click_listener("2")
 
+show_loading_gif = ->
+  $('.active-belt').hide()
+  $('.active-buckle').hide()
+  $('#loading_image').show()
+
+hide_loading_gif = ->
+  $('#loading_image').hide()
+  $('.active-belt').show()
+  $('.active-buckle').show()
+
 set_icolor_click_listener = (id) ->
   $("#icolor_" + id + " .icolor_ct td").click (event) ->
+    show_loading_gif()
     td_index = $(this).index()
     tr_index = $(this).parent("tr").index()
     index = tr_index*columns + td_index
@@ -385,6 +396,7 @@ set_icolor_click_listener = (id) ->
       window.buckleIndex = index
       window.recentBuckle = $(this).css('background-color')
     recentSelection() if recentBelt != 0 && recentBuckle != 0
+    hide_loading_gif();
 
 add_pattern_swatches = (id) ->
   $("#icolor_" + id + " .icolor_ct td:nth-last-child(1)").html('<img src="assets/pattern/Glow 5.jpg">')
