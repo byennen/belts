@@ -5,7 +5,9 @@
       %thead
         %tr
           %th Name
+          %th Style
           %th Hex color
+          %th Pattern
           %th Image
           %th
           %th
@@ -13,8 +15,10 @@
         - @belts.each do |belt|
           %tr
             %td= belt.name
+            %td= belt.style.name
             %td= belt.hex_color
-            %td= image_tag belt.image_url(:small) if belt.image?
+            %td= image_tag belt.belt_pattern_image.url if belt.belt_pattern_image?
+            %td= image_tag belt.image.url(:medium) if belt.image?
             %td= link_to 'Edit', edit_admin_belt_path(belt)
             %td= link_to 'Destroy', admin_belt_path(belt), :method => :delete, :data => { :confirm => 'Are you sure?' }
 

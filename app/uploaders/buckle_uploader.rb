@@ -11,6 +11,10 @@ class BuckleUploader < CarrierWave::Uploader::Base
     process :scale => [50, 50]
   end
 
+  version :medium do
+    process :scale => [150]
+  end
+
   version :large do
     process :scale => [770, 477]
   end

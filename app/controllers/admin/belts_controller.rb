@@ -4,7 +4,7 @@ class Admin::BeltsController < Admin::ApplicationController
   # GET /belts
   # GET /belts.json
   def index
-    @belts = Belt.all
+    @belts = Belt.all.order("id asc")
   end
 
   # GET /belts/1
@@ -69,6 +69,6 @@ class Admin::BeltsController < Admin::ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def belt_params
-    params.require(:belt).permit(:name, :hex_color, :image, :belt_pattern_image)
+    params.require(:belt).permit(:name, :hex_color, :image, :belt_pattern_image, :style_id)
   end
 end
