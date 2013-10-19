@@ -5,6 +5,7 @@
       %thead
         %tr
           %th Name
+          %th Style
           %th Hex color
           %th Image
           %th
@@ -14,8 +15,9 @@
         - @buckles.each do |buckle|
           %tr
             %td= buckle.name
+            %td= buckle.style.name
             %td= buckle.hex_color
-            %td= image_tag buckle.image_url(:small) if buckle.image?
+            %td= image_tag buckle.image_url(:medium) if buckle.image?
             %td= link_to 'Edit', edit_admin_buckle_path(buckle)
             %td= link_to 'Destroy', admin_buckle_path(buckle), :method => :delete, :data => { :confirm => 'Are you sure?' }
 

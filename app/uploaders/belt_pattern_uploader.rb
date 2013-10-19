@@ -6,6 +6,10 @@ class BeltPatternUploader < CarrierWave::Uploader::Base
   process :convert => 'png'
   process :tags => ['post_picture']
 
+  def store_dir
+    "patterns/#{model.id}"
+  end
+
   # Create different versions of your uploaded files:
   version :small do
     process :scale => [50, 50]

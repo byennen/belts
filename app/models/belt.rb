@@ -1,7 +1,9 @@
 class Belt < ActiveRecord::Base
   has_many :line_items
+  belongs_to :style
 
   before_destroy :ensure_not_referenced_by_any_line_item
+  validates_presence_of :image
 
   mount_uploader :image, BeltUploader
   mount_uploader :belt_pattern_image, BeltPatternUploader
