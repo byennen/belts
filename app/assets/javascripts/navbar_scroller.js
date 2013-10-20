@@ -1,14 +1,22 @@
 $(document).ready(function(){
   // sticky navbar code
   $('div.main-navbar-fixed').hcSticky({
-      wrapperClassName: 'wrapper-sticky',
-      responsive: true,
-      onStart: function() {
-        $('div.main-navbar-fixed').show()
-      },
-      onStop: function() {
-        // $('div.main-navbar-fixed').hide()
-      }
+    wrapperClassName: 'wrapper-sticky',
+    responsive: true,
+    onStart: function() {
+      $('div.main-navbar-fixed').show()
+    },
+    onStop: function() {
+      // $('div.main-navbar-fixed').hide()
+    }
+  });
+
+  function scrollToAnchor(href) {
+    $('html,body').animate({scrollTop: $(href).offset().top},'slow');
+  };
+
+  $('ul#nav a').click(function(){
+    scrollToAnchor($(this).attr('href'))
   });
 
   // about us page images
