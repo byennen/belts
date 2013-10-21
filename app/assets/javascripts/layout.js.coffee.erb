@@ -196,22 +196,16 @@ $(".randomize a").click ->
   set_buckle_image(new_buckle_url)
 
 # recent color combination tile generation
+$("li#i-1").css("display", "block")
+window.beltType = "classic"
 
-
-rgb2hex = (rgb) ->
-  if rgb.indexOf("#") != -1
-    rgb
+setBeltType = ->
+  if $("li#i-1").attr("style") is "display: block;"
+    window.beltType = "classic"
   else
-    hex = (x) ->
-      ("0" + parseInt(x).toString(16)).slice -2
-    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-    "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
+    window.beltType = "skinny"
 
 resetColorValues = ->
-  if $('.active-belt').attr('src').indexOf("classic") != -1
-    window.beltType = 'classic'
-  else
-    window.beltType = 'skinny'
   window.beltClickCount = 0
   window.buckleClickCount = 0
   window.beltIndex = 0
@@ -220,14 +214,15 @@ resetColorValues = ->
   window.recentBuckle = 0
 
 imageTileCheck = ->
-  if window.recentBelt.indexOf("assets") != -1 && window.recentBelt.indexOf("url") is -1
+  if window.recentBelt.indexOf("cloudinary") != -1
     fillColor = "url(" + "\'" + window.recentBelt + "\'" + ")"
   else
-    rgb2hex(window.recentBelt)
+    window.recentBelt
 
 
 recentSelection = ->
   if window.beltClickCount >= 1 && window.buckleClickCount >= 1
+    setBeltType()
     $('#icolor_3').children().children().first().remove() if $('#icolor_3').children().children().length > 4
     tile = $($('#icolor_3').children()[0]).append("<div style='margin-right: 3px; width: 42px; height: 40px; position: relative; border-radius: 50%; display:inline-block;'></div>").children().last()
     paper = Raphael(tile[0], 42,40)
@@ -243,9 +238,9 @@ recentSelection = ->
       'fill' : imageTileCheck()
       'stroke' : window.recentBelt
 
-    $(paper.canvas).wrap("<a class='recent-color-tile' type=" + beltType + " href='#' belt-index=" +
-                          window.beltIndex + " buckle-index=" + window.buckleIndex +
-                          " belt-color=" + imageTileCheck() + " buckle-color=" + rgb2hex(window.recentBuckle) +
+    $(paper.canvas).wrap("<a class='recent-color-tile' type=" + beltType + " href='#' belt-url=" +
+                          window.beltIndex + " buckle-url=" + window.buckleIndex +
+                          " belt-color=" + imageTileCheck() + " buckle-color=" + window.recentBuckle +
                           " ></a>")
     recentSelectionClick()
 
@@ -254,22 +249,20 @@ recentSelectionClick = ->
   $('.recent-color-tile').click (event) ->
     event.preventDefault()
     _this = $(this)
-
-    $('.next2').trigger('click') if $('.active-belt').attr("src").indexOf(_this.attr("type")) is -1
+    if (_this.attr("type") is "classic") && ($("#i-1").attr("style") is "display: none;")
+      $(".next2").trigger('click')
+    else if (_this.attr("type") is "skinny") && ($("#i-2").attr("style") is "display: none;")
+      $(".next2").trigger('click')
 
     window.buckleClickCount = 1
     window.beltClickCount = 1
     window.recentBuckle = $(this).attr("buckle-color")
     window.recentBelt = $(this).attr("belt-color")
-    window.beltIndex = $(this).attr("belt-index")
-    window.buckleIndex = $(this).attr("buckle-index")
+    window.beltIndex = $(this).attr("belt-url")
+    window.buckleIndex = $(this).attr("buckle-url")
 
-    if _this.attr('type') is 'classic'
-      set_belt_image(2)
-      set_buckle_image('classic',_this.attr('buckle-index') + ".png")
-    else if _this.attr('type') is 'skinny'
-      set_belt_image(2)
-      set_buckle_image('skinny',_this.attr('buckle-index') + ".png")
+    set_belt_image(beltIndex)
+    set_buckle_image(buckleIndex)
 
     return
 
@@ -392,7 +385,7 @@ set_icolor_click_listener = (id) ->
     if id is "1"
       set_belt_image($(this).attr("image_url"))
       window.beltClickCount++
-      window.beltIndex = index
+      window.beltIndex = $(this).attr("image_url")
       if $(this).children().length > 0
         window.recentBelt = $(this).children().attr("src")
       else
@@ -400,7 +393,7 @@ set_icolor_click_listener = (id) ->
     else
       set_buckle_image($(this).attr("image_url"))
       window.buckleClickCount++
-      window.buckleIndex = index
+      window.buckleIndex = $(this).attr("image_url")
       window.recentBuckle = $(this).css('background-color')
     recentSelection() if recentBelt != 0 && recentBuckle != 0
     hide_loading_gif()
@@ -409,7 +402,7 @@ set_icolor_click_listener = (id) ->
 add_pattern_swatches = (id) ->
   _.each CLASSIC_BELT_PATTERNS, (tile) ->
     $("#icolor_" + id + " .icolor_ct tr:last-child").append('<td image_url=' + tile[1] + '><img src="' + tile[0] + '"></td>')
-    
+
 
 init_tile_table(CLASSIC_BELTS, "1")
 init_tile_table(CLASSIC_BUCKLES, "2")
