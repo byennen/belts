@@ -4,7 +4,7 @@
     %h3#cartModalLabel SHOPPING CART
   / modal-header
   #cart.modal-body
-    = render @cart
+    = render @cart if user_signed_in?
     / pro-detail
   / modal-body
   .modal-footer
