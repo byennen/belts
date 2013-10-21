@@ -203,6 +203,8 @@ rgb2hex = (rgb) ->
       ("0" + parseInt(x).toString(16)).slice -2
     rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
     "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
+  else
+    rgb
 
 $("li#i-1").css("display", "block")
 window.beltType = "classic"
