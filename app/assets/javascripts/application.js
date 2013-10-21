@@ -20,3 +20,4 @@
 //= require raphael
 //= require navbar_scroller
 //= require aligner
+//= require add_to_cart

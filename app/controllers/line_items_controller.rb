@@ -6,8 +6,14 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    belt = Belt.find(params[:belt_id])
-    buckle = Buckle.find(params[:buckle_id])
+    if params[:belt_id]
+      belt = Belt.find(params[:belt_id])
+      buckle = Buckle.find(params[:buckle_id])
+    else
+      belt = Belt.find_by_image(params[:belt_url].match(/upload\/(.*)/)[1])
+      buckle = Buckle.find_by_image(params[:buckle_url].match(/upload\/(.*)/)[1])
+    end
+
     @line_item = @cart.add_product(belt.id, buckle.id)
 
     respond_to do |format|
