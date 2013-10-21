@@ -24,20 +24,63 @@ user3.add_role :admin
 classic = Style.create(name: "classic")
 skinny = Style.create(name: "skinny")
 
-Belt.create(name: "black", hex_color: "2D2926", style_id: "1", price_cents: 4000, price_currency: "USD")
-#Belt.create(name: "baby blue", hex_color: "AED8EE", style_id: 1, price_cents: 4000, price_currency: "USD")
-#Belt.create(name: "blue", hex_color: "1D1F91", style_id: 1, price_cents: 4000, price_currency: "USD")
-#Belt.create(name: "brown", hex_color: "453625", style_id: 1, price_cents: 4000, price_currency: "USD")
-#
-#Buckle.create(name: "black", hex_color: "2D2926", style_id: 1, price_cents: 500, price_currency: "USD")
-#Buckle.create(name: "baby blue", hex_color: "84C4E5", style_id: 1, price_cents: 500, price_currency: "USD")
-#Buckle.create(name: "blue", hex_color: "1D1F91", style_id: 1, price_cents: 500, price_currency: "USD")
-#Buckle.create(name: "brown", hex_color: "5E311D", style_id: 1, price_cents: 500, price_currency: "USD")
-#
-#Belt.create(name: "baby blue", hex_color: "6EAED6", style_id: 2, price_cents: 3000, price_currency: "USD")
-#Belt.create(name: "black", hex_color: "2D2926", style_id: 2, price_cents: 3000, price_currency: "USD")
-#Belt.create(name: "hot pink", hex_color: "E31C79", style_id: 2, price_cents: 3000, price_currency: "USD")
-#
-#Buckle.create(name: "baby blue", hex_color: "6EAED6", style_id: 2, price_cents: 500, price_currency: "USD")
-#Buckle.create(name: "black", hex_color: "2D2926", style_id: 2, price_cents: 500, price_currency: "USD")
-#Buckle.create(name: "hot pink", hex_color: "E31C79", style_id: 2, price_cents: 500, price_currency: "USD")
+def image_url(type, style, filename)
+  Rails.root.join('app', 'assets', 'images', type, style, filename).to_s
+end
+
+def pattern_url(filename)
+  Rails.root.join('app', 'assets', 'images', 'pattern', filename).to_s
+end
+
+Belt.create(name: "Black", hex_color: "2D2926", style_id: 1, price_cents: 4000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'classic', '0.png'))
+
+Belt.create(name: "Baby Blue", hex_color: "AED8EE", style_id: 1, price_cents: 4000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'classic', '1.png'))
+
+Belt.create(name: "Blue", hex_color: "1D1F91", style_id: 1, price_cents: 4000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'classic', '2.png'))
+
+Belt.create(name: "Brown", hex_color: "453625", style_id: 1, price_cents: 4000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'classic', '3.png'))
+
+Belt.create(name: "Camo", hex_color: "", style_id: 1, price_cents: 4000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'classic', '24.png'),
+  remote_belt_pattern_image_url: pattern_url('CF.jpg'))
+
+Belt.create(name: "American", hex_color: "", style_id: 1, price_cents: 4000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'classic', '27.png'),
+  remote_belt_pattern_image_url: pattern_url('AM.jpg'))
+
+
+Buckle.create(name: "Black", hex_color: "2D2926", style_id: 1, price_cents: 500, price_currency: "USD",
+  remote_image_url: image_url('buckles', 'classic', '0.png'))
+
+Buckle.create(name: "Baby Blue", hex_color: "84C4E5", style_id: 1, price_cents: 500, price_currency: "USD",
+  remote_image_url: image_url('buckles', 'classic', '1.png'))
+
+Buckle.create(name: "Blue", hex_color: "1D1F91", style_id: 1, price_cents: 500, price_currency: "USD",
+  remote_image_url: image_url('buckles', 'classic', '2.png'))
+
+Buckle.create(name: "Brown", hex_color: "5E311D", style_id: 1, price_cents: 500, price_currency: "USD",
+  remote_image_url: image_url('buckles', 'classic', '3.png'))
+
+
+Belt.create(name: "Baby Blue", hex_color: "6EAED6", style_id: 2, price_cents: 3000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'skinny', '0.png'))
+
+Belt.create(name: "Black", hex_color: "2D2926", style_id: 2, price_cents: 3000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'skinny', '1.png'))
+
+Belt.create(name: "Hot Pink", hex_color: "E31C79", style_id: 2, price_cents: 3000, price_currency: "USD",
+  remote_image_url: image_url('belts', 'skinny', '2.png'))
+
+
+Buckle.create(name: "Baby Blue", hex_color: "6EAED6", style_id: 2, price_cents: 500, price_currency: "USD",
+  remote_image_url: image_url('buckles', 'skinny', '0.png'))
+
+Buckle.create(name: "Black", hex_color: "2D2926", style_id: 2, price_cents: 500, price_currency: "USD",
+  remote_image_url: image_url('buckles', 'skinny', '1.png'))
+
+Buckle.create(name: "Hot Pink", hex_color: "E31C79", style_id: 2, price_cents: 500, price_currency: "USD",
+  remote_image_url: image_url('buckles', 'skinny', '2.png'))
