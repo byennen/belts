@@ -1,9 +1,5 @@
 C4belts::Application.routes.draw do
 
-  resources :line_items
-
-  resources :carts
-
   #blog
   get 'blog', to: 'blog#index', as: 'blogs'
   get 'blog/posts/show', to: 'blog#post_1', as: 'blog'
@@ -19,6 +15,9 @@ C4belts::Application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
+  resources :orders
+  resources :line_items
+  resources :carts
 
   #admin
   namespace :admin do

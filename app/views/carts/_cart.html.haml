@@ -1,0 +1,55 @@
+.row-fluid
+  .span12
+    - if cart.line_items.empty?
+      %p Your cart is empty.
+    - unless cart.line_items.empty?
+      %table
+        = render(cart.line_items)
+
+        %tr.total_line
+          %td Total
+          %td.total_cell
+            -#TODO: Make total price work
+            -#= number_to_currency(cart.total_price)
+      = button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' }
+
+
+
+-#TODO: cart styled
+-#.product
+-#  %a.pro-assets{:href => "javascript:void(0);"}
+-#    %img{:alt => "Image", :src => "assets/pro-img.png"}/
+-#  .quantity
+-#    %p ORANGE/PURPLE
+-#    %ul
+-#      %li
+-#        %select
+-#          %option 01
+-#          %option 02
+-#          %option 03
+-#          %option 04
+-#          %option 05
+-#  / quantity
+-#  %p.rate
+-#    $100.
+-#    %span 00
+-#    \       X
+-#  .clearfix
+-#  / clearfix
+-#/ product
+-#.clearfix
+-#/ clearfix
+-#.pro-detail
+-#  %ul
+-#    %li
+-#      %p CART SUBTOTAL
+-#      %span $100
+-#    %li
+-#      %p SHIPPING
+-#      %span FREE
+-#    %li
+-#      %p ORDER TOTAL
+-#      %span $100
+-#    %li
+-#    %li
+-#      %i Please choose your cause at checkout

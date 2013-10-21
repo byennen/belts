@@ -1,0 +1,24 @@
+-#TODO: Dry this up into a helper. -Lance
+
+- if line_item == @current_item
+  %tr{id: 'current_item'}
+    %td= line_item.quantity
+    %td
+      &times;
+      = line_item.buckle.name
+      %i (Buckle)
+      = ' + '
+      = line_item.belt.name
+      %i (Belt)
+    %td=# line_item.total_price
+- else
+  %tr
+    %td= line_item.quantity
+    %td
+      &times;
+      = line_item.buckle.name
+      %i (Buckle)
+      = ' + '
+      = line_item.belt.name
+      %i (Belt)
+    %td=# line_item.total_price

@@ -1,0 +1,17 @@
+#cartModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "cartModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#cartModalLabel SHOPPING CART
+  / modal-header
+  #cart.modal-body
+    = render @cart
+    / pro-detail
+  / modal-body
+  .modal-footer
+    %a{:href => "javascript:void(0);"} Continue Browsing
+    %a.btn.btn2{href: new_order_path, method: :get}
+      %i
+        %img{:alt => "Image", :src => "../../assets/cart-icon.png"}
+      CHECK OUT
+
+

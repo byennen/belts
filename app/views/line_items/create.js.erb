@@ -1,0 +1,4 @@
+$('#notice').hide();
+$('#cart').html("<%= escape_javascript render(@cart) %>");
+$("#cartModal").modal('show');
+$('#current_item').css({'background-color':'#CCCCCC'}).animate({'background-color':'#FFFFFF'}, 2500);

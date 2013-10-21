@@ -37,7 +37,7 @@
                   %li
                     %a{:href => retailers_path} retailers
                   %li
-                    %a{:href => "javascript:void(0);"}
+                    %a{"data-toggle" => "modal", :href => "#cartModal", :role => "button"}
                       %i
                         %img{:alt => "Image", :src => "../assets/cart-icon-dark.png"}/
                       view cart

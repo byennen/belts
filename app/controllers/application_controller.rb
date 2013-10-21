@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
 
   layout 'application'
 
+  include CurrentCart
+  before_action :set_cart
+
 end

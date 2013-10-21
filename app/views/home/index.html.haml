@@ -1,3 +1,6 @@
+= button_to 'Add to Cart', line_items_path(buckle_id: '3', belt_id: '2'), remote: true
+= button_to 'Add to Cart', line_items_path(buckle_id: '1', belt_id: '2'), remote: true
+
 .container-fluid
   #shop.row-fluid
     .container
@@ -42,7 +45,7 @@
           .color-box
             %p Recent Color Schemes:
             #icolor3.icolorC
-            %a{"data-toggle" => "modal", :href => "#myModal", :role => "button"}
+            %a{"data-toggle" => "modal", :href => "#cartModal", :role => "button"}
               %button.btn.btn2{:name => "btn"}
                 %i
                   %img{:alt => "Image", :src => "assets/cart-icon.png"}/
@@ -50,64 +53,7 @@
           / color-box
           .clearfix
           / clearfix
-          / Modal
-          #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-              %h3#myModalLabel SHOPPING CART
-            / modal-header
-            .modal-body
-              .product
-                %a.pro-assets{:href => "javascript:void(0);"}
-                  %img{:alt => "Image", :src => "assets/pro-img.png"}/
-                .quantity
-                  %p ORANGE/PURPLE
-                  %ul
-                    %li
-                      %select
-                        %option 01
-                        %option 02
-                        %option 03
-                        %option 04
-                        %option 05
-                / quantity
-                %p.rate
-                  $100.
-                  %span 00
-                  \       X
-                .clearfix
-                / clearfix
-              / product
-              .clearfix
-              / clearfix
-              .pro-detail
-                %ul
-                  %li
-                    %p CART SUBTOTAL
-                    %span $100
-                  %li
-                    %p SHIPPING
-                    %span FREE
-                  %li
-                    %p ORDER TOTAL
-                    %span $100
-                  %li
-                  %li
-                    %i Please choose your cause at checkout
-              / pro-detail
-            / modal-body
-            .modal-footer
-              %a{:href => "javascript:void(0);"} Continue Browsing
-              %button.btn.btn2
-                %i
-                  %img{:alt => "Image", :src => "assets/cart-icon.png"}/
-                CHECK OUT
-            / modal-footer
-          / modal
-        / pallete-box
-        .clearfix
-        / clearfix
-      / span3
+
       .span8
         .belt-assets
           %a{:href => "javascript:void(0);"}

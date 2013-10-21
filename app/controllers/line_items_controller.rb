@@ -1,29 +1,19 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-
   before_action :set_cart, only: [:create]
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-
-
-  # GET /line_items/1
-  # GET /line_items/1.json
-  def show
-  end
-
-  # GET /line_items/1/edit
-  def edit
-  end
+  before_action :set_line_item, only: [:update, :destroy]
 
   # POST /line_items
   # POST /line_items.json
   def create
     belt = Belt.find(params[:belt_id])
     buckle = Buckle.find(params[:buckle_id])
-    @line_item = @cart.line_items.build(belt: belt, buckle: buckle)
+    @line_item = @cart.add_product(belt.id, buckle.id)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.html { redirect_to root_url }
+        format.js { @current_item = @line_item }
         format.json { render action: 'show', status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
@@ -64,6 +54,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:buckle_id, :belt_id, :cart_id)
+      params.require(:line_item).permit(:buckle_id, :belt_id)
     end
 end
