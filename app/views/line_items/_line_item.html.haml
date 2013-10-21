@@ -5,20 +5,22 @@
     %td= line_item.quantity
     %td
       &times;
+      = line_item.buckle.style.name
       = line_item.buckle.name
-      %i (Buckle)
+      = Buckle
       = ' + '
       = line_item.belt.name
-      %i (Belt)
+      = Belt
     %td=# line_item.total_price
 - else
   %tr
     %td= line_item.quantity
     %td
       &times;
+      = line_item.buckle.style.name
       = line_item.buckle.name
-      %i (Buckle)
+      = Buckle
       = ' + '
       = line_item.belt.name
-      %i (Belt)
+      = Belt
     %td=# line_item.total_price
