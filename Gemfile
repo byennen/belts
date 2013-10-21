@@ -23,6 +23,7 @@ gem "rmagick"
 gem "carrierwave"
 gem 'cloudinary'
 gem 'money'
+gem 'stripe'
 
 
 group :development do
