@@ -196,6 +196,14 @@ $(".randomize a").click ->
   set_buckle_image(new_buckle_url)
 
 # recent color combination tile generation
+
+rgb2hex = (rgb) ->
+  if rgb.indexOf("#") is -1 && rgb.indexOf("cloudinary") is -1
+    hex = (x) ->
+      ("0" + parseInt(x).toString(16)).slice -2
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+    "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
+
 $("li#i-1").css("display", "block")
 window.beltType = "classic"
 
@@ -214,7 +222,7 @@ resetColorValues = ->
   window.recentBuckle = 0
 
 imageTileCheck = ->
-  if window.recentBelt.indexOf("cloudinary") != -1
+  if window.recentBelt.indexOf("cloudinary") != -1 && window.recentBelt.indexOf("url") is -1
     fillColor = "url(" + "\'" + window.recentBelt + "\'" + ")"
   else
     window.recentBelt
@@ -240,7 +248,7 @@ recentSelection = ->
 
     $(paper.canvas).wrap("<a class='recent-color-tile' type=" + beltType + " href='#' belt-url=" +
                           window.beltIndex + " buckle-url=" + window.buckleIndex +
-                          " belt-color=" + imageTileCheck() + " buckle-color=" + window.recentBuckle +
+                          " belt-color=" + rgb2hex(imageTileCheck()) + " buckle-color=" + rgb2hex(window.recentBuckle) +
                           " ></a>")
     recentSelectionClick()
 
@@ -386,10 +394,7 @@ set_icolor_click_listener = (id) ->
       set_belt_image($(this).attr("image_url"))
       window.beltClickCount++
       window.beltIndex = $(this).attr("image_url")
-      if $(this).children().length > 0
-        window.recentBelt = $(this).children().attr("src")
-      else
-        window.recentBelt = $(this).css('background-color')
+      window.recentBelt = $(this).children().attr('src') || $(this).css('background-color')
     else
       set_buckle_image($(this).attr("image_url"))
       window.buckleClickCount++
