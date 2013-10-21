@@ -2,10 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :hex_color
-    = f.input :image
+    = f.input :name, placeholder: 'Black'
     = f.association :style
+    = f.input :hex_color, placeholder: '#000000'
+    %h3 Main Buckle Image Upload
+    = f.input :image, hint: 'Large buckle image located on the homepage'
 
   .form-actions
     = f.button :submit, class: 'btn btn-inverse'

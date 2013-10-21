@@ -72,8 +72,8 @@
     / row-fluid
     .clearfix
     / clearfix
-
-= render 'shared/cart_modal'
+- unless params[:controller] == 'devise/sessions'
+  = render 'shared/cart_modal'
 
 / container-fluid
 = javascript_include_tag 'plugins/jquery.jcarousel.min', 'plugins/jcarousel.basic', 'plugins/jquery.custom-scrollbar', 'plugins/jquery.icolor.min',

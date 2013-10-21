@@ -31,15 +31,16 @@
             %span.icon-bar
           %a.brand{:href => admin_root_path} C4 Belts
           .nav-collapse.collapse
-            %ul.nav
-              %li= link_to 'Belts', admin_belts_path
-              %li= link_to 'Buckles', admin_buckles_path
-              %li= link_to 'Orders', admin_orders_path
-              %li= link_to 'Users', admin_users_path
+            - if current_user.present?
+              %ul.nav
+                %li= link_to 'Belts', admin_belts_path
+                %li= link_to 'Buckles', admin_buckles_path
+                %li= link_to 'Orders', admin_orders_path
+                %li= link_to 'Users', admin_users_path
 
 
-            %ul.nav.pull-right
-              %li= link_to 'Homepage', root_path
+              %ul.nav.pull-right
+                %li= link_to 'Homepage', root_path
     .container
       = render 'layouts/messages'
       = yield
