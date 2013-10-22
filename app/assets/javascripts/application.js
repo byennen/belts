@@ -22,3 +22,4 @@
 //= require aligner
 //= require add_to_cart
 //= require twitterFetcher
+//= require timeago
