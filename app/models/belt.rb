@@ -10,16 +10,12 @@ class Belt < ActiveRecord::Base
   mount_uploader :image, BeltUploader
   mount_uploader :belt_pattern_image, BeltPatternUploader
 
-  def price
-    Money.new price_cents, price_currency
-  end
+  composed_of :price,
+              :class_name => "Money",
+              :mapping => [%w(price_cents cents), %w(price_currency currency_as_string)],
+              :constructor => Proc.new { |cents, currency| Money.new(cents || 0, currency || Money.default_currency) },
+              :converter => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't convert #{value.class} to Money") }
 
-  def price=(value)
-    value = Money.parse(value) if value.instance_of? String  # otherwise assume, that value is a Money object
-
-    write_attribute :price_cents,    value.cents
-    write_attribute :price_currency, value.currency_as_string
-  end
 
   private
 

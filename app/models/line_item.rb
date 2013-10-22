@@ -4,9 +4,11 @@ class LineItem < ActiveRecord::Base
   belongs_to :cart
   belongs_to :order
 
-  def total_price
-    buckle = buckle.price_cents * quantity
-    belt = belt.price_cents * quantity
-    buckle + belt
+  def total_buckle_price
+    buckle.price * quantity
+  end
+
+  def total_belt_price
+    belt.price * quantity
   end
 end

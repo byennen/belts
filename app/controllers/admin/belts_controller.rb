@@ -69,6 +69,6 @@ class Admin::BeltsController < Admin::ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def belt_params
-    params.require(:belt).permit(:name, :hex_color, :image, :belt_pattern_image, :style_id)
+    params.require(:belt).permit(:name, :hex_color, :image, :belt_pattern_image, :style_id, :price)
   end
 end

@@ -7,6 +7,11 @@
     = f.input :hex_color, placeholder: '#000000'
     %h3 Main Buckle Image Upload
     = f.input :image, hint: 'Large buckle image located on the homepage'
+    %hr
+    .row-fluid
+      .span12
+        %h3 Price
+        = f.input :price
 
   .form-actions
     = f.button :submit, class: 'btn btn-inverse'

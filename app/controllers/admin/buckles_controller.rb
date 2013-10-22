@@ -69,6 +69,6 @@ class Admin::BucklesController < Admin::ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def buckle_params
-    params.require(:buckle).permit(:name, :hex_color, :image, :style_id)
+    params.require(:buckle).permit(:name, :hex_color, :image, :style_id, :price)
   end
 end
