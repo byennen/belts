@@ -341,7 +341,7 @@ tr
     font-family: 'OpenSansLight'
     font-size: 14px
     color: #888
-    margin-bottom: 50px
+    margin-bottom: 30px
 
 .cause
   width: 80%
@@ -416,7 +416,7 @@ div
   &.content
     /* The display of content is enabled using jQuery so that the slideshow content won't display unless javascript is enabled.
     display: none
-    width: 117%
+    // width: 117%
     position: relative
     a
       text-decoration: none
@@ -456,15 +456,19 @@ div
       left: 0
     a.advance-link
       display: block
-      line-height: 400px
+      // line-height: 400px
       /* This should be set to be at least the height of the largest image in the slideshow
       text-align: center
       &:hover, &:active, &:visited
         text-decoration: none
       img
-        max-width: 500px
-        max-height: 500px
+        // max-width: 500px
+        // max-height: 500px
         border: none
+        @media (min-width: 980px)
+          height: 440px
+        @media (min-width: 768px) and (max-width: 979px)
+          height: 335px
     img
       vertical-align: middle
       border: 1px solid #ccc
@@ -506,8 +510,12 @@ a.thumb:focus
 ul.thumbs img
   border: none
   display: block
-  max-width: 190px
-  max-height: 190px
+  // max-width: 190px
+  // max-height: 190px
+
+#celebrities-container 
+  .row-fluid .span4
+    margin: 0px
 
 div
   &.pagination
@@ -516,10 +524,12 @@ div
     &.top
       position: absolute
       left: 6%
-      bottom: -135px
+      bottom: -155px
       width: 100%
     &.bottom
-      margin-top: 12px
+      margin-top: 130px
+      position: absolute
+      left: -52px
   &.pagination
     a
       display: block
@@ -542,6 +552,7 @@ div
         border-radius: 6px
 
 .next
+  display: none !important
   background: url(../assets/next.png) no-repeat !important
   width: 14px !important
   height: 47px !important
@@ -552,6 +563,7 @@ div
   bottom: 340px
 
 .prevs
+  display: none !important
   text-indent: 0 !important
   background: url(../assets/prev.png) no-repeat !important
   width: 14px !important
@@ -573,6 +585,7 @@ div.pagination
       border: none
       padding: 5px 0 3px 2px
 
+
 .celebrity-text
   font-family: 'OpenSansLight'
   color: #858585
@@ -587,7 +600,7 @@ div.pagination
   padding: 40px 0 15px 0
   border-bottom: 1px solid #CCC
   border-top: 1px solid #CCC
-  margin-top: 70px
+  margin-top: 120px
 
 .news-icon
   float: left
