@@ -11,7 +11,7 @@
           %td.total_cell
             -#TODO: Make total price work
             = number_to_currency(cart.total_price_dollars)
-      = button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' }
+      = button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } unless params[:controller] == "orders"
 
 
 
