@@ -37,111 +37,47 @@
               .blog-box
                 %h4
                   %i>
-                    %img{:alt => "Image", :src => "assets/blog-icon.png"}/
-                  \   Latest Blog Posts
-                %ul.posts
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %i
-                      %img{:alt => "Image", :src => "assets/blog-thumbnail.png"}/
-                    %h3 Etiam porta sem malesuada.
-                    %p
-                      Sed posuere consectetur est at lobortis. Cura itur blandit tempus porttitor. Nullam id dolor id ultricies vehicula ut id elit.
-                      %a{:href => "javascript:void(0);"} Continue Reading
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %i
-                      %img{:alt => "Image", :src => "assets/blog-thumbnail.png"}/
-                    %h3 Etiam porta sem malesuada.
-                    %p
-                      Sed posuere consectetur est at lobortis. Cura itur blandit tempus porttitor. Nullam id dolor id ultricies vehicula ut id elit.
-                      %a{:href => "javascript:void(0);"} Continue Reading
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %i
-                      %img{:alt => "Image", :src => "assets/blog-thumbnail.png"}/
-                    %h3 Etiam porta sem malesuada.
-                    %p
-                      Sed posuere consectetur est at lobortis. Cura itur blandit tempus porttitor. Nullam id dolor id ultricies vehicula ut id elit.
-                      %a{:href => "javascript:void(0);"} Continue Reading
-                .clearfix
-                / clearfix
-                %a.mor{:href => "javascript:void(0);"} View more blog posts
-              / blog-box
-            / span5
-            .span5{:style => "margin-left:5px;"}
-              .blog-box
-                %h4
-                  %i>
                     %img{:alt => "Image", :src => "assets/latest-tweets-icon.png"}/
                   \   Latest Tweets
-                %ul.posts.chn
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
-                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
-                    %p
-                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
-                      = succeed "12" do
-                        %br/
-                      HRS AGO
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
-                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
-                    %p
-                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
-                      = succeed "12" do
-                        %br/
-                      HRS AGO
+                %ul.posts.chn#tweets
                 .clearfix
                 / clearfix
-                %a.mor{:href => "javascript:void(0);"} View more tweets @C4Belts
+                %a.mor{:href => "http://twitter.com/c4belts"} View more tweets @C4Belts
               / blog-box
-              .blog-box.new
+            .span5{:style => "margin-left:5px;"}
+              .blog-box
                 %h4
                   %i>
                     %img{:alt => "Image", :src => "assets/facebook-post-icon.png"}/
                   \   Recent facebook activity
                 %ul.posts.chn
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
-                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
-                    %p
-                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
-                      = succeed "12" do
-                        %br/
-                      HRS AGO
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
-                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
-                    %p
-                      %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
-                      = succeed "12" do
-                        %br/
-                      HRS AGO
+                  - @fb_data["feed"]["data"].each do |post|
+                    %li
+                      %a.thum{:href => "javascript:void(0);"}
+                        =image_tag post["picture"] || "assets/tweets-thumbnail.png",:alt => "Image", :class=> "facebook-feed"
+                      %p= truncate(post["message"], length: 100)
+                      %p
+                        =link_to truncate(post["link"], length: 37), post["link"]
                 .clearfix
                 / clearfix
-                %a.mor{:href => "javascript:void(0);"} view more facebook activity
-              / blog-box
-            / span5
-            .span2{:style => "margin-left:5px;"}
-              .blog-box.modi
-                %h4
-                  %i>
-                    %img{:alt => "Image", :src => "assets/instagram-icon.png", :style => "opacity:0.3; filter:alpha(opacity=30);"}/
-                  \   Instagram photos
-                %ul.posts.chan
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
-                    %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
-                    %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
+                %a.mor{:href => "http://facebook.com/c4belts"} view more facebook activity
+            / blog-box
+          / span5
+          .span2{:style => "margin-left:5px;"}
+            .blog-box.modi
+              %h4
+                %i>
+                  %img{:alt => "Image", :src => "assets/instagram-icon.png", :style => "opacity:0.3; filter:alpha(opacity=30);"}/
+                \   Instagram photos
+              %ul.posts.chan
+                %li
+                  %a.thum{:href => "javascript:void(0);"}
+                    %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
+                  %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
+                %li
+                  %a.thum{:href => "javascript:void(0);"}
+                    %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
+                  %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
                 .clearfix
                 / clearfix
                 %a.mor{:href => "javascript:void(0);"} View more photos

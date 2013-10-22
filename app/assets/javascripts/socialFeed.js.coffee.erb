@@ -1,0 +1,11 @@
+$(document).ready ->
+
+  convertUnixTime = (unix)->
+    return $.timeago(Date.parse(unix))
+
+  twitterFetcher.fetch('392675792536096768', 'tweets', 3, true, true, true, convertUnixTime, true, undefined, false);
+   # https://graph.facebook.com/oauth/access_token?
+   # client_id=YOUR_APP_ID&client_secret=YOUR_APP_SECRET&
+   # grant_type=client_credentials
+
+   # fb access token: 1426514140896251|V6ejnrjjnb9HrOR4D4LJUNf-Iq8
