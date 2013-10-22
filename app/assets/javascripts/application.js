@@ -21,3 +21,4 @@
 //= require navbar_scroller
 //= require aligner
 //= require add_to_cart
+//= require twitterFetcher
