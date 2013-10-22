@@ -51,13 +51,14 @@
                     %img{:alt => "Image", :src => "assets/facebook-post-icon.png"}/
                   \   Recent facebook activity
                 %ul.posts.chn
-                  - @fb_data["feed"]["data"].each do |post|
-                    %li
-                      %a.thum{:href => "javascript:void(0);"}
-                        =image_tag post["picture"] || "assets/tweets-thumbnail.png",:alt => "Image", :class=> "facebook-feed"
-                      %p= truncate(post["message"], length: 100)
-                      %p
-                        =link_to truncate(post["link"], length: 37), post["link"]
+                  - if @fb_data.success?
+                    - @fb_data["feed"]["data"].each do |post|
+                      %li
+                        %a.thum{:href => "javascript:void(0);"}
+                          =image_tag post["picture"] || "assets/tweets-thumbnail.png",:alt => "Image", :class=> "facebook-feed"
+                        %p= truncate(post["message"], length: 100)
+                        %p
+                          =link_to truncate(post["link"], length: 37), post["link"]
                 .clearfix
                 / clearfix
                 %a.mor{:href => "http://facebook.com/c4belts"} view more facebook activity
@@ -70,27 +71,31 @@
                   %img{:alt => "Image", :src => "assets/instagram-icon.png", :style => "opacity:0.3; filter:alpha(opacity=30);"}/
                 \   Instagram photos
               %ul.posts.chan
-                %li
-                  %a.thum{:href => "javascript:void(0);"}
-                    %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
-                  %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
-                %li
-                  %a.thum{:href => "javascript:void(0);"}
-                    %img{:alt => "Image", :src => "assets/instagram-thumbnail.png"}/
-                  %p Aenean eu leo quam. Pelln tesque ornare sem lacinia qu am venen atis vestibulum.
-                .clearfix
-                / clearfix
-                %a.mor{:href => "javascript:void(0);"} View more photos
-              / blog-box
-            / span2
-          / slide01
-        / rsContent
-      / royalSlider
-    / container
-  / row-fluid
-  .clearfix
-  / clearfix
-  .row-fluid.sep
-  / row-fluid
-  .clearfix
-  / clearfix
+                - if @insta_data.success?
+                  - @insta_data["data"].each do |post|
+                    %li
+                      =link_to(post["link"], :class => "thum", :target => "_blank") do
+                        =image_tag(post["images"]["thumbnail"]["url"], :alt=> "Image", :class => "insta-feed")
+                      %p= truncate(post["caption"]["text"], length:100)
+                - else
+                  %li
+                    %a.thum{:href => "javascript:void(0);"}
+                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
+                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
+                    %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
+              .clearfix
+              / clearfix
+              %a.mor{:href => "http://instagram.com/c4belts"} View more photos
+            / blog-box
+          / span2
+        / slide01
+      / rsContent
+    / royalSlider
+  / container
+/ row-fluid
+.clearfix
+/ clearfix
+.row-fluid.sep
+/ row-fluid
+.clearfix
+/ clearfix
