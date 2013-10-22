@@ -11,4 +11,14 @@ class LineItem < ActiveRecord::Base
   def total_belt_price
     belt.price * quantity
   end
+
+  def total_price
+    total_buckle_price + total_belt_price
+  end
+
+  def total_price_dollars
+    money = Money.new(total_price, "USD")
+    money.dollars
+  end
+
 end
