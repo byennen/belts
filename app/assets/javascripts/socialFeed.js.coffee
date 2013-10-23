@@ -38,7 +38,9 @@ $(document).ready ->
     postCount = 0
     _.each apiData.feed.data, (post) ->
       return true unless post.picture
+      return true unless post.message
       return true if postCount > 3
+
       postCount++
       post.truncateLink = truncate(post.link, 50)
       $("ul.posts.chn.facebook").append(_.template(facebookTemplate, post))
@@ -48,6 +50,8 @@ $(document).ready ->
     instaCount = 0
     _.each apiData, (post) ->
       return true if instaCount is 2
+      return true unless post.caption.text
+
       post.truncateCaption = truncate(post.caption.text, 70)
       $("ul.posts.chan.instagram").append(_.template(instagramTemplate, post))
       instaCount++
