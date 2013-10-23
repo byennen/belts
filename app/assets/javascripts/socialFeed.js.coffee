@@ -4,7 +4,7 @@ $(document).ready ->
     return $.timeago(Date.parse(unix))
 
   fetchTwitterFeed = ->
-    twitterFetcher.fetch('392675792536096768', 'tweets', 5, true, true, true, convertUnixTime, true, undefined, false);
+    twitterFetcher.fetch('392675792536096768', 'tweets', 6, true, true, true, convertUnixTime, true, undefined, false);
     $('.twitter-loading').hide()
 
   truncate = (string, maxLength) ->
@@ -61,3 +61,4 @@ $(document).ready ->
   .done (apiData) ->
     populateFacebook(apiData.facebook)
     populateInstagram(apiData.instagram.data)
+    $('.timePosted').hide()
