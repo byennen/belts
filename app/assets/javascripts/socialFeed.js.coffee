@@ -45,9 +45,12 @@ $(document).ready ->
     $('.fb-loading').hide()
 
   populateInstagram = (apiData) ->
+    instaCount = 0
     _.each apiData, (post) ->
+      return true if instaCount is 2
       post.truncateCaption = truncate(post.caption.text, 70)
       $("ul.posts.chan.instagram").append(_.template(instagramTemplate, post))
+      instaCount++
     $('.insta-loading').hide()
 
   fetchTwitterFeed()

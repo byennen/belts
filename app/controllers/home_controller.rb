@@ -20,7 +20,7 @@ class HomeController < ApplicationController
       @fb_data = HTTParty.get(URI.escape("https://graph.facebook.com/c4belts?fields=feed.limit(6)&access_token=#{fb_token}"))
     end
 
-    @insta_data = HTTParty.get(URI.escape('https://api.instagram.com/v1/tags/c4belts/media/recent?count=2&client_id=16a88a8b1bd2422e81e41eead5717c87'))
+    @insta_data = HTTParty.get(URI.escape('https://api.instagram.com/v1/tags/c4belts/media/recent?count=6&client_id=16a88a8b1bd2422e81e41eead5717c87'))
     data = {facebook: @fb_data, instagram: @insta_data}
     render json: data
   end
