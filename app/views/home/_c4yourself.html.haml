@@ -40,6 +40,7 @@
                     %img{:alt => "Image", :src => "assets/latest-tweets-icon.png"}/
                   \   &nbsp&nbspLatest Tweets
                 %ul.posts.chn#tweets
+                  =image_tag "loading.gif", :class=> 'twitter-loading'
                 .clearfix
                 / clearfix
                 %a.mor{:href => "http://twitter.com/c4belts", :target => "_blank"} View more tweets @C4Belts
@@ -51,6 +52,7 @@
                     %img{:alt => "Image", :src => "assets/facebook-post-icon.png"}/
                   \   &nbsp&nbspRecent facebook activity
                 %ul.posts.chn.facebook
+                  =image_tag "loading.gif", :class=> 'fb-loading'
                 .clearfix
                 / clearfix
                 %a.mor{:href => "http://facebook.com/c4belts", :target => "_blank"} view more facebook activity
@@ -62,19 +64,8 @@
                 %i>
                   %img{:alt => "Image", :src => "assets/instagram-icon.png", :style => "opacity:0.3; filter:alpha(opacity=30);"}/
                 \   &nbsp&nbspInstagram photos
-              %ul.posts.chan
-                - if @insta_data.success?
-                  - @insta_data["data"].each do |post|
-                    %li
-                      =link_to(post["link"], :class => "thum", :target => "_blank") do
-                        =image_tag(post["images"]["thumbnail"]["url"], :alt=> "Image", :class => "insta-feed")
-                      %p= truncate(post["caption"]["text"], length:100)
-                - else
-                  %li
-                    %a.thum{:href => "javascript:void(0);"}
-                      %img{:alt => "Image", :src => "assets/tweets-thumbnail.png"}/
-                    %h2 "Hardcore C4 #C4Yourself @ Encyclomedia"
-                    %a{:href => "javascript:void(0);"} http://instagram.com/p/apEJ.cxeTG/
+              %ul.posts.chan.instagram
+                =image_tag "loading.gif", :class=> 'insta-loading'
               .clearfix
               / clearfix
               %a.mor{:href => "http://instagram.com/c4belts", :target => "_blank"} View more photos
