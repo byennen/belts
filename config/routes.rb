@@ -13,6 +13,9 @@ C4belts::Application.routes.draw do
   get 'celebrities', to: 'pages#celebrities', as: 'celebrities'
   get 'retailers-and-partners', to: 'pages#retailer', as: 'retailers'
 
+  # social feed
+  get 'social-feed', to: 'home#social', as: 'social'
+
   devise_for :users, :controllers => {:sessions => "sessions"}
   resources :users
   resources :orders
