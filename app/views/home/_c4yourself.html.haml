@@ -1,0 +1,82 @@
+#c4yourself.row-fluid
+  .container
+    .title
+      %h3 C4Yourself
+      %p
+        C4Yourself is a community of individuals that promote individuality.  Linked by Blogs, Social Media, and our own styles...  Be Yourself.  C4Yourself.
+    / title
+    .clearfix
+    / clearfix
+    .offset4.span3#social-icons
+      %ul.social-icons
+        %li
+          %a{:href => "http://pintrest.com/c4belts", :target => "_blank"}
+            %img{:alt => "Image", :src => "assets/pintrest-icon.png"}/
+        %li
+          %a{:href => "http://instagram.com/c4belts", :target => "_blank"}
+            %img{:alt => "Image", :src => "assets/instagram-icon.png"}/
+        %li
+          %a{:href => "http://twitter.com/c4belts", :target => "_blank"}
+            %img{:alt => "Image", :src => "assets/twitter-icon.png"}/
+        %li
+          %a{:href => "http://facebook.com/c4belts", :target => "_blank"}
+            %img{:alt => "Image", :src => "assets/facebook-icon.png"}/
+      / .social-icons
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid
+    .container
+      #full-width-slider.royalSlider.heroSlider.rsMinW
+        .rsContent
+          .slide01
+            .span5{:style => "margin-left:5px;"}
+              .blog-box
+                %h4
+                  %i>
+                    %img{:alt => "Image", :src => "assets/latest-tweets-icon.png"}/
+                  \   &nbsp&nbspLatest Tweets
+                %ul.posts.chn#tweets
+                  =image_tag "loading.gif", :class=> 'twitter-loading'
+                .clearfix
+                / clearfix
+                %a.mor{:href => "http://twitter.com/c4belts", :target => "_blank"} View more tweets @C4Belts
+              / blog-box
+            .span5{:style => "margin-left:5px;"}
+              .blog-box
+                %h4
+                  %i>
+                    %img{:alt => "Image", :src => "assets/facebook-post-icon.png"}/
+                  \   &nbsp&nbspRecent facebook activity
+                %ul.posts.chn.facebook
+                  =image_tag "loading.gif", :class=> 'fb-loading'
+                .clearfix
+                / clearfix
+                %a.mor{:href => "http://facebook.com/c4belts", :target => "_blank"} view more facebook activity
+            / blog-box
+          / span5
+          .span2{:style => "margin-left:5px;"}
+            .blog-box.modi
+              %h4
+                %i>
+                  %img{:alt => "Image", :src => "assets/instagram-icon.png", :style => "opacity:0.3; filter:alpha(opacity=30);"}/
+                \   &nbsp&nbspInstagram photos
+              %ul.posts.chan.instagram
+                =image_tag "loading.gif", :class=> 'insta-loading'
+              .clearfix
+              / clearfix
+              %a.mor{:href => "http://instagram.com/c4belts", :target => "_blank"} View more photos
+            / blog-box
+          / span2
+        / slide01
+      / rsContent
+    / royalSlider
+  / container
+/ row-fluid
+.clearfix
+/ clearfix
+.row-fluid.sep
+/ row-fluid
+.clearfix
+/ clearfix

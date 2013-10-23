@@ -24,6 +24,7 @@ gem "carrierwave"
 gem 'cloudinary'
 gem 'money'
 gem 'stripe'
+gem 'httparty'
 
 
 group :development do
