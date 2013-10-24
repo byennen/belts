@@ -1,5 +1,5 @@
-.row-fluid
-  .span3
+.cart.row-fluid
+  .span4
     =image_tag line_item.belt.image.url, :class => "cart-belt-image"
     =image_tag line_item.buckle.image.url, :class => "cart-belt-image"
   .span7
@@ -13,6 +13,6 @@
       = line_item.belt.name
       = Belt
   / quantity
-  .span2
+  .span1
     %p.rate
       =line_item.total_price_dollars
