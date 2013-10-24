@@ -76,6 +76,10 @@ ul
 
 .belt-assets
   position: relative
+  @media (max-width: 767px)
+    min-height: 360px
+  @media (max-width: 480px)
+    min-height: 230px
 
 .active-belt
   position: absolute
@@ -237,6 +241,9 @@ tr
 .icolor_ct, .overview
   width: 100%
 
+.icolor_ct td > img
+  max-width: none
+
 .randomize
   width: 100%
   float: left
@@ -345,7 +352,6 @@ tr
 
 .cause
   width: 80%
-  height: 274px
   float: left
   background-color: #efefef
   text-align: center
@@ -488,6 +494,10 @@ div
     position: relative
 
 /* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled.
+
+#nav a
+  padding: 20px 10px 5px
+  font-size: 14px
 
 ul.thumbs
   clear: both
@@ -1383,6 +1393,8 @@ img.fnone
   border-top: 1px solid #e6e6e6
   margin-top: 55px
   font-weight: normal
+  line-height: 1.4
+  padding-top: 20px
 
 .nons
   font-family: 'OpenSansLight'
