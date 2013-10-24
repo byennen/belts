@@ -8,6 +8,7 @@
     / pro-detail
   / modal-body
   .modal-footer
+    = link_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }
     %a{:href => "#", "data-dismiss" => "modal"} Continue Browsing
     %a.btn.btn2{href: new_order_path, method: :get}
       %i

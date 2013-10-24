@@ -2,13 +2,17 @@
   .span12
     - if cart.line_items.empty?
       %p Your cart is empty.
-    - unless cart.line_items.empty?
+    - else
       = render(cart.line_items)
 
-    %tr.total_line
-      %td Total
-      %td.total_cell
-        -#TODO: Make total price work
-        = cart.total_price_dollars
-    = button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } unless params[:controller] == "orders"
-
+.pro-detail
+  %ul
+    %li
+      %p SHIPPING
+      %span FREE
+    %li
+      %p ORDER TOTAL
+      %span= cart.total_price_dollars
+    %li
+    %li
+      %i Please choose your cause at checkout
