@@ -57,12 +57,13 @@ $(document).ready ->
       instaCount++
     $('.insta-loading').hide()
 
-  fetchTwitterFeed()
+  if window.location.pathname is '/'
+    fetchTwitterFeed()
 
-  $.ajax
-    type: "get",
-    url: "/social-feed"
-  .done (apiData) ->
-    populateFacebook(apiData.facebook)
-    populateInstagram(apiData.instagram.data)
-    $('.timePosted').hide()
+    $.ajax
+      type: "get",
+      url: "/social-feed"
+    .done (apiData) ->
+      populateFacebook(apiData.facebook)
+      populateInstagram(apiData.instagram.data)
+      $('.timePosted').hide()
