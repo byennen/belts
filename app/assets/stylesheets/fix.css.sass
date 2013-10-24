@@ -89,12 +89,18 @@ a.news-icon img
 .posts.chn#tweets li
   > p.tweet
     display: inline-block
-    max-width: 80%
+    @media (min-width: 980px)
+      max-width: 79%
+    @media (min-width: 0px) and (max-width: 979px)
+      max-width: 72%
     margin: 0
     > a
       display: inline-block
       float: none
       margin-right: 0
+    > a[target]
+      display: block
+      word-wrap: break-word
 
 img.facebook-feed
   width: 100px

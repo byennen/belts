@@ -1,12 +1,10 @@
-- cause_name = params[:cause].to_s.titleize
-- cause_text = @causes[params[:cause].gsub('-','_').gsub('&','and').to_sym]
 .row-fluid
   .container
     .span12
       .bread
         %p
           Causes /
-          %a{:href => "javascript:void(0);"}= params[:cause].to_s.titleize
+          %a{:href => "javascript:void(0);"}= @cause[:name]
       / bread
     / span12
   / container
@@ -17,46 +15,23 @@
   .container
     .span5
       .slogan
-        %a.slogan-img{:href => "javascript:void(0);"}
-          %img{:alt => "Image", :height => "300", :src => "../assets/cause-img/#{@asset_mapping[cause_name]}", :width => "400"}/
+        .slogan-img
+          %img{:alt => "Image", :height => "300", :src => "../assets/cause-img/#{@cause[:image]}", :width => "400"}/
         .select-one
-          %p Belt Color :
-          .ss
-            %select#webmenu{:name => "webmenu", :onchange => "showValue(this.value)", :title => "Select one"}
-              %option Choose Belt Color
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-          / ss
-        / select-one
-        .select-one{:style => "z-index:10; margin-bottom:20px;"}
-          %p Buckle Color :
-          .ss
-            %select#webmenu2{:name => "webmenu2", :onchange => "showValue(this.value)", :title => "Select one"}
-              %option Choose Buckle Color
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-              %option{"data-image" => "../assets/color.png", :value => "calender"} Blue
-          / ss
+          %img.active-belt{:alt => "Image", :src => @belt_url}/
+          %img.active-buckle{:alt => "Image", :src => @buckle_url}/
         / select-one
       / slogan
     / span5
     .span7
       .cause-data
-        %h2= cause_name
-        %p= cause_text
-        %a{:href => "javascript:void(0);"}
-          %img{:alt => "Image", :src => "../assets/belt2.png"}/
-        %button.btn.btn3.mod2{:name => "btn"}
-          %i
-            %img{:alt => "Image", :src => "../assets/cart-icon.png"}/
-          SUPPORT CAUSE
+        %h2= @cause[:name]
+        %p= @cause[:text]
+        %a{:id => "add-to-cart"}
+          %button.btn.btn3.mod2{:name => "btn"}
+            %i
+              %img{:alt => "Image", :src => "../assets/cart-icon.png"}/
+            SUPPORT CAUSE
       / cause-data
     / span7
   / container
@@ -70,7 +45,7 @@
 .row-fluid
   .container
     .span3
-      %h4.nons Other Causees & Charities:
+      %h4.nons Other Causes:
       .cause.mod3
         %a.cause-img{:href => cause_path("boys-&-girls-club-of-america")}
           %img{:alt => "Image", :src => "../assets/cause-img/cause-img01.png"}/

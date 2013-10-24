@@ -1,8 +1,8 @@
 C4belts::Application.routes.draw do
 
   #blog
-  get 'blog', to: 'blog#index', as: 'blogs'
-  get 'blog/posts/show', to: 'blog#post_1', as: 'blog'
+  #get 'blog', to: 'blog#index', as: 'blogs'
+  #get 'blog/posts/show', to: 'blog#post_1', as: 'blog'
 
   #causes
   get 'causes', to: 'causes#index', as: 'causes'
@@ -10,7 +10,7 @@ C4belts::Application.routes.draw do
 
   #pages
   get 'about', to: 'pages#about', as: 'about'
-  get 'celebrities', to: 'pages#celebrities', as: 'celebrities'
+  #get 'celebrities', to: 'pages#celebrities', as: 'celebrities'
   get 'retailers-and-partners', to: 'pages#retailer', as: 'retailers'
 
   # social feed
