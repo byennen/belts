@@ -18,26 +18,26 @@
                 %ul#nav.nav.pull-right
                   -if url_for(params) == '/'
                     %li.current
-                      %a{:href => "#shop"} shop
+                      %a{:href => "#shop"} SHOP
                     %li
-                      %a{:href => "#causes"} causes
+                      %a{:href => "#causes"} CAUSES
                     %li
-                      %a{:href => "#celebrities"} celebrities
+                      %a{:href => "#celebrities"} CELEBRITIES
                     %li
-                      %a{:href => "#c4yourself"} C4Yourself
+                      %a{:href => "#c4yourself"} C4YOURSELF
                     %li
-                      %a{:href => "#aboutUs"} about us
+                      %a{:href => "#aboutUs"} ABOUT US
                   -else
                     %li.current
-                      %a{:href => root_path} shop
+                      %a{:href => root_path} SHOP
                     %li
-                      %a{:href => "#{root_path}#causes"} causes
+                      %a{:href => "#{root_path}#causes"} CAUSES
                     %li
-                      %a{:href => "#{root_path}#celebrities"} celebrities
+                      %a{:href => "#{root_path}#celebrities"} CELEBRITIES
                     %li
-                      %a{:href => "#{root_path}#aboutUs"} about us
+                      %a{:href => "#{root_path}#aboutUs"} ABOUT US
                   %li
-                    %a{:href => retailers_path} retailers
+                    %a{:href => retailers_path} RETAILERS
                   %li
                     %a{"data-toggle" => "modal", :href => "#cartModal", :role => "button"}
                       %i

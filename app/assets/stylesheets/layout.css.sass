@@ -76,6 +76,10 @@ ul
 
 .belt-assets
   position: relative
+  @media (max-width: 767px)
+    min-height: 360px
+  @media (max-width: 480px)
+    min-height: 230px
 
 .active-belt
   position: absolute
@@ -237,6 +241,9 @@ tr
 .icolor_ct, .overview
   width: 100%
 
+.icolor_ct td > img
+  max-width: none
+
 .randomize
   width: 100%
   float: left
@@ -345,7 +352,6 @@ tr
 
 .cause
   width: 80%
-  height: 274px
   float: left
   background-color: #efefef
   text-align: center
@@ -488,6 +494,10 @@ div
     position: relative
 
 /* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled.
+
+#nav a
+  padding: 20px 10px 5px
+  font-size: 14px
 
 ul.thumbs
   clear: both
@@ -709,6 +719,7 @@ div.pagination
 
 .blog-box
   display: block
+  margin-bottom: 10px
   padding: 13px 0 8px 0
   float: left
   width: 99%
@@ -733,7 +744,7 @@ div.pagination
 
 .posts
   float: left
-  margin: 10px 0px 10px 20px
+  margin: 10px 0px 10px 10px
   li
     width: 100%
     float: left
@@ -774,9 +785,6 @@ div.pagination
         color: #f26534
 
 .modi
-  float: right
-  width: 122%
-  margin-right: -40px
 
 .chn
   li
@@ -827,11 +835,9 @@ div.pagination
     color: #555
     width: 74%
     font-size: 25px
-    float: left
     margin-top: 35px
   p
     font-size: 17px
-    margin-top: 20px !important
     line-height: 22px
   margin-bottom: 20px
 
@@ -918,7 +924,6 @@ footer
 .product
   display: block
   position: relative
-  margin-bottom: 20px
   padding: 10px 50px 10px 25px
   border-bottom: 1px solid #EBEBEB
 
@@ -934,6 +939,7 @@ footer
     font-size: 15px
     color: #858585
     font-style: normal
+    margin: 0
 
 /* Select
 
@@ -1055,7 +1061,6 @@ div.selector
   width: 85%
   a
     display: block
-    padding-top: 100px
 
 .avatar-detail
   float: left
@@ -1106,24 +1111,19 @@ div.selector
       text-decoration: underline
 
 .slogan
-  background-color: #EFEFEF
-  min-height: 510px
   padding: 0 25px
   float: left
 
 .slogan-img
   display: block
-  padding: 150px 0 130px 0
+  padding: 50px 0 30px 0
   text-align: center
   border-bottom: 1px solid #d9d9d9
 
 .select-one
-  width: 40%
-  float: left
-  margin: 20px
-  margin-right: 10px
   margin-bottom: 0
   position: relative
+  height: 226px
   p
     font-size: 12px
     color: #b0afaf
@@ -1378,11 +1378,9 @@ img.fnone
 
 .mod2
   float: left
-  margin-top: 190px
-  margin-left: 15px
+  margin-top: 30px
   padding: 15px
   font-size: 17px
-  margin-bottom: 30px
   i
     padding-right: 5px
 
@@ -1395,6 +1393,8 @@ img.fnone
   border-top: 1px solid #e6e6e6
   margin-top: 55px
   font-weight: normal
+  line-height: 1.4
+  padding-top: 20px
 
 .nons
   font-family: 'OpenSansLight'
