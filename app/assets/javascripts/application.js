@@ -16,6 +16,8 @@
 //= require bootstrap
 //= require plugins/crawler
 //= require plugins/jquery.hcsticky-min
+//= require plugins/jquery.icolor.min
+//= require plugins/jquery.galleriffic
 //= require underscore
 //= require raphael
 //= require navbar_scroller
