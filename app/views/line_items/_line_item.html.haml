@@ -1,26 +1,45 @@
 -#TODO: Dry this up into a helper. -Lance
 
 - if line_item == @current_item
-  %tr{id: 'current_item'}
-    %td= line_item.quantity
-    %td
-      &times;
-      = line_item.buckle.style.name
-      = line_item.buckle.name
-      = Buckle
-      = ' + '
-      = line_item.belt.name
-      = Belt
-    %td= line_item.total_price_dollars
+  #current_item
+    .product
+      .cart-belt-div
+        =image_tag line_item.belt.image.url, :class => "cart-belt-image"
+        =image_tag line_item.buckle.image.url, :class => "cart-belt-image"
+      .quantity
+        %p
+          = line_item.quantity
+          &times;
+          = line_item.buckle.style.name
+          = line_item.buckle.name
+          = Buckle
+          = ' + '
+          = line_item.belt.name
+          = Belt
+      / quantity
+      %p.rate
+        =line_item.total_price_dollars
+      .clearfix
+      / clearfix
+    / product
 - else
-  %tr
-    %td= line_item.quantity
-    %td
-      &times;
-      = line_item.buckle.style.name
-      = line_item.buckle.name
-      = Buckle
-      = ' + '
-      = line_item.belt.name
-      = Belt
-    %td= line_item.total_price_dollars
+  .product
+    .cart-belt-div
+      =image_tag line_item.belt.image.url, :class => "cart-belt-image"
+      =image_tag line_item.buckle.image.url, :class => "cart-belt-image"
+    .quantity
+      %p
+        = line_item.quantity
+        &times;
+        = line_item.buckle.style.name
+        = line_item.buckle.name
+        = Buckle
+        = ' + '
+        = line_item.belt.name
+        = Belt
+    / quantity
+    %p.rate
+      =line_item.total_price_dollars
+    .clearfix
+    / clearfix
+  / product
