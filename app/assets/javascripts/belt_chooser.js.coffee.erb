@@ -1,0 +1,277 @@
+# todo: recent selections
+
+<% belts = Belt.all.order("id asc") %>
+<% buckles = Buckle.all.order("id asc") %>
+
+CLASSIC_BELTS = <%= belts.select{|belt| belt.style_id == 1 && belt.hex_color != ""}.map {|x| [x.hex_color, x.image.url] } %>
+CLASSIC_BELT_PATTERNS = <%= belts.select{|belt| belt.style_id == 1 && belt.hex_color == ""}.map {|x| [x.belt_pattern_image.url, x.image.url] } %>
+CLASSIC_BUCKLES = <%= buckles.select{|buckle| buckle.style_id == 1}.map {|x| [x.hex_color, x.image.url] } %>
+
+SKINNY_BELTS = <%= belts.select{|belt| belt.style_id == 2 && belt.hex_color != ""}.map {|x| [x.hex_color, x.image.url] } %>
+SKINNY_BELT_PATTERNS = <%= belts.select{|belt| belt.style_id == 2 && belt.hex_color == ""}.map {|x| [x.belt_pattern_image.url, x.image.url] } %>
+SKINNY_BUCKLES = <%= buckles.select{|buckle| buckle.style_id == 2}.map {|x| [x.hex_color, x.image.url] } %>
+
+columns = Math.floor($('div.viewport').width() / 32)
+
+
+#
+$("#icolor").icolor
+  flat: true
+  colors: []
+  col: columns
+  onSelect: (c) ->
+    @$tb.css "", c
+
+  showInput: true
+  title: false
+
+
+#<![CDATA[
+$("#icolor2").icolor
+  flat: true
+  colors: []
+  col: columns
+  onSelect: (c) ->
+    @$tb.css "", c
+
+  showInput: true
+  title: false
+
+$("#icolor3").icolor
+  flat: true
+  colors: []
+  onSelect: (c) ->
+    @$tb.css "", c
+
+  showInput: true
+  title: false
+
+
+$(".randomize a").click ->
+  belt_length = $('#icolor_1 td').length
+  buckle_length = $('#icolor_2 td').length
+  belt_id = Math.floor(Math.random()*belt_length + 1)
+  buckle_id = Math.floor(Math.random()*buckle_length + 1)
+  new_belt_url = $('#icolor_1 td:nth-child(' + belt_id + ')').attr("image_url")
+  new_buckle_url = $('#icolor_2 td:nth-child(' + buckle_id + ')').attr("image_url")
+  set_belt_image(new_belt_url)
+  set_buckle_image(new_buckle_url)
+
+# recent color combination tile generation
+
+rgb2hex = (rgb) ->
+  if rgb.indexOf("#") is -1 && rgb.indexOf("cloudinary") is -1
+    hex = (x) ->
+      ("0" + parseInt(x).toString(16)).slice -2
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+    "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
+  else
+    rgb
+
+$("li#i-1").css("display", "block")
+window.beltType = "classic"
+
+setBeltType = ->
+  if $("li#i-1").attr("style") is "display: block;"
+    window.beltType = "classic"
+  else
+    window.beltType = "skinny"
+
+resetColorValues = ->
+  window.beltClickCount = 0
+  window.buckleClickCount = 0
+  window.beltIndex = 0
+  window.buckleIndex = 0
+  window.recentBelt = 0
+  window.recentBuckle = 0
+
+imageTileCheck = ->
+  if window.recentBelt.indexOf("cloudinary") != -1 && window.recentBelt.indexOf("url") is -1
+    fillColor = "url(" + "\'" + window.recentBelt + "\'" + ")"
+  else
+    window.recentBelt
+
+
+recentSelection = ->
+  if window.beltClickCount >= 1 && window.buckleClickCount >= 1
+    setBeltType()
+    $('#icolor_3').children().children().first().remove() if $('#icolor_3').children().children().length > 4
+    tile = $($('#icolor_3').children()[0]).append("<div style='margin-right: 3px; width: 42px; height: 40px; position: relative; border-radius: 50%; display:inline-block;'></div>").children().last()
+    paper = Raphael(tile[0], 42,40)
+    $(paper.canvas).css
+      'border-radius':'3px'
+      'box-shadow' : 'gray 1px 2px 2px'
+
+    paper.path('M 0 0 L 42 0 L 0 40 L 0 0').attr
+      'fill': window.recentBuckle
+      'stroke' : window.recentBuckle
+
+    paper.path('M 42 0 L 42 40 L 0 40').attr
+      'fill' : imageTileCheck()
+      'stroke' : window.recentBelt
+
+    $(paper.canvas).wrap("<a class='recent-color-tile' type=" + beltType + " href='#' belt-url=" +
+                          window.beltIndex + " buckle-url=" + window.buckleIndex +
+                          " belt-color=" + rgb2hex(imageTileCheck()) + " buckle-color=" + rgb2hex(window.recentBuckle) +
+                          " ></a>")
+    recentSelectionClick()
+
+
+recentSelectionClick = ->
+  $('.recent-color-tile').click (event) ->
+    event.preventDefault()
+    _this = $(this)
+    if (_this.attr("type") is "classic") && ($("#i-1").attr("style") is "display: none;")
+      $(".next2").trigger('click')
+    else if (_this.attr("type") is "skinny") && ($("#i-2").attr("style") is "display: none;")
+      $(".next2").trigger('click')
+
+    window.buckleClickCount = 1
+    window.beltClickCount = 1
+    window.recentBuckle = $(this).attr("buckle-color")
+    window.recentBelt = $(this).attr("belt-color")
+    window.beltIndex = $(this).attr("belt-url")
+    window.buckleIndex = $(this).attr("buckle-url")
+
+    set_belt_image(beltIndex)
+    set_buckle_image(buckleIndex)
+
+    return
+
+resetColorValues()
+
+# color tile generation and belt image switching
+$(".next2").click ->
+  cycle_type("next")
+  resetColorValues()
+
+$(".prev2").click ->
+  cycle_type("prev")
+  resetColorValues()
+
+cycle_type = (dir) ->
+  update_type_index(dir)
+  update_type_title(dir)
+  update_belt_and_buckle_icolors()
+  update_image_src()
+
+
+type_index = 1
+max = $("#type-titles li").length
+
+update_type_index = (dir) ->
+  if dir is "next"
+    type_index++
+    if type_index is (max + 1)
+      type_index = 1
+  else
+    type_index--
+    if type_index is 0
+      type_index = max
+
+update_type_title = (dir) ->
+  current = type_index
+  if dir is "next"
+    previous = type_index - 1
+    if previous is 0
+      previous = max
+  else
+    previous = type_index + 1
+    if previous is (max + 1)
+      previous = 1
+  hidden = $("#i-" + previous)
+  active = $("#i-" + current)
+  hidden.css "display", "none"
+  active.css "display", "block"
+
+update_belt_and_buckle_icolors = ->
+  type = get_type()
+  if type is "skinny"
+    belt_colors = SKINNY_BELTS
+    buckle_colors = SKINNY_BUCKLES
+  else if type is "classic"
+    belt_colors = CLASSIC_BELTS
+    buckle_colors = CLASSIC_BUCKLES
+  init_tile_table(belt_colors, "1")
+  init_tile_table(buckle_colors, "2")
+  false
+
+get_type = ->
+  active = $("#i-" + type_index + " p:first-child")
+  return active.html().trim().toLowerCase()
+
+update_image_src = ->
+  type = get_type()
+  if type is "classic"
+    set_belt_image( CLASSIC_BELTS[0][1] )
+    set_buckle_image( CLASSIC_BUCKLES[0][1] )
+  else
+    set_belt_image( SKINNY_BELTS[0][1] )
+    set_buckle_image( SKINNY_BUCKLES[0][1] )
+
+set_belt_image = (url) ->
+  $('.active-belt').attr("src", url)
+
+set_buckle_image = (url) ->
+  $('.active-buckle').attr("src", url)
+
+
+draw_color_tiles = (tiles, type_id) ->
+  html = '<div class="icolor icolor_flat" id="icolor_' + type_id + '">'
+  html += '<table class="icolor_ct">'
+  for tile, index in tiles
+    if (index % columns) is 0
+      html += "<tr>"
+    html += '<td style="background-color:#' + tile[0] + ';" image_url=' + tile[1] + '></td>'
+    if (index % columns) is (columns - 1)
+      html += "</tr>"
+  html += '</table>'
+  html += '</div>'
+  table = $("#icolor_" + type_id)
+  table.html(html)
+
+
+init_tile_table = (tiles, type_id) ->
+  draw_color_tiles(tiles, type_id)
+  if type_id is "1"
+    add_pattern_swatches(type_id) if get_type() is "classic"
+  set_icolor_click_listener(type_id)
+
+show_loading_gif = ->
+  $('.active-belt').hide()
+  $('.active-buckle').hide()
+  $('#loading_image').show()
+
+hide_loading_gif = ->
+  $('#loading_image').hide()
+  $('.active-belt').show()
+  $('.active-buckle').show()
+
+set_icolor_click_listener = (id) ->
+  $("#icolor_" + id + " .icolor_ct td").click (event) ->
+    show_loading_gif()
+    td_index = $(this).index()
+    tr_index = $(this).parent("tr").index()
+    index = tr_index*columns + td_index
+    type = get_type()
+    if id is "1"
+      set_belt_image($(this).attr("image_url"))
+      window.beltClickCount++
+      window.beltIndex = $(this).attr("image_url")
+      window.recentBelt = $(this).children().attr('src') || $(this).css('background-color')
+    else
+      set_buckle_image($(this).attr("image_url"))
+      window.buckleClickCount++
+      window.buckleIndex = $(this).attr("image_url")
+      window.recentBuckle = $(this).css('background-color')
+    recentSelection() if recentBelt != 0 && recentBuckle != 0
+    hide_loading_gif()
+
+# todo: make style a param
+add_pattern_swatches = (id) ->
+  _.each CLASSIC_BELT_PATTERNS, (tile) ->
+    $("#icolor_" + id + " .icolor_ct tr:last-child").append('<td image_url=' + tile[1] + '><img src="' + tile[0] + '"></td>')
+
+
+init_tile_table(CLASSIC_BELTS, "1")
+init_tile_table(CLASSIC_BUCKLES, "2")
