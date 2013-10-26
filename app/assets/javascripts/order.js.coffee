@@ -4,7 +4,7 @@ jQuery ->
 
 order =
   setupForm: ->
-    $('.order_form').submit ->
+    $('#create_order').submit ->
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').length
         order.processCard()
@@ -23,7 +23,7 @@ order =
   handleStripeResponse: (status, response) ->
     if status == 200
       $('#order_stripe_card_token').val(response.id)
-      $('.order_form')[0].submit()
+      $('#create_order')[0].submit()
     else
       $('#stripe_error').text(response.error.message)
       $('input[type=submit]').attr('disabled', false)

@@ -1,9 +1,10 @@
-.row-fluid
-  .span12
-    - if cart.line_items.empty?
-      %p Your cart is empty.
-    - else
-      = render(cart.line_items)
+- unless params[:controller] == 'orders'
+  .row-fluid
+    .span12
+      - if cart.line_items.empty?
+        %p Your cart is empty.
+      - else
+        = render(cart.line_items)
 
 .pro-detail
   %ul

@@ -13,7 +13,12 @@ class Order < ActiveRecord::Base
   end
 
   def create_charge
-    Stripe::Charge.create(amount: 400, currency: "usd", card: stripe_card_token, description: email)
+    Stripe::Charge.create(
+      amount: 400,
+      currency: "usd",
+      card: stripe_card_token,
+      description: email
+    )
     rescue Stripe::InvalidRequestError => e
       logger.error "Stripe error while creating customer: #{e.message}"
       errors.add :base, "There was a problem with your credit card."

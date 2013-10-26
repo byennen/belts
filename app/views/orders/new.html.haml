@@ -2,47 +2,109 @@
   = tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY
   = javascript_include_tag 'https://js.stripe.com/v1/', 'order'
 
--#TODO: Fix margin issues on this page. -Lance
-.container{style: 'margin-top: 80px;'}
+= simple_form_for(@order, :html => {:class => 'form-horizontal', :id => 'create_order' }) do |f|
   .row-fluid
-    -#.span12
-    -#  %h1 Order Review
-    -#  = render @cart
-    .span12
-      %h2 Check Out
-
-      = simple_form_for(@order, :html => {:class => 'form-horizontal' }) do |f|
+    .container
+      .span12
+        %h4.check-head SHOPPING CART
+      / span12
+    / container
+  / row-fluid
+  .clearfix
+  / clearfix
+  .row-fluid
+    .container
+      .span12
         = f.error_notification
+      .span7
+        %h3.tab-title ITEMS
+      / span7
+      .span3
+      / span1
+      .span1.pull-right
+        %h3.tab-title PRICE
+  .clearfix
+  / clearfix
+  .row-fluid
+    .container
+      = render(@cart.line_items)
 
+
+  .row-fluid
+    .container
+      .span12
+        %p.one-last Shipping :
+  .row-fluid
+    .container
+      .span12{style: 'margin-top: 40px;'}
         .form-inputs
-          = f.input :name
-          = f.input :address_1
-          = f.input :address_2
-          = f.input :city
-          = f.input :state
-          = f.input :zip_code
-          = f.input :email
-          #stripe_error
-            %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
-          .control-group
-            .control-label
-              = label_tag :card_number, "Credit Card Number"
-            .controls
-              = text_field_tag :card_number, nil, name: nil
-          .control-group
-            .control-label
-              = label_tag :card_code, "Card Security Code (CVV)"
-            .controls
-              = text_field_tag :card_code, nil, name: nil
-          .control-group
-            .control-label
-              = label_tag :card_month, "Card Expiration"
-            .controls
-              = select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}
-              = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}
-          = f.hidden_field :stripe_card_token
+          .span6
+            = f.input :name
+            = f.input :address_1
+            = f.input :address_2
+            = f.input :state
+          .span6
+            = f.input :city
+            = f.input :zip_code
+            = f.input :email
+      .seperator{style: "background-color:#e2e3e3; margin-bottom:50px; margin-top:50px;"}
+  .row-fluid
+    .container
+      .span12
+        %p.one-last Payment :
+  .row-fluid
+    .container
+      .span12
+        #stripe_error
+          %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+      .span2
+      .span7
+        .control-group
+          .control-label
+            = label_tag :card_number, "Credit Card Number"
+          .controls
+            = text_field_tag :card_number, nil, name: nil
+        .control-group
+          .control-label
+            = label_tag :card_code, "Card Security Code (CVV)"
+          .controls
+            = text_field_tag :card_code, nil, name: nil
+        .control-group
+          .control-label
+            = label_tag :card_month, "Card Expiration"
+          .controls
+            = select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}
+            = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}
+        = f.hidden_field :stripe_card_token
+      .seperator{style: "background-color:#e2e3e3; margin-bottom:20px; margin-top:50px;"}
 
-        .form-actions
-          = f.button :submit, class: 'btn btn-inverse'
+    .row-fluid
+      .container
+        .span12
+          %p.one-last One Last Step :
+
+        .row-fluid
+          .container
+            .span3
+              %a.cas{href: "javascript:void(0);"}
+            / span3
+            .span3
+              %a.cas2{href: "javascript:void(0);"}
+            / span3
+            .span3
+              %a.cas3{href: "javascript:void(0);"}
+            / span3
+            .span3
+              %a.cas4{href: "javascript:void(0);"}
+
+          .seperator{style: "background-color:#e2e3e3; margin-bottom:20px; margin-top:50px;"}
+
+        .row-fluid
+          .span12
+            %button.btn.btn3.chan3
+              %i
+                = image_tag('cart-icon.png')
+              PROCEED
+
 
 
