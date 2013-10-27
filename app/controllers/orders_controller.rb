@@ -15,37 +15,14 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@cart)
     @order.price_cents = @order.total_price(@cart)
 
-
     respond_to do |format|
       if @order.save && @order.create_charge
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to root_url, notice: 'Thank you for your order.' }
-        format.json { render action: 'new', status: :created, location: @order }
       else
         format.html { render action: 'new' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url }
-      format.json { head :no_content }
     end
   end
 

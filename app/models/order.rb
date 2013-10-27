@@ -21,7 +21,7 @@ class Order < ActiveRecord::Base
   def create_charge
     Stripe::Charge.create(
       amount: price_cents,
-      currency: "usd",
+      currency: price_currency,
       card: stripe_card_token,
       description: email
     )
