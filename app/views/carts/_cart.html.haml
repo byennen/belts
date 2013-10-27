@@ -6,14 +6,14 @@
       - else
         = render(cart.line_items)
 
-.pro-detail
-  %ul
-    %li
-      %p SHIPPING
-      %span FREE
-    %li
-      %p ORDER TOTAL
-      %span= cart.total_price_dollars
-    %li
-    %li
-      %i Please choose your cause at checkout
+        .pro-detail
+          %ul
+            %li
+              %p SHIPPING
+              %span FREE
+            %li
+              %p ORDER TOTAL
+              %span= cart.total_price
+            %li
+            %li
+              %i Please choose your cause at checkout

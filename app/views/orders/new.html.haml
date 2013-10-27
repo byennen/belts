@@ -28,7 +28,25 @@
   .row-fluid
     .container
       = render(@cart.line_items)
-
+  .row-fluid
+    .container
+      .row-fluid
+        .span6
+          .discount
+            -#%p Discount Code :
+            -#%input.input{name: "text", type: "text"}/
+          / discount
+        / span6
+        .offset3.span3
+          .total
+            %p SHIPPING: FREE
+            %strong 00
+            %span
+              TOTAL:
+              = @cart.total_price
+          / total
+        / span3
+        .seperator{style: "background-color:#e2e3e3; margin-bottom:20px; margin-top:40px;"}
 
   .row-fluid
     .container

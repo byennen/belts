@@ -16,9 +16,4 @@ class LineItem < ActiveRecord::Base
     total_buckle_price + total_belt_price
   end
 
-  def total_price_dollars
-    money = Money.new(total_price, "USD")
-    money.dollars
-  end
-
 end

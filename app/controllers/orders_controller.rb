@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def new
     if @cart.line_items.empty?
@@ -14,14 +13,15 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
-    @order.create_charge
+    @order.price_cents = @order.total_price(@cart)
+
 
     respond_to do |format|
-      if @order.save
+      if @order.save && @order.create_charge
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to root_url, notice: 'Thank you for your order.' }
-        format.json { render action: 'show', status: :created, location: @order }
+        format.json { render action: 'new', status: :created, location: @order }
       else
         format.html { render action: 'new' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -57,6 +57,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address_1, :address_2, :city, :state, :zip_code, :email, :stripe_card_token)
+      params.require(:order).permit(:name, :address_1, :address_2, :city, :state, :zip_code, :email, :stripe_card_token, :price_cents)
     end
 end

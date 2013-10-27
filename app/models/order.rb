@@ -12,9 +12,15 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def total_price(cart)
+    price = cart.line_items.to_a.sum { |item| item.total_buckle_price + item.total_belt_price }
+    total_price = Money.new(price, 'USD')
+    total_price.cents * 100
+  end
+
   def create_charge
     Stripe::Charge.create(
-      amount: 400,
+      amount: price_cents,
       currency: "usd",
       card: stripe_card_token,
       description: email
