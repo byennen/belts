@@ -4,6 +4,6 @@ class Mailer < ActionMailer::Base
   def order_mailer(order, cart)
     @order = order
     @cart = cart
-    mail(to: order.email, subject: 'Thank you for your order! - C4Belts')
+    mail(to: order.email, subject: 'Thank you for your order! - C4Belts', bcc: 'sales@c4belts.com')
   end
 end
