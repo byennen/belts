@@ -18,6 +18,10 @@ class Order < ActiveRecord::Base
     total_price.cents * 100
   end
 
+  def complete_order_price(price_cents, price_currency)
+    Money.new(price_cents, price_currency).format(:symbol_before_without_space => true)
+  end
+
   def create_charge
     Stripe::Charge.create(
       amount: price_cents,
