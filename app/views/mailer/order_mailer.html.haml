@@ -1,0 +1,15 @@
+%h1 Thank you for your order:
+
+%h2 Shipping info:
+%p= @order.name
+%p= @order.address_1
+%p= @order.address_2
+%p= @order.city
+%p= @order.state
+%p= @order.zip_code
+
+%h3 Order:
+= render(@cart.line_items)
+
+%h4 Total
+%p= @order.complete_order_price(@order.price_cents, @order.price_currency)

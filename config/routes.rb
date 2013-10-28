@@ -28,7 +28,7 @@ C4belts::Application.routes.draw do
     resources :belts
     resources :orders
     resources :users
-    root to: 'dashboard#index'
+    root to: 'orders#index'
   end
 
   root :to => "home#index"

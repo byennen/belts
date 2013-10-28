@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
       if @order.save && @order.create_charge
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        Mailer.order_mailer(@order, @cart).deliver
         format.html { redirect_to root_url, notice: 'Thank you for your order.' }
       else
         format.html { render action: 'new' }
