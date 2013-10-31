@@ -106,17 +106,18 @@
         .row-fluid
           .container
             .span3
-              %a.cas{href: "javascript:void(0);"}
-            / span3
-            .span3
-              %a.cas2{href: "javascript:void(0);"}
-            / span3
-            .span3
-              %a.cas3{href: "javascript:void(0);"}
-            / span3
-            .span3
-              %a.cas4{href: "javascript:void(0);"}
-            = f.hidden_field :cause
+              = f.input :cause, collection: ['Boys and Girls Club of America', 'Captain Planet Foundation', 'Best Friends Animal Society', 'Human Rights Campaign']
+            -#  %a.cas{href: "javascript:void(0);"}
+            -#/ span3
+            -#.span3
+            -#  %a.cas2{href: "javascript:void(0);"}
+            -#/ span3
+            -#.span3
+            -#  %a.cas3{href: "javascript:void(0);"}
+            -#/ span3
+            -#.span3
+            -#  %a.cas4{href: "javascript:void(0);"}
+            -#= f.hidden_field :cause
 
           .seperator{style: "background-color:#e2e3e3; margin-bottom:20px; margin-top:50px;"}
 
