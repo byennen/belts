@@ -79,3 +79,6 @@
 = javascript_include_tag 'plugins/jquery.jcarousel.min', 'plugins/jcarousel.basic', 'plugins/jquery.custom-scrollbar', 'plugins/jquery.opacityrollover', 'plugins/jquery.aw-showcase', 'plugins/jquery.scrollTo', 'plugins/jquery.nav'
 
 = javascript_include_tag 'layout'
+
+= analytics_init :local => (Rails.env.development? || Rails.env.test?)
+

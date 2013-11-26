@@ -25,6 +25,7 @@ gem 'cloudinary'
 gem 'money'
 gem 'stripe'
 gem 'httparty'
+gem 'google-analytics-rails'
 
 
 group :development do
