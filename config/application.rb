@@ -37,5 +37,8 @@ module C4belts
 
     # Precompile additional assets
     config.assets.precompile += %w( .svg .eot .woff .ttf )
+
+    # Heroku setting for assets
+    config.assets.initialize_on_precompile = false
   end
 end
