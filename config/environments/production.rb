@@ -89,5 +89,5 @@ C4belts::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Google Analytics
-  GA.tracker = "UA-45850940-1"
+  GA.tracker = "UA-46151673-1"
 end
