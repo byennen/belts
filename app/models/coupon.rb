@@ -6,10 +6,10 @@ class Coupon < ActiveRecord::Base
   validates :type, inclusion: { in: COUPON_TYPES }
   validates :frequency, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
   validates :discount_percentage, 
-    numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100 }
+    numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100 },
     if: Proc.new { |coupon| coupon.type == 'percentage' }
   validates :discount_cents, 
-    numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    numericality: { only_integer: true, greater_than_or_equal_to: 1 },
     if: Proc.new { |coupon| coupon.type == 'fixed' }
   validates :start_date, presence: true
   validates :end_date, presence: true
