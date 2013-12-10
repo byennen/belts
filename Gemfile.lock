@@ -73,6 +73,8 @@ GEM
       rails (>= 3.0.0)
     daemons (1.1.9)
     database_cleaner (1.0.1)
+    datagrid (1.0.3)
+      rails (>= 3.0)
     debug_inspector (0.0.2)
     devise (3.1.0)
       bcrypt-ruby (~> 3.0)
@@ -242,6 +244,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   cucumber-rails
   database_cleaner (= 1.0.1)
+  datagrid (~> 1.0.3)
   devise
   email_spec
   factory_girl_rails

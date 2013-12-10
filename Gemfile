@@ -27,6 +27,7 @@ gem 'stripe'
 gem 'httparty'
 gem 'google-analytics-rails'
 
+gem "datagrid", "~> 1.0.3"
 
 group :development do
   gem 'better_errors'
