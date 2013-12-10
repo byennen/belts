@@ -28,6 +28,7 @@ gem 'httparty'
 gem 'google-analytics-rails'
 
 gem "datagrid", "~> 1.0.3"
+gem "kaminari", "~> 0.15.0"
 
 group :development do
   gem 'better_errors'
