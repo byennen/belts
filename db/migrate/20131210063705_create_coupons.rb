@@ -1,14 +1,14 @@
 class CreateCoupons < ActiveRecord::Migration
   def up
     create_table :coupons do |t|
-      t.string :type
+      t.string :discount_type
       t.string :code
       t.integer :frequency, :default => 1
-      t.boolean :status
+      t.boolean :status, :default => true
 
       t.integer :discount_percentage, :default => 0
       t.integer :discount_cents, :default => 0
-      t.integer :discount_currency, :default => "USD"
+      t.string :discount_currency, :default => "USD"
 
       t.date :start_date
       t.date :end_date
