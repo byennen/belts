@@ -28,6 +28,7 @@ C4belts::Application.routes.draw do
     resources :belts
     resources :orders
     resources :users
+    resources :coupons
     root to: 'orders#index'
   end
 

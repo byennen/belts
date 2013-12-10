@@ -1,0 +1,14 @@
+.header.clearfix
+  %h3.pull-left Coupons
+  .pull-right= link_to "New Coupon", new_admin_coupon_path, class: :btn
+.row
+  .span9
+    - if @assets.empty?
+      .alert No results to display
+    - else
+      = datagrid_table(@report, @assets, html: {class: "table table-condensed table-striped table-bordered"})
+      .row-fluid        
+        .span6= page_entries_info @assets
+        .span6{align: :right}= paginate @assets
+  .span3
+    = datagrid_form_for @report, :url => admin_coupons_path
