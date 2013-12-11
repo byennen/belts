@@ -29,7 +29,7 @@ class Coupon < ActiveRecord::Base
 
   def self.get_discount(code, total)    
     # check exists
-    coupon = Coupon.where(code: code).first
+    coupon = Coupon.where(code: code, status: true).where(":date >= #{Coupon.table_name}.start_date AND :date <= #{Coupon.table_name}.end_date",date: Time.now.to_date).first
     return Money.new(0,"USD") if coupon.nil?
 
     # check usage
