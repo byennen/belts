@@ -27,6 +27,19 @@ class Coupon < ActiveRecord::Base
     code
   end
 
+  def self.get_discount(code, total)    
+    # check exists
+    coupon = Coupon.where(code: code).first
+    return Money.new(0,"USD") if coupon.nil?
+
+    # check usage
+    times_used = Order.where(coupon_code: code).count
+    return Money.new(0,"USD") if times_used >= coupon.frequency
+
+    discount = coupon.discount_type == 'fixed' ? coupon.discount_cents : (coupon.discount_percentage*total/100).round
+    Money.new(discount >= total ? total : discount, "USD")
+  end
+
   before_validation do |coupon|
     coupon.code = Coupon.generate_code if coupon.code.blank?
   end

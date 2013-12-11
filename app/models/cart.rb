@@ -15,4 +15,8 @@ class Cart < ActiveRecord::Base
     line_items.to_a.sum { |item| item.total_buckle_price + item.total_belt_price }
   end
 
+  def final_price(coupon_code=nil)
+    self.total_price - Coupon.get_discount(coupon_code, self.total_price)
+  end
+
 end

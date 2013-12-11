@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
 
   validates :name, :address_1, :email, :city, :state, :zip_code, presence: true
 
+  validate :check_coupon, on: :create
+
   attr_accessor :stripe_card_token
 
   def add_line_items_from_cart(cart)
@@ -16,6 +18,10 @@ class Order < ActiveRecord::Base
     price = cart.line_items.to_a.sum { |item| item.total_buckle_price + item.total_belt_price }
     total_price = Money.new(price, 'USD')
     total_price.cents * 100
+  end
+
+  def discount
+    Money.new self.coupon_cents, "USD"
   end
 
   def complete_order_price(price_cents, price_currency)
@@ -33,5 +39,12 @@ class Order < ActiveRecord::Base
       logger.error "Stripe error while creating customer: #{e.message}"
       errors.add :base, "There was a problem with your credit card."
       false
+  end
+
+  def check_coupon
+    unless self.coupon_code.blank?
+      discount = Coupon.get_discount(self.coupon_code, self.price_cents)
+      errors.add(:coupon_code, "is not valid") if discount.cents == 0
+    end
   end
 end

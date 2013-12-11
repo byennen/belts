@@ -33,16 +33,24 @@
       .row-fluid
         .span6
           .discount
-            -#%p Discount Code :
-            -#%input.input{name: "text", type: "text"}/
+            %p Discount Code :
+            = f.input :coupon_code, label: false
+            = link_to("Apply", "javascript:;", class: "btn", id: :apply_coupon, data: { total: @cart.total_price.cents, loading_text: "Checking ..." })
           / discount
         / span6
         .offset3.span3
           .total
-            %p SHIPPING: FREE
-            %span
+            %p#discount
+            %p 
+              SUB TOTAL: $
+              = @cart.total_price         
+            %p SHIPPING: FREE           
+            %p{id: :coupon_discount}
+              COUPON: 
+              = @order.coupon_cents==0 ? "NONE" : "$ #{@order.discount}"
+            %span{id: :total_price}
               TOTAL: $
-              = @cart.total_price
+              = @cart.final_price(@order.coupon_code)
           / total
         / span3
         .seperator{style: "background-color:#e2e3e3; margin-bottom:20px; margin-top:40px;"}
