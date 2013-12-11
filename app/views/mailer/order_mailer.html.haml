@@ -11,5 +11,11 @@
 %h3 Order:
 = render(@cart.line_items)
 
+%h4 Coupon
+- if @order.coupon_code.blank?
+  %p (not used)
+- else
+  %p= "$ #{@order.discount} coupon code - #{@order.coupon_code}"
+
 %h4 Total
 %p= @order.complete_order_price(@order.price_cents, @order.price_currency)

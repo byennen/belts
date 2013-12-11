@@ -55,7 +55,7 @@
   .span12
     %h4 Coupon
     - if @order.coupon_code.blank?
-      %p -
+      %p (not used)
     - else
       %p= "$ #{@order.discount} coupon code - #{@order.coupon_code}"
 .row
