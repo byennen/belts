@@ -16,6 +16,8 @@ C4belts::Application.routes.draw do
   # social feed
   get 'social-feed', to: 'home#social', as: 'social'
 
+  get 'check-coupon', to: 'coupons#check_coupon'
+
   devise_for :users, :controllers => {:sessions => "sessions"}
   resources :users
   resources :orders
