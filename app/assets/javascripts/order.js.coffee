@@ -15,7 +15,8 @@ jQuery ->
 order =
   setupForm: ->
     $('#create_order').submit ->
-      $('input[type=submit]').attr('disabled', true)
+      $('#proceed_button').attr('disabled', true)
+      $('#proceed_button').button('loading')      
       if $('#card_number').length
         order.processCard()
         false
@@ -32,11 +33,15 @@ order =
 
   handleStripeResponse: (status, response) ->
     if status == 200
+      $('#stripe_error').hide()
       $('#order_stripe_card_token').val(response.id)
       $('#create_order')[0].submit()
-    else
+    else      
+      $('body,html').animate(scrollTop: $('#stripe_error').offset().top - 100 )
+      $('#stripe_error').fadeIn()
       $('#stripe_error').text(response.error.message)
-      $('input[type=submit]').attr('disabled', false)
+      $('#proceed_button').attr('disabled', false)
+      $('#proceed_button').button('reset')
 
   apply_coupon: (code) ->
     $('#apply_coupon').button('loading')

@@ -82,8 +82,9 @@
   .row-fluid
     .container
       .span12
-        #stripe_error
+        .alert.alert-error#stripe_error
           %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+        
       .span2
       .span7
         .control-group
@@ -131,7 +132,7 @@
 
         .row-fluid
           .span12
-            %button.btn.btn3.chan3
+            %button.btn.btn3.chan3#proceed_button{'data-loading-text'=>'Processing please wait ...'}
               %i
                 = image_tag('cart-icon.png')
               PROCEED
