@@ -2,7 +2,7 @@ class Coupon < ActiveRecord::Base
 
   COUPON_TYPES = %w(percentage fixed)
 
-  validates :code, presence: true, uniqueness: true, length: { is: 8 }
+  validates :code, presence: true, uniqueness: true, length: { minimum: 4, maximum: 20 }
   validates :discount_type, inclusion: { in: COUPON_TYPES }
   validates :frequency, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
   validates :discount_percentage, 
@@ -24,9 +24,10 @@ class Coupon < ActiveRecord::Base
     Order.where(coupon_code: self.code).count
   end
 
-  def self.generate_code
+  def self.generate_code    
     begin
-      code = SecureRandom.urlsafe_base64[0,8]
+      length = 4 + Random.rand(16)
+      code = SecureRandom.urlsafe_base64[0,length]
     end while Coupon.where(code: code).exists?
     code
   end
