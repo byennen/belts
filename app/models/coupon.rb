@@ -20,6 +20,10 @@ class Coupon < ActiveRecord::Base
               :constructor => Proc.new { |cents, currency| Money.new(cents || 0, currency || Money.default_currency) },
               :converter => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't convert #{value.class} to Money") }
 
+  def usage
+    Order.where(coupon_code: self.code).count
+  end
+
   def self.generate_code
     begin
       code = SecureRandom.urlsafe_base64[0,8]
