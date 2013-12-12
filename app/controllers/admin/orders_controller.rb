@@ -2,7 +2,8 @@ class Admin::OrdersController < Admin::ApplicationController
   before_action :set_order, only: [:show]
 
   def index
-    @orders = Order.order("id DESC").all
+    @report = OrderReport.new(params[:order_report])
+    @assets = @report.assets.page(params[:page])
   end
 
   def show
