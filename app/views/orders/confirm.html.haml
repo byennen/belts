@@ -2,7 +2,17 @@
   = tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY
   = javascript_include_tag 'https://js.stripe.com/v1/', 'order'
 
-= simple_form_for(@order,url: confirm_orders_path, :html => {:class => 'form-horizontal', :id => 'create_order' }) do |f|
+= simple_form_for(@order, :html => {:class => 'form-horizontal', :id => 'create_order' }) do |f|
+  = f.hidden_field :coupon_code  
+  = f.hidden_field :stripe_card_token
+  = f.hidden_field :name
+  = f.hidden_field :address_1
+  = f.hidden_field :address_2
+  = f.hidden_field :state
+  = f.hidden_field :city
+  = f.hidden_field :zip_code
+  = f.hidden_field :email
+  = f.hidden_field :cause
   .row-fluid
     .container
       .span12
@@ -33,9 +43,7 @@
       .row-fluid
         .span6
           .discount
-            %p Discount Code :
-            = f.input :coupon_code, label: false
-            = link_to("Apply", "javascript:;", class: "btn", id: :apply_coupon, data: { total: @cart.total_price.cents, loading_text: "Checking ..." })
+            
           / discount
         / span6
         .offset3.span3
@@ -64,58 +72,44 @@
       .span12{style: 'margin-top: 40px;'}
         .form-inputs
           .span6
-            = f.input :name
-            = f.input :address_1
-            = f.input :address_2
-            = f.input :state
+            %table.table
+              %tr
+                %th{width: 100} Name
+                %td= @order.name              
+              %tr
+                %th Address 1
+                %td= @order.address_1
+              %tr
+                %th Address 2
+                %td= @order.address_2
+              %tr
+                %th State
+                %td= @order.state
+            
           .span6
-            = f.input :city
-            = f.input :zip_code
-            = f.input :email
+            %table.table
+              %tr
+                %th{width: 100} City
+                %td= @order.city
+              %tr
+                %th Zip Code
+                %td= @order.zip_code
+              %tr
+                %th Email
+                %td= @order.email
+            
 
-      .seperator{style: "background-color:#e2e3e3; margin-bottom:50px; margin-top:50px;"}
-
-  .row-fluid
-    .container
-      .span12
-        %p.one-last Payment :
-  .row-fluid
-    .container
-      .span12
-        .alert.alert-error#stripe_error
-          %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
-        
-      .span2
-      .span7
-        .control-group
-          .control-label
-            = label_tag :card_number, "Credit Card Number"
-          .controls
-            = text_field_tag :card_number, nil, name: nil
-        .control-group
-          .control-label
-            = label_tag :card_code, "Card Security Code (CVV)"
-          .controls
-            = text_field_tag :card_code, nil, name: nil
-        .control-group
-          .control-label
-            = label_tag :card_month, "Card Expiration"
-          .controls
-            = select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}
-            = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}
-        = f.hidden_field :stripe_card_token
-
-      .seperator{style: "background-color:#e2e3e3; margin-bottom:20px; margin-top:50px;"}
+      .seperator{style: "background-color:#e2e3e3; margin-bottom:50px; margin-top:50px;"}  
 
     .row-fluid
       .container
         .span12
-          %p.one-last One Last Step :
+          %p.one-last Clause :
 
         .row-fluid
           .container
             .span3
-              = f.input :cause, collection: ['Boys and Girls Club of America', 'Captain Planet Foundation', 'Best Friends Animal Society', 'Human Rights Campaign']
+            = @order.cause.blank? ? "(none)" : @order.cause
             -#  %a.cas{href: "javascript:void(0);"}
             -#/ span3
             -#.span3
@@ -132,10 +126,10 @@
 
         .row-fluid
           .span12
-            %button.btn.btn3.chan3#proceed_button{'data-loading-text'=>'Processing please wait ...'}
+            %button.btn.btn3.chan3
               %i
                 = image_tag('cart-icon.png')
-              PROCEED
+              CONFIRM ORDER
 
 
 

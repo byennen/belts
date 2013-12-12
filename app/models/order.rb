@@ -3,8 +3,6 @@ class Order < ActiveRecord::Base
 
   validates :name, :address_1, :email, :city, :state, :zip_code, presence: true
 
-  validate :check_coupon, on: :create
-
   attr_accessor :stripe_card_token
 
   def add_line_items_from_cart(cart)
@@ -41,10 +39,4 @@ class Order < ActiveRecord::Base
       false
   end
 
-  def check_coupon
-    unless self.coupon_code.blank?
-      discount = Coupon.get_discount(self.coupon_code, self.price_cents)
-      errors.add(:coupon_code, "is not valid") if discount.cents == 0
-    end
-  end
 end

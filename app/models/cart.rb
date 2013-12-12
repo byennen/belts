@@ -16,7 +16,7 @@ class Cart < ActiveRecord::Base
   end
 
   def final_price(coupon_code=nil)
-    self.total_price - Coupon.get_discount(coupon_code, self.total_price)
+    self.total_price - Coupon.get_discount(coupon_code, self.total_price.cents)
   end
 
 end

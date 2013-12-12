@@ -20,7 +20,11 @@ C4belts::Application.routes.draw do
 
   devise_for :users, :controllers => {:sessions => "sessions"}
   resources :users
-  resources :orders
+  resources :orders, only: [:new,:create] do
+    collection do 
+      post 'confirm'      
+    end
+  end
   resources :line_items
   resources :carts
 
