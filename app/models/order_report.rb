@@ -18,7 +18,7 @@ class OrderReport
     if order.coupon_code.blank?
       "(none)"
     else      
-      link_to "$ #{order.discount} - #{order.coupon_code}", admin_coupons_path("coupon_report[code]"=>order.coupon_code)
+      link_to "$ #{order.discount} - #{order.coupon_code}", admin_coupons_path("coupon_report[code]"=>order.coupon_code), title: "See coupon details"
     end
   end
   column(:action, html: true) do |order|

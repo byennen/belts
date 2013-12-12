@@ -13,7 +13,7 @@ class CouponReport
   column(:discount, order: :discount_percentage) { |coupon| coupon.discount_type=='fixed' ? coupon.discount : "#{coupon.discount_percentage} %" }
   column(:usage, html: true, order: "(SELECT COUNT(*) FROM orders WHERE orders.coupon_code = coupons.code)") do |coupon|      
     if coupon.usage > 0
-      link_to "#{coupon.usage} times",admin_orders_path('order_report[coupon_code]'=>coupon.code)
+      link_to "#{coupon.usage} times",admin_orders_path('order_report[coupon_code]'=>coupon.code), title: "See orders with this coupon"
     else
       "(none)"
     end
