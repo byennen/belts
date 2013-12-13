@@ -2,8 +2,8 @@ class HomeController < ApplicationController
   before_action :set_cart
 
   def index
-    @default_belt_url = Belt.order("RANDOM()").first.image.url
-    @default_buckle_url = Buckle.order("RANDOM()").first.image.url
+    @default_belt = Belt.order("RANDOM()").first    
+    @default_buckle = Buckle.order("RANDOM()").first
   end
 
   def social

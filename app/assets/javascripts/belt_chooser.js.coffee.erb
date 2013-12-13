@@ -209,11 +209,31 @@ update_image_src = ->
     set_belt_image( SKINNY_BELTS[0][1] )
     set_buckle_image( SKINNY_BUCKLES[0][1] )
 
+color_name_from_url = (url, belt) ->
+  color = "-"  
+  if belt
+    for o in CLASSIC_BELTS
+      color = o[2] if o[1]==url
+    for o in CLASSIC_BELTS
+      color = o[2] if o[1]==url
+  else
+    for o in CLASSIC_BUCKLES
+      color = o[2] if o[1]==url
+    for o in SKINNY_BUCKLES
+      color = o[2] if o[1]==url
+  console.log url
+  console.log color
+  color
+
+
+
 set_belt_image = (url) ->
   $('.active-belt').attr("src", url)
+  $('#info_belt').html color_name_from_url(url, true) 
 
 set_buckle_image = (url) ->
   $('.active-buckle').attr("src", url)
+  $('#info_buckle').html color_name_from_url(url, false) 
 
 
 draw_color_tiles = (tiles, type_id) ->

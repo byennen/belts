@@ -4,9 +4,15 @@
       .span8
         .belt-assets
           %a{:href => "javascript:void(0);"}
-            %img.active-belt{:alt => "Image", :src => @default_belt_url}/
-            %img.active-buckle{:alt => "Image", :src => @default_buckle_url}/
+            %img.active-belt{:alt => "Image", :src => @default_belt.image.url}/
+            %img.active-buckle{:alt => "Image", :src => @default_buckle.image.url}/
             %img#loading_image{:src => "assets/loading.gif", :style => "display: none;"}
+            #assets-info
+              Buckle: 
+              %span#info_buckle= @default_buckle.name
+              = " / Belt: "
+              %span#info_belt= @default_belt.name
+              
         / belt-assets
       / span8
       .span4
