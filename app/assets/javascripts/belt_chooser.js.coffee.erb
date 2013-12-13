@@ -221,14 +221,12 @@ color_name_from_url = (url, belt) ->
       color = o[2] if o[1]==url
     for o in SKINNY_BUCKLES
       color = o[2] if o[1]==url
-  console.log url
-  console.log color
   color
 
 
 
-set_belt_image = (url) ->
-  $('.active-belt').attr("src", url)
+set_belt_image = (url) ->  
+  $('.active-belt').attr("src", url)  
   $('#info_belt').html color_name_from_url(url, true) 
 
 set_buckle_image = (url) ->
