@@ -1,6 +1,14 @@
 .container-fluid
   #shop.row-fluid
     .container
+      .span8
+        .belt-assets
+          %a{:href => "javascript:void(0);"}
+            %img.active-belt{:alt => "Image", :src => @default_belt_url}/
+            %img.active-buckle{:alt => "Image", :src => @default_buckle_url}/
+            %img#loading_image{:src => "assets/loading.gif", :style => "display: none;"}
+        / belt-assets
+      / span8
       .span4
         .pallete-box
           %ul#type-titles.hides
@@ -50,15 +58,6 @@
           / color-box
           .clearfix
           / clearfix
-
-      .span8
-        .belt-assets
-          %a{:href => "javascript:void(0);"}
-            %img.active-belt{:alt => "Image", :src => @default_belt_url}/
-            %img.active-buckle{:alt => "Image", :src => @default_buckle_url}/
-            %img#loading_image{:src => "assets/loading.gif", :style => "display: none;"}
-        / belt-assets
-      / span8
     / container
   / row-fluid
   .clearfix
