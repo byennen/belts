@@ -3,12 +3,12 @@
 <% belts = Belt.all.order("id asc") %>
 <% buckles = Buckle.all.order("id asc") %>
 
-CLASSIC_BELTS = <%= belts.select{|belt| belt.style_id == 1 && belt.hex_color != ""}.map {|x| [x.hex_color, x.image.url] } %>
-CLASSIC_BELT_PATTERNS = <%= belts.select{|belt| belt.style_id == 1 && belt.hex_color == ""}.map {|x| [x.belt_pattern_image.url, x.image.url] } %>
-CLASSIC_BUCKLES = <%= buckles.select{|buckle| buckle.style_id == 1}.map {|x| [x.hex_color, x.image.url] } %>
+CLASSIC_BELTS = <%= belts.select{|belt| belt.style_id == 1 && belt.hex_color != ""}.map {|x| [x.hex_color, x.image.url, x.name] } %>
+CLASSIC_BELT_PATTERNS = <%= belts.select{|belt| belt.style_id == 1 && belt.hex_color == ""}.map {|x| [x.belt_pattern_image.url, x.image.url, x.name] } %>
+CLASSIC_BUCKLES = <%= buckles.select{|buckle| buckle.style_id == 1}.map {|x| [x.hex_color, x.image.url, x.name] } %>
 
-SKINNY_BELTS = <%= belts.select{|belt| belt.style_id == 2 && belt.hex_color != ""}.map {|x| [x.hex_color, x.image.url] } %>
-SKINNY_BELT_PATTERNS = <%= belts.select{|belt| belt.style_id == 2 && belt.hex_color == ""}.map {|x| [x.belt_pattern_image.url, x.image.url] } %>
+SKINNY_BELTS = <%= belts.select{|belt| belt.style_id == 2 && belt.hex_color != ""}.map {|x| [x.hex_color, x.image.url, x.name] } %>
+SKINNY_BELT_PATTERNS = <%= belts.select{|belt| belt.style_id == 2 && belt.hex_color == ""}.map {|x| [x.belt_pattern_image.url, x.image.url, x.name] } %>
 SKINNY_BUCKLES = <%= buckles.select{|buckle| buckle.style_id == 2}.map {|x| [x.hex_color, x.image.url] } %>
 
 columns = Math.floor($('div.viewport').width() / 32)
@@ -219,10 +219,10 @@ set_buckle_image = (url) ->
 draw_color_tiles = (tiles, type_id) ->
   html = '<div class="icolor icolor_flat" id="icolor_' + type_id + '">'
   html += '<table class="icolor_ct">'
-  for tile, index in tiles
+  for tile, index in tiles   
     if (index % columns) is 0
       html += "<tr>"
-    html += '<td style="background-color:#' + tile[0] + ';" image_url=' + tile[1] + '></td>'
+    html += '<td style="background-color:#' + tile[0] + ';" image_url=' + tile[1] + ' title="' + tile[2] + '"></td>'
     if (index % columns) is (columns - 1)
       html += "</tr>"
   html += '</table>'
