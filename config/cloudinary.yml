@@ -1,7 +1,7 @@
 development:
-  cloud_name: http-c4belts-com
-  api_key: '515549696275126'
-  api_secret: lBoULMVxv94nNlrPUAutOemI8gg
+  cloud_name: dev-rails
+  api_key: '132936398159744'
+  api_secret: 3X8X7woe-Rw4tTFcJTrDNT-R_wk 
   enhance_image_tag: true
   static_image_support: false
 production:

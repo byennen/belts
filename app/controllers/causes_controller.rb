@@ -36,6 +36,5 @@ class CausesController < ApplicationController
     @cause = @causes[params[:cause]]
     @belt_url = Belt.find_by_name(@cause[:belt_color]).image.url
     @buckle_url = Buckle.find_by_name(@cause[:buckle_color]).image.url
-
   end
 end
