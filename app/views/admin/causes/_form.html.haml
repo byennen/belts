@@ -3,9 +3,10 @@
   .form-inputs
     = f.input :title
     = f.input :slug, label: "URL friendly title"
+    = f.input :url, label: "Website URL", hint: "eg. example.com"
     = f.input :image, as: :file
-    = f.input :belt_color, as: :select, include_blank: false, collection: Belt.order(:name).all.collect {|b| [b.name, b.id]}
-    = f.input :buckle_color, as: :select, include_blank: false, collection: Buckle.order(:name).all.collect {|b| [b.name, b.id]}
+    = f.input :belt_color, as: :select, include_blank: false, collection: Belt.order(:name).all.collect {|b| [b.name, b.name]}
+    = f.input :buckle_color, as: :select, include_blank: false, collection: Buckle.order(:name).all.collect {|b| [b.name, b.name]}
     = f.input :status, label: "Enabled?"
     = f.input :content, as: :text, input_html: {class: "span8", rows: 5}
   .form-actions

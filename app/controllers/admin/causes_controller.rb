@@ -10,7 +10,7 @@ class Admin::CausesController < Admin::ApplicationController
   end
 
   def create
-    @cause = Cause.new params.require(:cause).permit(:title, :slug, :buckle_color, :belt_color, :image, :status, :content)
+    @cause = Cause.new params.require(:cause).permit(:title, :slug, :buckle_color, :belt_color, :image, :status, :content, :url)
     if @cause.save
       redirect_to admin_causes_path, notice: "Cause saved successfully."
     else      
@@ -24,7 +24,7 @@ class Admin::CausesController < Admin::ApplicationController
 
   def update
     @cause = Cause.find params[:id]
-    if @cause.update params.require(:cause).permit(:title, :slug, :buckle_color, :belt_color, :image, :status, :content)
+    if @cause.update params.require(:cause).permit(:title, :slug, :buckle_color, :belt_color, :image, :status, :content, :url)
       redirect_to admin_causes_path, notice: "Cause saved successfully."    
     else
       render action: :edit

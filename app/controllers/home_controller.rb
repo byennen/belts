@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   def index
     @default_belt = Belt.order("RANDOM()").first    
     @default_buckle = Buckle.order("RANDOM()").first
+    @causes = Cause.active.limit(4)
   end
 
   def social

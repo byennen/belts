@@ -4,7 +4,7 @@
     .span5
       .slogan
         .slogan-img
-          %img{:alt => "Image", :height => "300", :src => "../assets/cause-img/#{@cause[:image]}", :width => "400"}/
+          %img{:alt => "Image", :height => "300", :src => @cause.image.url(:large), :width => "400"}/
         .select-one
           %img.active-belt{:alt => "Image", :src => @belt_url}/
           %img.active-buckle{:alt => "Image", :src => @buckle_url}/
@@ -13,8 +13,8 @@
     / span5
     .span7
       .cause-data
-        %h2= @cause[:name]
-        %p= @cause[:text]
+        %h2= @cause.title
+        %p= @cause.content
         %a{:id => "add-to-cart"}
           %button.btn.btn3.mod2{:name => "btn"}
             %i
@@ -40,30 +40,15 @@
         %h3{:style=> "margin-top: 63px;"} Boys & Girls Club of America
       / cause
     / span3
-    .span3
-      %h4.nons  
-      .cause.mod3
-        %a.cause-img{:href => cause_path("captain-planet-foundation"), :style=> "margin-top: 82px;"}
-          %img{:alt => "Image", :src => "../assets/cause-img/cause-img02.png"}/
-        %h3{:style => "margin-top:53px"} Captain Planet Foundation
-      / cause
-    / span3
-    .span3
-      %h4.nons  
-      .cause.mod3
-        %a.cause-img{:href => cause_path("best-friends-animal-society"), :style=> "margin-top: 72px;"}
-          %img{:alt => "Image", :src => "../assets/cause-img/cause-img03.png"}/
-        %h3{:style => "margin-top:48px"} Best Friends Animal Society
-      / cause
-    / span3
-    .span3
-      %h4.nons  
-      .cause.mod3
-        %a.cause-img{:href => cause_path("human-rights-campaign"), :style=> "margin-top: 92px;"}
-          %img{:alt => "Image", :src => "../assets/cause-img/cause-img04.png"}/
-        %h3{:style => "margin-top:54px"} Human Rights Campaign
-      / cause
-    / span3
+    - @other.each do |cause|
+      .span3
+        %h4.nons  
+        .cause.mod3
+          %a.cause-img{:href => cause_path(cause.slug), :style=> "margin-top: 82px;"}
+            %img{:alt => "Image", :src => cause.image.url(:small)}/
+          %h3{:style => "margin-top:53px"} cause.title
+        / cause
+      / span3    
   / container
 / row-fluid
 .clearfix
